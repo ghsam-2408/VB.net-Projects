@@ -11,3 +11,18 @@ C:\Users\GH Sam\Downloads\Tadiwaa\School Management System\School Management Sys
 C:\Users\GH Sam\Downloads\Tadiwaa\School Management System\School Management System\obj\x86\Debug\School Management System.xml
 C:\Users\GH Sam\Downloads\Tadiwaa\School Management System\School Management System\obj\x86\Debug\School Management System.pdb
 C:\Users\GH Sam\Downloads\Tadiwaa\School Management System\School Management System\obj\x86\Debug\School_Management_System.LoginForm.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.exe
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.xml
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.pdb
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.exe.manifest
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.application
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.exe
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.pdb
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.xml
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.LoginForm.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Resources.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.SplashScreen.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.vbproj.GenerateResource.Cache
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.exe.manifest
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.application
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Register.resources
