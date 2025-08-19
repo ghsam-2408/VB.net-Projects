@@ -20,4 +20,10 @@
         Me.Close()
 
     End Sub
+
+    Private Sub btnLogIn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogIn.Click
+        LoginForm.Show()
+        Me.Hide()
+
+    End Sub
 End Class

@@ -6,6 +6,8 @@
     Private Sub btnSignUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignUp.Click
 
         Register.Show()
+        Me.Hide()
+
     End Sub
 
     Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
