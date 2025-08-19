@@ -22,125 +22,133 @@ Partial Class Register
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Register))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.txtSurname = New System.Windows.Forms.TextBox()
+        Me.lblSurname = New System.Windows.Forms.Label()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.txtContact = New System.Windows.Forms.TextBox()
+        Me.lblContact = New System.Windows.Forms.Label()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.lblUserName = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtPassw = New System.Windows.Forms.TextBox()
+        Me.lblPassw = New System.Windows.Forms.Label()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.lblRetypPassw = New System.Windows.Forms.Label()
         Me.btnRegister = New System.Windows.Forms.PictureBox()
         Me.btnLogIn = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.lblGender = New System.Windows.Forms.Label()
+        Me.radioMale = New System.Windows.Forms.RadioButton()
+        Me.radioFemale = New System.Windows.Forms.RadioButton()
+        Me.btnClose = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnMinimize = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.btnRegister, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblName
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 216)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 32)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Name"
+        Me.lblName.AutoSize = True
+        Me.lblName.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName.Location = New System.Drawing.Point(12, 264)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(83, 32)
+        Me.lblName.TabIndex = 0
+        Me.lblName.Text = "Name"
         '
-        'TextBox1
+        'txtName
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(101, 208)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox1.TabIndex = 1
+        Me.txtName.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.Location = New System.Drawing.Point(101, 256)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(378, 40)
+        Me.txtName.TabIndex = 1
         '
-        'TextBox2
+        'txtSurname
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(668, 208)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox2.TabIndex = 3
+        Me.txtSurname.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSurname.Location = New System.Drawing.Point(668, 256)
+        Me.txtSurname.Name = "txtSurname"
+        Me.txtSurname.Size = New System.Drawing.Size(378, 40)
+        Me.txtSurname.TabIndex = 3
         '
-        'Label2
+        'lblSurname
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(522, 216)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(123, 32)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Surname"
+        Me.lblSurname.AutoSize = True
+        Me.lblSurname.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSurname.Location = New System.Drawing.Point(522, 264)
+        Me.lblSurname.Name = "lblSurname"
+        Me.lblSurname.Size = New System.Drawing.Size(123, 32)
+        Me.lblSurname.TabIndex = 2
+        Me.lblSurname.Text = "Surname"
         '
-        'TextBox3
+        'txtEmail
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(101, 314)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox3.TabIndex = 5
+        Me.txtEmail.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.Location = New System.Drawing.Point(101, 362)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(378, 40)
+        Me.txtEmail.TabIndex = 5
         '
-        'Label3
+        'lblEmail
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 322)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 32)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Email"
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.Location = New System.Drawing.Point(12, 370)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(86, 32)
+        Me.lblEmail.TabIndex = 4
+        Me.lblEmail.Text = "Email"
         '
-        'TextBox4
+        'txtContact
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(668, 314)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox4.TabIndex = 7
+        Me.txtContact.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContact.Location = New System.Drawing.Point(668, 362)
+        Me.txtContact.Name = "txtContact"
+        Me.txtContact.Size = New System.Drawing.Size(378, 40)
+        Me.txtContact.TabIndex = 7
         '
-        'Label4
+        'lblContact
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(522, 322)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(109, 32)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Contact"
+        Me.lblContact.AutoSize = True
+        Me.lblContact.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblContact.Location = New System.Drawing.Point(522, 370)
+        Me.lblContact.Name = "lblContact"
+        Me.lblContact.Size = New System.Drawing.Size(109, 32)
+        Me.lblContact.TabIndex = 6
+        Me.lblContact.Text = "Contact"
         '
-        'TextBox5
+        'txtUsername
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(152, 386)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(327, 40)
-        Me.TextBox5.TabIndex = 9
+        Me.txtUsername.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Location = New System.Drawing.Point(152, 434)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(327, 40)
+        Me.txtUsername.TabIndex = 9
         '
-        'Label5
+        'lblUserName
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(12, 394)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(134, 32)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Username"
+        Me.lblUserName.AutoSize = True
+        Me.lblUserName.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserName.Location = New System.Drawing.Point(12, 442)
+        Me.lblUserName.Name = "lblUserName"
+        Me.lblUserName.Size = New System.Drawing.Size(134, 32)
+        Me.lblUserName.TabIndex = 8
+        Me.lblUserName.Text = "Username"
         '
         'PictureBox1
         '
@@ -158,7 +166,7 @@ Partial Class Register
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(1, 0)
+        Me.Panel1.Location = New System.Drawing.Point(1, 48)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1114, 177)
         Me.Panel1.TabIndex = 12
@@ -183,46 +191,46 @@ Partial Class Register
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Here"
         '
-        'TextBox6
+        'txtPassw
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(12, 526)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox6.TabIndex = 14
+        Me.txtPassw.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassw.Location = New System.Drawing.Point(12, 574)
+        Me.txtPassw.Name = "txtPassw"
+        Me.txtPassw.Size = New System.Drawing.Size(378, 40)
+        Me.txtPassw.TabIndex = 14
         '
-        'Label8
+        'lblPassw
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(81, 482)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(130, 32)
-        Me.Label8.TabIndex = 13
-        Me.Label8.Text = "Password"
+        Me.lblPassw.AutoSize = True
+        Me.lblPassw.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPassw.Location = New System.Drawing.Point(81, 530)
+        Me.lblPassw.Name = "lblPassw"
+        Me.lblPassw.Size = New System.Drawing.Size(130, 32)
+        Me.lblPassw.TabIndex = 13
+        Me.lblPassw.Text = "Password"
         '
-        'TextBox7
+        'txtPass
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(613, 526)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(378, 40)
-        Me.TextBox7.TabIndex = 16
+        Me.txtPass.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPass.Location = New System.Drawing.Point(613, 574)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.Size = New System.Drawing.Size(378, 40)
+        Me.txtPass.TabIndex = 16
         '
-        'Label9
+        'lblRetypPassw
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(662, 482)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(236, 32)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "Re-Type Password"
+        Me.lblRetypPassw.AutoSize = True
+        Me.lblRetypPassw.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRetypPassw.Location = New System.Drawing.Point(662, 530)
+        Me.lblRetypPassw.Name = "lblRetypPassw"
+        Me.lblRetypPassw.Size = New System.Drawing.Size(236, 32)
+        Me.lblRetypPassw.TabIndex = 15
+        Me.lblRetypPassw.Text = "Re-Type Password"
         '
         'btnRegister
         '
         Me.btnRegister.Image = CType(resources.GetObject("btnRegister.Image"), System.Drawing.Image)
-        Me.btnRegister.Location = New System.Drawing.Point(411, 566)
+        Me.btnRegister.Location = New System.Drawing.Point(411, 614)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(188, 141)
         Me.btnRegister.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -234,7 +242,7 @@ Partial Class Register
         Me.btnLogIn.AutoSize = True
         Me.btnLogIn.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogIn.ForeColor = System.Drawing.Color.Red
-        Me.btnLogIn.Location = New System.Drawing.Point(637, 723)
+        Me.btnLogIn.Location = New System.Drawing.Point(637, 771)
         Me.btnLogIn.Name = "btnLogIn"
         Me.btnLogIn.Size = New System.Drawing.Size(88, 32)
         Me.btnLogIn.TabIndex = 19
@@ -244,72 +252,104 @@ Partial Class Register
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(297, 723)
+        Me.Label10.Location = New System.Drawing.Point(297, 771)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(334, 32)
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Already Have an Account?"
         '
-        'Label11
+        'lblGender
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(522, 389)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(105, 32)
-        Me.Label11.TabIndex = 20
-        Me.Label11.Text = "Gender"
+        Me.lblGender.AutoSize = True
+        Me.lblGender.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGender.Location = New System.Drawing.Point(522, 437)
+        Me.lblGender.Name = "lblGender"
+        Me.lblGender.Size = New System.Drawing.Size(105, 32)
+        Me.lblGender.TabIndex = 20
+        Me.lblGender.Text = "Gender"
         '
-        'RadioButton1
+        'radioMale
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(672, 387)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(100, 36)
-        Me.RadioButton1.TabIndex = 21
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Male"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.radioMale.AutoSize = True
+        Me.radioMale.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioMale.Location = New System.Drawing.Point(672, 435)
+        Me.radioMale.Name = "radioMale"
+        Me.radioMale.Size = New System.Drawing.Size(100, 36)
+        Me.radioMale.TabIndex = 21
+        Me.radioMale.TabStop = True
+        Me.radioMale.Text = "Male"
+        Me.radioMale.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'radioFemale
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(865, 389)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(126, 36)
-        Me.RadioButton2.TabIndex = 22
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Female"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.radioFemale.AutoSize = True
+        Me.radioFemale.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioFemale.Location = New System.Drawing.Point(865, 437)
+        Me.radioFemale.Name = "radioFemale"
+        Me.radioFemale.Size = New System.Drawing.Size(126, 36)
+        Me.radioFemale.TabIndex = 22
+        Me.radioFemale.TabStop = True
+        Me.radioFemale.Text = "Female"
+        Me.radioFemale.UseVisualStyleBackColor = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
+        Me.btnClose.Location = New System.Drawing.Point(1003, 0)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(100, 50)
+        Me.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnClose.TabIndex = 23
+        Me.btnClose.TabStop = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.btnMinimize)
+        Me.Panel2.Controls.Add(Me.btnClose)
+        Me.Panel2.Location = New System.Drawing.Point(1, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1114, 52)
+        Me.Panel2.TabIndex = 24
+        '
+        'btnMinimize
+        '
+        Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
+        Me.btnMinimize.Location = New System.Drawing.Point(878, 3)
+        Me.btnMinimize.Name = "btnMinimize"
+        Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
+        Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMinimize.TabIndex = 24
+        Me.btnMinimize.TabStop = False
         '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1116, 822)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.radioFemale)
+        Me.Controls.Add(Me.radioMale)
+        Me.Controls.Add(Me.lblGender)
         Me.Controls.Add(Me.btnLogIn)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnRegister)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txtPass)
+        Me.Controls.Add(Me.lblRetypPassw)
+        Me.Controls.Add(Me.txtPassw)
+        Me.Controls.Add(Me.lblPassw)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtUsername)
+        Me.Controls.Add(Me.lblUserName)
+        Me.Controls.Add(Me.txtContact)
+        Me.Controls.Add(Me.lblContact)
+        Me.Controls.Add(Me.txtEmail)
+        Me.Controls.Add(Me.lblEmail)
+        Me.Controls.Add(Me.txtSurname)
+        Me.Controls.Add(Me.lblSurname)
+        Me.Controls.Add(Me.txtName)
+        Me.Controls.Add(Me.lblName)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Register"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Register"
@@ -317,32 +357,39 @@ Partial Class Register
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.btnRegister, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents lblName As System.Windows.Forms.Label
+    Friend WithEvents txtName As System.Windows.Forms.TextBox
+    Friend WithEvents txtSurname As System.Windows.Forms.TextBox
+    Friend WithEvents lblSurname As System.Windows.Forms.Label
+    Friend WithEvents txtEmail As System.Windows.Forms.TextBox
+    Friend WithEvents lblEmail As System.Windows.Forms.Label
+    Friend WithEvents txtContact As System.Windows.Forms.TextBox
+    Friend WithEvents lblContact As System.Windows.Forms.Label
+    Friend WithEvents txtUsername As System.Windows.Forms.TextBox
+    Friend WithEvents lblUserName As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents txtPassw As System.Windows.Forms.TextBox
+    Friend WithEvents lblPassw As System.Windows.Forms.Label
+    Friend WithEvents txtPass As System.Windows.Forms.TextBox
+    Friend WithEvents lblRetypPassw As System.Windows.Forms.Label
     Friend WithEvents btnRegister As System.Windows.Forms.PictureBox
     Friend WithEvents btnLogIn As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents lblGender As System.Windows.Forms.Label
+    Friend WithEvents radioMale As System.Windows.Forms.RadioButton
+    Friend WithEvents radioFemale As System.Windows.Forms.RadioButton
+    Friend WithEvents btnClose As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents btnMinimize As System.Windows.Forms.PictureBox
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 End Class
