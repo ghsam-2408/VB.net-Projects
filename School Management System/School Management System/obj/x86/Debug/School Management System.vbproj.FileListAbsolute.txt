@@ -26,3 +26,4 @@ C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Manage
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.exe.manifest
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.application
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Register.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.MainMenu.resources

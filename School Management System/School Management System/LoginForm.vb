@@ -19,13 +19,15 @@
         'tootips whn you hover on the close and minimize options
         ToolTip1.SetToolTip(btnMinimize, "Minimize")
         ToolTip1.SetToolTip(btnClose, "Close")
+        btnMinimize.Cursor = Cursors.Hand
+        btnClose.Cursor = Cursors.Hand
 
 
 
     End Sub
 
     Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
-        
+
         If txtPassw.PasswordChar = "*"c Then
             txtPassw.PasswordChar = ControlChars.NullChar ' Show password
             PictureBox4.Image = openEyeImage ' Change to open eye image
@@ -44,6 +46,12 @@
 
     Private Sub PictureBox5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMinimize.Click
         Me.WindowState = FormWindowState.Minimized
+
+    End Sub
+
+    Private Sub btnLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
+        MainMenu.Show()
+        Me.Close()
 
     End Sub
 End Class
