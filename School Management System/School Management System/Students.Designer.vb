@@ -26,26 +26,28 @@ Partial Class Students
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Students))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.btnFullscreen = New System.Windows.Forms.PictureBox()
         Me.btnHome = New System.Windows.Forms.PictureBox()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtGender = New System.Windows.Forms.ComboBox()
+        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
+        Me.txtSubjects = New System.Windows.Forms.RichTextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
+        Me.txtDepartment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtForm = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtStudentName = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtStudentID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -60,9 +62,21 @@ Partial Class Students
         Me.btnUploadImg = New System.Windows.Forms.Button()
         Me.profilepic = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.School_ManagementDataSet2 = New School_Management_System.School_ManagementDataSet2()
+        Me.StudentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
+        Me.StudentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateofBirthDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GenderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdmissionDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FormDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,13 +87,16 @@ Partial Class Students
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.profilepic, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StudentsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.PictureBox5)
+        Me.Panel2.Controls.Add(Me.btnFullscreen)
         Me.Panel2.Controls.Add(Me.btnHome)
         Me.Panel2.Controls.Add(Me.btnMinimize)
         Me.Panel2.Controls.Add(Me.btnClose)
@@ -98,15 +115,15 @@ Partial Class Students
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "Student Management"
         '
-        'PictureBox5
+        'btnFullscreen
         '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(1228, 5)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(97, 44)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 26
-        Me.PictureBox5.TabStop = False
+        Me.btnFullscreen.Image = CType(resources.GetObject("btnFullscreen.Image"), System.Drawing.Image)
+        Me.btnFullscreen.Location = New System.Drawing.Point(1228, 5)
+        Me.btnFullscreen.Name = "btnFullscreen"
+        Me.btnFullscreen.Size = New System.Drawing.Size(97, 44)
+        Me.btnFullscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnFullscreen.TabIndex = 26
+        Me.btnFullscreen.TabStop = False
         '
         'btnHome
         '
@@ -141,22 +158,23 @@ Partial Class Students
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Panel1.Controls.Add(Me.txtGender)
+        Me.Panel1.Controls.Add(Me.txtDOB)
+        Me.Panel1.Controls.Add(Me.txtSubjects)
         Me.Panel1.Controls.Add(Me.Label10)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.Panel1.Controls.Add(Me.TextBox8)
+        Me.Panel1.Controls.Add(Me.txtAdmissionDate)
+        Me.Panel1.Controls.Add(Me.txtDepartment)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.TextBox7)
+        Me.Panel1.Controls.Add(Me.txtForm)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.TextBox5)
+        Me.Panel1.Controls.Add(Me.txtPhone)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.TextBox4)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.TextBox3)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.TextBox2)
+        Me.Panel1.Controls.Add(Me.txtStudentName)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.txtStudentID)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Font = New System.Drawing.Font("Symbol", 8.25!)
         Me.Panel1.Location = New System.Drawing.Point(3, 58)
@@ -164,21 +182,57 @@ Partial Class Students
         Me.Panel1.Size = New System.Drawing.Size(1192, 538)
         Me.Panel1.TabIndex = 27
         '
-        'DateTimePicker1
+        'txtGender
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(502, 186)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(271, 30)
-        Me.DateTimePicker1.TabIndex = 16
+        Me.txtGender.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGender.FormattingEnabled = True
+        Me.txtGender.Items.AddRange(New Object() {"Other", "Male", "Female"})
+        Me.txtGender.Location = New System.Drawing.Point(9, 448)
+        Me.txtGender.Name = "txtGender"
+        Me.txtGender.Size = New System.Drawing.Size(230, 40)
+        Me.txtGender.TabIndex = 20
         '
-        'TextBox8
+        'txtDOB
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(502, 431)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox8.TabIndex = 15
+        Me.txtDOB.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDOB.Location = New System.Drawing.Point(9, 287)
+        Me.txtDOB.Name = "txtDOB"
+        Me.txtDOB.Size = New System.Drawing.Size(345, 33)
+        Me.txtDOB.TabIndex = 19
+        '
+        'txtSubjects
+        '
+        Me.txtSubjects.Location = New System.Drawing.Point(896, 47)
+        Me.txtSubjects.Name = "txtSubjects"
+        Me.txtSubjects.Size = New System.Drawing.Size(254, 184)
+        Me.txtSubjects.TabIndex = 18
+        Me.txtSubjects.Text = ""
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(946, 12)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(116, 32)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "Subjects"
+        '
+        'txtAdmissionDate
+        '
+        Me.txtAdmissionDate.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAdmissionDate.Location = New System.Drawing.Point(502, 186)
+        Me.txtAdmissionDate.Name = "txtAdmissionDate"
+        Me.txtAdmissionDate.Size = New System.Drawing.Size(345, 33)
+        Me.txtAdmissionDate.TabIndex = 16
+        '
+        'txtDepartment
+        '
+        Me.txtDepartment.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDepartment.Location = New System.Drawing.Point(502, 431)
+        Me.txtDepartment.Name = "txtDepartment"
+        Me.txtDepartment.Size = New System.Drawing.Size(271, 40)
+        Me.txtDepartment.TabIndex = 15
         '
         'Label8
         '
@@ -190,13 +244,13 @@ Partial Class Students
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Department"
         '
-        'TextBox7
+        'txtForm
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(502, 297)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox7.TabIndex = 13
+        Me.txtForm.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtForm.Location = New System.Drawing.Point(502, 297)
+        Me.txtForm.Name = "txtForm"
+        Me.txtForm.Size = New System.Drawing.Size(271, 40)
+        Me.txtForm.TabIndex = 13
         '
         'Label7
         '
@@ -218,13 +272,13 @@ Partial Class Students
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Admission Date"
         '
-        'TextBox5
+        'txtPhone
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(502, 57)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox5.TabIndex = 9
+        Me.txtPhone.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPhone.Location = New System.Drawing.Point(502, 57)
+        Me.txtPhone.Name = "txtPhone"
+        Me.txtPhone.Size = New System.Drawing.Size(271, 40)
+        Me.txtPhone.TabIndex = 9
         '
         'Label5
         '
@@ -236,14 +290,6 @@ Partial Class Students
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Phone"
         '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(9, 431)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox4.TabIndex = 7
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -253,14 +299,6 @@ Partial Class Students
         Me.Label4.Size = New System.Drawing.Size(105, 32)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Gender"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(9, 297)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox3.TabIndex = 5
         '
         'Label3
         '
@@ -272,13 +310,13 @@ Partial Class Students
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Date of Birth"
         '
-        'TextBox2
+        'txtStudentName
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(9, 178)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox2.TabIndex = 3
+        Me.txtStudentName.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentName.Location = New System.Drawing.Point(9, 178)
+        Me.txtStudentName.Name = "txtStudentName"
+        Me.txtStudentName.Size = New System.Drawing.Size(271, 40)
+        Me.txtStudentName.TabIndex = 3
         '
         'Label2
         '
@@ -290,13 +328,13 @@ Partial Class Students
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Student Name"
         '
-        'TextBox1
+        'txtStudentID
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(9, 57)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox1.TabIndex = 1
+        Me.txtStudentID.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentID.Location = New System.Drawing.Point(9, 57)
+        Me.txtStudentID.Name = "txtStudentID"
+        Me.txtStudentID.Size = New System.Drawing.Size(271, 40)
+        Me.txtStudentID.TabIndex = 1
         '
         'Label1
         '
@@ -432,15 +470,94 @@ Partial Class Students
         Me.profilepic.TabIndex = 0
         Me.profilepic.TabStop = False
         '
-        'Label10
+        'DataGridView1
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(946, 12)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(116, 32)
-        Me.Label10.TabIndex = 17
-        Me.Label10.Text = "Subjects"
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.StudentIDDataGridViewTextBoxColumn, Me.StudentNameDataGridViewTextBoxColumn, Me.DateofBirthDataGridViewTextBoxColumn, Me.GenderDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.AdmissionDateDataGridViewTextBoxColumn, Me.FormDataGridViewTextBoxColumn, Me.DepartmentDataGridViewTextBoxColumn, Me.SubjectsDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.StudentsBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 683)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 28
+        Me.DataGridView1.Size = New System.Drawing.Size(1411, 311)
+        Me.DataGridView1.TabIndex = 28
+        '
+        'School_ManagementDataSet2
+        '
+        Me.School_ManagementDataSet2.DataSetName = "School_ManagementDataSet2"
+        Me.School_ManagementDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StudentsBindingSource
+        '
+        Me.StudentsBindingSource.DataMember = "Students"
+        Me.StudentsBindingSource.DataSource = Me.School_ManagementDataSet2
+        '
+        'StudentsTableAdapter
+        '
+        Me.StudentsTableAdapter.ClearBeforeFill = True
+        '
+        'StudentIDDataGridViewTextBoxColumn
+        '
+        Me.StudentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.StudentIDDataGridViewTextBoxColumn.DataPropertyName = "Student_ID"
+        Me.StudentIDDataGridViewTextBoxColumn.HeaderText = "Student_ID"
+        Me.StudentIDDataGridViewTextBoxColumn.Name = "StudentIDDataGridViewTextBoxColumn"
+        '
+        'StudentNameDataGridViewTextBoxColumn
+        '
+        Me.StudentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.StudentNameDataGridViewTextBoxColumn.DataPropertyName = "Student_Name"
+        Me.StudentNameDataGridViewTextBoxColumn.HeaderText = "Student_Name"
+        Me.StudentNameDataGridViewTextBoxColumn.Name = "StudentNameDataGridViewTextBoxColumn"
+        '
+        'DateofBirthDataGridViewTextBoxColumn
+        '
+        Me.DateofBirthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DateofBirthDataGridViewTextBoxColumn.DataPropertyName = "Date_of_Birth"
+        Me.DateofBirthDataGridViewTextBoxColumn.HeaderText = "Date_of_Birth"
+        Me.DateofBirthDataGridViewTextBoxColumn.Name = "DateofBirthDataGridViewTextBoxColumn"
+        '
+        'GenderDataGridViewTextBoxColumn
+        '
+        Me.GenderDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.GenderDataGridViewTextBoxColumn.DataPropertyName = "Gender"
+        Me.GenderDataGridViewTextBoxColumn.HeaderText = "Gender"
+        Me.GenderDataGridViewTextBoxColumn.Name = "GenderDataGridViewTextBoxColumn"
+        '
+        'PhoneDataGridViewTextBoxColumn
+        '
+        Me.PhoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.PhoneDataGridViewTextBoxColumn.DataPropertyName = "Phone"
+        Me.PhoneDataGridViewTextBoxColumn.HeaderText = "Phone"
+        Me.PhoneDataGridViewTextBoxColumn.Name = "PhoneDataGridViewTextBoxColumn"
+        '
+        'AdmissionDateDataGridViewTextBoxColumn
+        '
+        Me.AdmissionDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.AdmissionDateDataGridViewTextBoxColumn.DataPropertyName = "Admission_Date"
+        Me.AdmissionDateDataGridViewTextBoxColumn.HeaderText = "Admission_Date"
+        Me.AdmissionDateDataGridViewTextBoxColumn.Name = "AdmissionDateDataGridViewTextBoxColumn"
+        '
+        'FormDataGridViewTextBoxColumn
+        '
+        Me.FormDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FormDataGridViewTextBoxColumn.DataPropertyName = "Form"
+        Me.FormDataGridViewTextBoxColumn.HeaderText = "Form"
+        Me.FormDataGridViewTextBoxColumn.Name = "FormDataGridViewTextBoxColumn"
+        '
+        'DepartmentDataGridViewTextBoxColumn
+        '
+        Me.DepartmentDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DepartmentDataGridViewTextBoxColumn.DataPropertyName = "Department"
+        Me.DepartmentDataGridViewTextBoxColumn.HeaderText = "Department"
+        Me.DepartmentDataGridViewTextBoxColumn.Name = "DepartmentDataGridViewTextBoxColumn"
+        '
+        'SubjectsDataGridViewTextBoxColumn
+        '
+        Me.SubjectsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SubjectsDataGridViewTextBoxColumn.DataPropertyName = "Subjects"
+        Me.SubjectsDataGridViewTextBoxColumn.HeaderText = "Subjects"
+        Me.SubjectsDataGridViewTextBoxColumn.Name = "SubjectsDataGridViewTextBoxColumn"
         '
         'Students
         '
@@ -449,6 +566,7 @@ Partial Class Students
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1525, 1017)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.profilepic)
         Me.Controls.Add(Me.btnUploadImg)
         Me.Controls.Add(Me.Panel3)
@@ -459,7 +577,7 @@ Partial Class Students
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
@@ -471,6 +589,9 @@ Partial Class Students
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.profilepic, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StudentsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -492,23 +613,37 @@ Partial Class Students
     Friend WithEvents btnUploadImg As System.Windows.Forms.Button
     Friend WithEvents profilepic As System.Windows.Forms.PictureBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents btnFullscreen As System.Windows.Forms.PictureBox
+    Friend WithEvents txtDepartment As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents txtForm As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPhone As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtStudentName As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtStudentID As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtAdmissionDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtSubjects As System.Windows.Forms.RichTextBox
+    Friend WithEvents txtDOB As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtGender As System.Windows.Forms.ComboBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents School_ManagementDataSet2 As School_Management_System.School_ManagementDataSet2
+    Friend WithEvents StudentsBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents StudentsTableAdapter As School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter
+    Friend WithEvents StudentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents StudentNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DateofBirthDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents GenderDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PhoneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AdmissionDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FormDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SubjectsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

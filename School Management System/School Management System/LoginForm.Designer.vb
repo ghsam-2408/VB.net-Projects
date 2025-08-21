@@ -38,6 +38,7 @@ Partial Class LoginForm
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.picOpenEye = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnFullscreen = New System.Windows.Forms.PictureBox()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -48,6 +49,7 @@ Partial Class LoginForm
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picOpenEye, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picClosedEye, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -186,6 +188,7 @@ Partial Class LoginForm
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.btnFullscreen)
         Me.Panel2.Controls.Add(Me.btnMinimize)
         Me.Panel2.Controls.Add(Me.btnClose)
         Me.Panel2.Location = New System.Drawing.Point(1, 1)
@@ -193,10 +196,20 @@ Partial Class LoginForm
         Me.Panel2.Size = New System.Drawing.Size(1114, 49)
         Me.Panel2.TabIndex = 12
         '
+        'btnFullscreen
+        '
+        Me.btnFullscreen.Image = CType(resources.GetObject("btnFullscreen.Image"), System.Drawing.Image)
+        Me.btnFullscreen.Location = New System.Drawing.Point(910, 3)
+        Me.btnFullscreen.Name = "btnFullscreen"
+        Me.btnFullscreen.Size = New System.Drawing.Size(97, 44)
+        Me.btnFullscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnFullscreen.TabIndex = 27
+        Me.btnFullscreen.TabStop = False
+        '
         'btnMinimize
         '
         Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
-        Me.btnMinimize.Location = New System.Drawing.Point(888, 0)
+        Me.btnMinimize.Location = New System.Drawing.Point(804, -1)
         Me.btnMinimize.Name = "btnMinimize"
         Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
         Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -254,6 +267,7 @@ Partial Class LoginForm
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picOpenEye, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picClosedEye, System.ComponentModel.ISupportInitialize).EndInit()
@@ -279,5 +293,6 @@ Partial Class LoginForm
     Friend WithEvents btnClose As System.Windows.Forms.PictureBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents picClosedEye As System.Windows.Forms.PictureBox
+    Friend WithEvents btnFullscreen As System.Windows.Forms.PictureBox
 
 End Class

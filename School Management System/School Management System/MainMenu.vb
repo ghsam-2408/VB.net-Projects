@@ -7,7 +7,12 @@
         btnTeachers.Cursor = Cursors.Hand
         btnLogout.Cursor = Cursors.Hand
         btnMinimize.Cursor = Cursors.Hand
+        btnDepartm.Cursor = Cursors.Hand
+        btnFullscreen.Cursor = Cursors.Hand
         btnClose.Cursor = Cursors.Hand
+        btnClose.Cursor = Cursors.Hand
+        btnClose.Cursor = Cursors.Hand
+
 
 
 
@@ -34,8 +39,18 @@
 
     End Sub
 
-    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStudentsb.Click
         Students.Show()
 
+    End Sub
+
+    Private Sub PictureBox9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFullscreen.Click
+        If Me.FormBorderStyle = FormBorderStyle.Sizable Then
+            Me.FormBorderStyle = FormBorderStyle.None
+            Me.WindowState = FormWindowState.Maximized
+        Else
+            Me.FormBorderStyle = FormBorderStyle.Sizable
+            Me.WindowState = FormWindowState.Normal
+        End If
     End Sub
 End Class

@@ -22,9 +22,10 @@ Partial Class Departments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Departments))
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtDeptName = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -35,11 +36,11 @@ Partial Class Departments
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtHOD = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtDeptID = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txtDescription = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -49,8 +50,16 @@ Partial Class Departments
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.DepartmentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DepartmentNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HODDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DepartmentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.School_ManagementDataSet4 = New School_Management_System.School_ManagementDataSet4()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.DepartmentsTableAdapter = New School_Management_System.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,31 +73,33 @@ Partial Class Departments
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartmentsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(742, 133)
+        Me.Label6.Location = New System.Drawing.Point(697, 133)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(153, 32)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Description"
         '
-        'TextBox5
+        'txtDeptName
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(658, 57)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox5.TabIndex = 9
+        Me.txtDeptName.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDeptName.Location = New System.Drawing.Point(658, 57)
+        Me.txtDeptName.Name = "txtDeptName"
+        Me.txtDeptName.Size = New System.Drawing.Size(271, 40)
+        Me.txtDeptName.TabIndex = 9
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(742, 12)
+        Me.Label5.Location = New System.Drawing.Point(697, 12)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(232, 32)
         Me.Label5.TabIndex = 8
@@ -193,42 +204,42 @@ Partial Class Departments
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
         '
-        'TextBox2
+        'txtHOD
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(9, 178)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox2.TabIndex = 3
+        Me.txtHOD.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtHOD.Location = New System.Drawing.Point(9, 178)
+        Me.txtHOD.Name = "txtHOD"
+        Me.txtHOD.Size = New System.Drawing.Size(271, 40)
+        Me.txtHOD.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(93, 133)
+        Me.Label2.Location = New System.Drawing.Point(29, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(258, 32)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Head of Department"
         '
-        'TextBox1
+        'txtDeptID
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(9, 57)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox1.TabIndex = 1
+        Me.txtDeptID.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDeptID.Location = New System.Drawing.Point(9, 57)
+        Me.txtDeptID.Name = "txtDeptID"
+        Me.txtDeptID.Size = New System.Drawing.Size(271, 40)
+        Me.txtDeptID.TabIndex = 1
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.txtDescription)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.TextBox5)
+        Me.Panel1.Controls.Add(Me.txtDeptName)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.TextBox2)
+        Me.Panel1.Controls.Add(Me.txtHOD)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.txtDeptID)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Font = New System.Drawing.Font("Symbol", 8.25!)
         Me.Panel1.Location = New System.Drawing.Point(2, 54)
@@ -236,20 +247,19 @@ Partial Class Departments
         Me.Panel1.Size = New System.Drawing.Size(1192, 313)
         Me.Panel1.TabIndex = 32
         '
-        'ComboBox1
+        'txtDescription
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Symbol", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(658, 187)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(271, 43)
-        Me.ComboBox1.TabIndex = 17
+        Me.txtDescription.Location = New System.Drawing.Point(658, 168)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(281, 142)
+        Me.txtDescription.TabIndex = 11
+        Me.txtDescription.Text = ""
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(93, 12)
+        Me.Label1.Location = New System.Drawing.Point(29, 12)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(194, 32)
         Me.Label1.TabIndex = 0
@@ -331,39 +341,85 @@ Partial Class Departments
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DepartmentIDDataGridViewTextBoxColumn, Me.DepartmentNameDataGridViewTextBoxColumn, Me.HODDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.DepartmentsBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(-7, 464)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.Size = New System.Drawing.Size(1498, 412)
+        Me.DataGridView1.Size = New System.Drawing.Size(1441, 412)
         Me.DataGridView1.TabIndex = 33
         '
-        'Button1
+        'DepartmentIDDataGridViewTextBoxColumn
         '
-        Me.Button1.BackColor = System.Drawing.Color.Teal
-        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(1286, 380)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(125, 46)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.DepartmentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DepartmentIDDataGridViewTextBoxColumn.DataPropertyName = "Department_ID"
+        Me.DepartmentIDDataGridViewTextBoxColumn.HeaderText = "Department_ID"
+        Me.DepartmentIDDataGridViewTextBoxColumn.Name = "DepartmentIDDataGridViewTextBoxColumn"
         '
-        'TextBox4
+        'DepartmentNameDataGridViewTextBoxColumn
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(916, 386)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(373, 40)
-        Me.TextBox4.TabIndex = 19
+        Me.DepartmentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DepartmentNameDataGridViewTextBoxColumn.DataPropertyName = "Department_Name"
+        Me.DepartmentNameDataGridViewTextBoxColumn.HeaderText = "Department_Name"
+        Me.DepartmentNameDataGridViewTextBoxColumn.Name = "DepartmentNameDataGridViewTextBoxColumn"
+        '
+        'HODDataGridViewTextBoxColumn
+        '
+        Me.HODDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.HODDataGridViewTextBoxColumn.DataPropertyName = "HOD"
+        Me.HODDataGridViewTextBoxColumn.HeaderText = "HOD"
+        Me.HODDataGridViewTextBoxColumn.Name = "HODDataGridViewTextBoxColumn"
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        '
+        'DepartmentsBindingSource
+        '
+        Me.DepartmentsBindingSource.DataMember = "Departments"
+        Me.DepartmentsBindingSource.DataSource = Me.School_ManagementDataSet4
+        '
+        'School_ManagementDataSet4
+        '
+        Me.School_ManagementDataSet4.DataSetName = "School_ManagementDataSet4"
+        Me.School_ManagementDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.Teal
+        Me.btnSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(1286, 380)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(125, 46)
+        Me.btnSearch.TabIndex = 7
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(916, 386)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(373, 40)
+        Me.txtSearch.TabIndex = 19
+        '
+        'DepartmentsTableAdapter
+        '
+        Me.DepartmentsTableAdapter.ClearBeforeFill = True
         '
         'Departments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1503, 1059)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
@@ -387,12 +443,14 @@ Partial Class Departments
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartmentsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDeptName As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
@@ -403,9 +461,9 @@ Partial Class Departments
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtHOD As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDeptID As System.Windows.Forms.TextBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -415,8 +473,16 @@ Partial Class Departments
     Friend WithEvents btnClose As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
+    Friend WithEvents txtDescription As System.Windows.Forms.RichTextBox
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents School_ManagementDataSet4 As School_Management_System.School_ManagementDataSet4
+    Friend WithEvents DepartmentsBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DepartmentsTableAdapter As School_Management_System.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter
+    Friend WithEvents DepartmentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DepartmentNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HODDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

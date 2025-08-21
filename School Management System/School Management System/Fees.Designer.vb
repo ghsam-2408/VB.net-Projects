@@ -22,28 +22,30 @@ Partial Class Fees
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Fees))
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.paymentDate = New System.Windows.Forms.DateTimePicker()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtFeeType = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtStudentId = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtForm = New System.Windows.Forms.TextBox()
+        Me.paymentMethod = New System.Windows.Forms.ComboBox()
+        Me.txtDepartment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtReceiptNumber = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtAmntPaid = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
@@ -54,14 +56,25 @@ Partial Class Fees
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnReload = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnPay = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.btnReceipt = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.School_ManagementDataSet3 = New School_Management_System.School_ManagementDataSet3()
+        Me.FeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FeesTableAdapter = New School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
+        Me.StudentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeeTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AmountPaidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FormDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentMethodDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReceiptNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,18 +87,20 @@ Partial Class Fees
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DateTimePicker1
+        'paymentDate
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(658, 186)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(271, 30)
-        Me.DateTimePicker1.TabIndex = 16
+        Me.paymentDate.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paymentDate.Location = New System.Drawing.Point(658, 67)
+        Me.paymentDate.Name = "paymentDate"
+        Me.paymentDate.Size = New System.Drawing.Size(366, 35)
+        Me.paymentDate.TabIndex = 16
         '
         'PictureBox4
         '
@@ -97,19 +112,19 @@ Partial Class Fees
         Me.PictureBox4.TabIndex = 6
         Me.PictureBox4.TabStop = False
         '
-        'TextBox2
+        'txtFeeType
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(9, 178)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox2.TabIndex = 3
+        Me.txtFeeType.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFeeType.Location = New System.Drawing.Point(9, 178)
+        Me.txtFeeType.Name = "txtFeeType"
+        Me.txtFeeType.Size = New System.Drawing.Size(271, 40)
+        Me.txtFeeType.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(93, 133)
+        Me.Label2.Location = New System.Drawing.Point(56, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(121, 32)
         Me.Label2.TabIndex = 2
@@ -125,13 +140,13 @@ Partial Class Fees
         Me.PictureBox3.TabIndex = 5
         Me.PictureBox3.TabStop = False
         '
-        'TextBox1
+        'txtStudentId
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(9, 57)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox1.TabIndex = 1
+        Me.txtStudentId.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStudentId.Location = New System.Drawing.Point(9, 57)
+        Me.txtStudentId.Name = "txtStudentId"
+        Me.txtStudentId.Size = New System.Drawing.Size(271, 40)
+        Me.txtStudentId.TabIndex = 1
         '
         'PictureBox2
         '
@@ -156,21 +171,21 @@ Partial Class Fees
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Panel1.Controls.Add(Me.TextBox6)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.txtForm)
+        Me.Panel1.Controls.Add(Me.paymentMethod)
+        Me.Panel1.Controls.Add(Me.txtDepartment)
+        Me.Panel1.Controls.Add(Me.paymentDate)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.TextBox7)
+        Me.Panel1.Controls.Add(Me.txtReceiptNumber)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.TextBox5)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.TextBox4)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.TextBox3)
+        Me.Panel1.Controls.Add(Me.txtAmntPaid)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.TextBox2)
+        Me.Panel1.Controls.Add(Me.txtFeeType)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.txtStudentId)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Font = New System.Drawing.Font("Symbol", 8.25!)
         Me.Panel1.Location = New System.Drawing.Point(2, 54)
@@ -178,37 +193,55 @@ Partial Class Fees
         Me.Panel1.Size = New System.Drawing.Size(1192, 538)
         Me.Panel1.TabIndex = 35
         '
-        'TextBox8
+        'txtForm
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(0, 3)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(460, 40)
-        Me.TextBox8.TabIndex = 15
+        Me.txtForm.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtForm.Location = New System.Drawing.Point(10, 431)
+        Me.txtForm.Name = "txtForm"
+        Me.txtForm.Size = New System.Drawing.Size(271, 40)
+        Me.txtForm.TabIndex = 20
+        '
+        'paymentMethod
+        '
+        Me.paymentMethod.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paymentMethod.FormattingEnabled = True
+        Me.paymentMethod.Items.AddRange(New Object() {"Cash", "Bank Transer", "Mobile Money"})
+        Me.paymentMethod.Location = New System.Drawing.Point(658, 178)
+        Me.paymentMethod.Name = "paymentMethod"
+        Me.paymentMethod.Size = New System.Drawing.Size(271, 40)
+        Me.paymentMethod.TabIndex = 19
+        '
+        'txtDepartment
+        '
+        Me.txtDepartment.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDepartment.Location = New System.Drawing.Point(658, 431)
+        Me.txtDepartment.Name = "txtDepartment"
+        Me.txtDepartment.Size = New System.Drawing.Size(271, 40)
+        Me.txtDepartment.TabIndex = 17
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(742, 386)
+        Me.Label8.Location = New System.Drawing.Point(730, 386)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(157, 32)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Department"
         '
-        'TextBox7
+        'txtReceiptNumber
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(658, 297)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox7.TabIndex = 13
+        Me.txtReceiptNumber.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReceiptNumber.Location = New System.Drawing.Point(658, 297)
+        Me.txtReceiptNumber.Name = "txtReceiptNumber"
+        Me.txtReceiptNumber.Size = New System.Drawing.Size(271, 40)
+        Me.txtReceiptNumber.TabIndex = 13
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(742, 252)
+        Me.Label7.Location = New System.Drawing.Point(705, 252)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(209, 32)
         Me.Label7.TabIndex = 12
@@ -218,61 +251,45 @@ Partial Class Fees
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(742, 133)
+        Me.Label6.Location = New System.Drawing.Point(679, 133)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(220, 32)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Payment Method"
         '
-        'TextBox5
-        '
-        Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(658, 57)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox5.TabIndex = 9
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(742, 12)
+        Me.Label5.Location = New System.Drawing.Point(705, 12)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(182, 32)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Payment Date"
         '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(9, 431)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox4.TabIndex = 7
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(93, 386)
+        Me.Label4.Location = New System.Drawing.Point(56, 386)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(203, 32)
+        Me.Label4.Size = New System.Drawing.Size(81, 32)
         Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Admission Date"
+        Me.Label4.Text = "Form"
         '
-        'TextBox3
+        'txtAmntPaid
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(9, 297)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox3.TabIndex = 5
+        Me.txtAmntPaid.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmntPaid.Location = New System.Drawing.Point(9, 297)
+        Me.txtAmntPaid.Name = "txtAmntPaid"
+        Me.txtAmntPaid.Size = New System.Drawing.Size(271, 40)
+        Me.txtAmntPaid.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(93, 252)
+        Me.Label3.Location = New System.Drawing.Point(56, 252)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(175, 32)
         Me.Label3.TabIndex = 4
@@ -282,11 +299,19 @@ Partial Class Fees
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(93, 12)
+        Me.Label1.Location = New System.Drawing.Point(56, 12)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(146, 32)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Student ID"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(0, 3)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(460, 40)
+        Me.txtSearch.TabIndex = 15
         '
         'Label9
         '
@@ -395,22 +420,21 @@ Partial Class Fees
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = False
         '
-        'btnSave
+        'btnPay
         '
-        Me.btnSave.BackColor = System.Drawing.Color.Lime
-        Me.btnSave.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(71, 22)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(125, 46)
-        Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "Pay"
-        Me.btnSave.UseVisualStyleBackColor = False
+        Me.btnPay.BackColor = System.Drawing.Color.Lime
+        Me.btnPay.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPay.Location = New System.Drawing.Point(71, 22)
+        Me.btnPay.Name = "btnPay"
+        Me.btnPay.Size = New System.Drawing.Size(125, 46)
+        Me.btnPay.TabIndex = 0
+        Me.btnPay.Text = "Pay"
+        Me.btnPay.UseVisualStyleBackColor = False
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.PictureBox7)
         Me.Panel3.Controls.Add(Me.PictureBox8)
-        Me.Panel3.Controls.Add(Me.Button2)
+        Me.Panel3.Controls.Add(Me.btnReceipt)
         Me.Panel3.Controls.Add(Me.PictureBox4)
         Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.PictureBox2)
@@ -418,85 +442,152 @@ Partial Class Fees
         Me.Panel3.Controls.Add(Me.btnReload)
         Me.Panel3.Controls.Add(Me.btnUpdate)
         Me.Panel3.Controls.Add(Me.btnDelete)
-        Me.Panel3.Controls.Add(Me.btnSave)
+        Me.Panel3.Controls.Add(Me.btnPay)
         Me.Panel3.Location = New System.Drawing.Point(1224, 59)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(210, 533)
         Me.Panel3.TabIndex = 34
         '
-        'PictureBox7
-        '
-        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(18, 375)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(47, 46)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox7.TabIndex = 10
-        Me.PictureBox7.TabStop = False
-        '
         'PictureBox8
         '
         Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(18, 303)
+        Me.PictureBox8.Location = New System.Drawing.Point(18, 316)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(47, 46)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox8.TabIndex = 9
         Me.PictureBox8.TabStop = False
         '
-        'Button1
+        'btnReceipt
         '
-        Me.Button1.BackColor = System.Drawing.Color.Olive
-        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(456, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(125, 40)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnReceipt.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar
+        Me.btnReceipt.BackColor = System.Drawing.Color.Yellow
+        Me.btnReceipt.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReceipt.Location = New System.Drawing.Point(71, 303)
+        Me.btnReceipt.Name = "btnReceipt"
+        Me.btnReceipt.Size = New System.Drawing.Size(125, 73)
+        Me.btnReceipt.TabIndex = 7
+        Me.btnReceipt.Text = "Print Receipt"
+        Me.btnReceipt.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnSearch
         '
-        Me.Button2.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar
-        Me.Button2.BackColor = System.Drawing.Color.Yellow
-        Me.Button2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(71, 303)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(125, 46)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Receipt"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(658, 431)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(271, 40)
-        Me.TextBox6.TabIndex = 17
+        Me.btnSearch.BackColor = System.Drawing.Color.Olive
+        Me.btnSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.ForeColor = System.Drawing.Color.Black
+        Me.btnSearch.Location = New System.Drawing.Point(456, 3)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(125, 40)
+        Me.btnSearch.TabIndex = 8
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.TextBox8)
-        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.txtSearch)
+        Me.Panel4.Controls.Add(Me.btnSearch)
         Me.Panel4.Location = New System.Drawing.Point(855, 598)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(579, 44)
         Me.Panel4.TabIndex = 36
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.StudentIDDataGridViewTextBoxColumn, Me.FeeTypeDataGridViewTextBoxColumn, Me.AmountPaidDataGridViewTextBoxColumn, Me.FormDataGridViewTextBoxColumn, Me.PaymentDateDataGridViewTextBoxColumn, Me.PaymentMethodDataGridViewTextBoxColumn, Me.ReceiptNumberDataGridViewTextBoxColumn, Me.DepartmentDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.FeesBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 658)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 28
+        Me.DataGridView1.Size = New System.Drawing.Size(1432, 347)
+        Me.DataGridView1.TabIndex = 37
+        '
+        'School_ManagementDataSet3
+        '
+        Me.School_ManagementDataSet3.DataSetName = "School_ManagementDataSet3"
+        Me.School_ManagementDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FeesBindingSource
+        '
+        Me.FeesBindingSource.DataMember = "Fees"
+        Me.FeesBindingSource.DataSource = Me.School_ManagementDataSet3
+        '
+        'FeesTableAdapter
+        '
+        Me.FeesTableAdapter.ClearBeforeFill = True
+        '
+        'StudentIDDataGridViewTextBoxColumn
+        '
+        Me.StudentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.StudentIDDataGridViewTextBoxColumn.DataPropertyName = "Student_ID"
+        Me.StudentIDDataGridViewTextBoxColumn.HeaderText = "Student_ID"
+        Me.StudentIDDataGridViewTextBoxColumn.Name = "StudentIDDataGridViewTextBoxColumn"
+        '
+        'FeeTypeDataGridViewTextBoxColumn
+        '
+        Me.FeeTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeeTypeDataGridViewTextBoxColumn.DataPropertyName = "Fee_Type"
+        Me.FeeTypeDataGridViewTextBoxColumn.HeaderText = "Fee_Type"
+        Me.FeeTypeDataGridViewTextBoxColumn.Name = "FeeTypeDataGridViewTextBoxColumn"
+        '
+        'AmountPaidDataGridViewTextBoxColumn
+        '
+        Me.AmountPaidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.AmountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid"
+        Me.AmountPaidDataGridViewTextBoxColumn.HeaderText = "Amount_Paid"
+        Me.AmountPaidDataGridViewTextBoxColumn.Name = "AmountPaidDataGridViewTextBoxColumn"
+        '
+        'FormDataGridViewTextBoxColumn
+        '
+        Me.FormDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FormDataGridViewTextBoxColumn.DataPropertyName = "Form"
+        Me.FormDataGridViewTextBoxColumn.HeaderText = "Form"
+        Me.FormDataGridViewTextBoxColumn.Name = "FormDataGridViewTextBoxColumn"
+        '
+        'PaymentDateDataGridViewTextBoxColumn
+        '
+        Me.PaymentDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.PaymentDateDataGridViewTextBoxColumn.DataPropertyName = "Payment_Date"
+        Me.PaymentDateDataGridViewTextBoxColumn.HeaderText = "Payment_Date"
+        Me.PaymentDateDataGridViewTextBoxColumn.Name = "PaymentDateDataGridViewTextBoxColumn"
+        '
+        'PaymentMethodDataGridViewTextBoxColumn
+        '
+        Me.PaymentMethodDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.PaymentMethodDataGridViewTextBoxColumn.DataPropertyName = "Payment_Method"
+        Me.PaymentMethodDataGridViewTextBoxColumn.HeaderText = "Payment_Method"
+        Me.PaymentMethodDataGridViewTextBoxColumn.Name = "PaymentMethodDataGridViewTextBoxColumn"
+        '
+        'ReceiptNumberDataGridViewTextBoxColumn
+        '
+        Me.ReceiptNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReceiptNumberDataGridViewTextBoxColumn.DataPropertyName = "Receipt_Number"
+        Me.ReceiptNumberDataGridViewTextBoxColumn.HeaderText = "Receipt_Number"
+        Me.ReceiptNumberDataGridViewTextBoxColumn.Name = "ReceiptNumberDataGridViewTextBoxColumn"
+        '
+        'DepartmentDataGridViewTextBoxColumn
+        '
+        Me.DepartmentDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DepartmentDataGridViewTextBoxColumn.DataPropertyName = "Department"
+        Me.DepartmentDataGridViewTextBoxColumn.HeaderText = "Department"
+        Me.DepartmentDataGridViewTextBoxColumn.Name = "DepartmentDataGridViewTextBoxColumn"
+        '
         'Fees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1525, 1017)
+        Me.ClientSize = New System.Drawing.Size(1634, 1017)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Fees"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fees"
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -512,32 +603,32 @@ Partial Class Fees
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents paymentDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtFeeType As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtStudentId As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents txtReceiptNumber As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtAmntPaid As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -550,12 +641,26 @@ Partial Class Fees
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnReload As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents btnPay As System.Windows.Forms.Button
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents btnReceipt As System.Windows.Forms.Button
+    Friend WithEvents txtDepartment As System.Windows.Forms.TextBox
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents paymentMethod As System.Windows.Forms.ComboBox
+    Friend WithEvents txtForm As System.Windows.Forms.TextBox
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents School_ManagementDataSet3 As School_Management_System.School_ManagementDataSet3
+    Friend WithEvents FeesBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents FeesTableAdapter As School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter
+    Friend WithEvents StudentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FeeTypeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AmountPaidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FormDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PaymentDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PaymentMethodDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ReceiptNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

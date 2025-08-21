@@ -26,7 +26,7 @@ Partial Class Register
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Register))
         Me.lblName = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtSurname = New System.Windows.Forms.TextBox()
+        Me.txtIdNum = New System.Windows.Forms.TextBox()
         Me.lblSurname = New System.Windows.Forms.Label()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.lblEmail = New System.Windows.Forms.Label()
@@ -40,7 +40,7 @@ Partial Class Register
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtPassw = New System.Windows.Forms.TextBox()
         Me.lblPassw = New System.Windows.Forms.Label()
-        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.txtConfirmPassw = New System.Windows.Forms.TextBox()
         Me.lblRetypPassw = New System.Windows.Forms.Label()
         Me.btnRegister = New System.Windows.Forms.PictureBox()
         Me.btnLogIn = New System.Windows.Forms.Label()
@@ -52,12 +52,14 @@ Partial Class Register
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnFullScreen = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.btnRegister, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnFullScreen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblName
@@ -78,13 +80,13 @@ Partial Class Register
         Me.txtName.Size = New System.Drawing.Size(378, 40)
         Me.txtName.TabIndex = 1
         '
-        'txtSurname
+        'txtIdNum
         '
-        Me.txtSurname.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSurname.Location = New System.Drawing.Point(668, 256)
-        Me.txtSurname.Name = "txtSurname"
-        Me.txtSurname.Size = New System.Drawing.Size(378, 40)
-        Me.txtSurname.TabIndex = 3
+        Me.txtIdNum.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIdNum.Location = New System.Drawing.Point(668, 256)
+        Me.txtIdNum.Name = "txtIdNum"
+        Me.txtIdNum.Size = New System.Drawing.Size(378, 40)
+        Me.txtIdNum.TabIndex = 3
         '
         'lblSurname
         '
@@ -209,13 +211,13 @@ Partial Class Register
         Me.lblPassw.TabIndex = 13
         Me.lblPassw.Text = "Password"
         '
-        'txtPass
+        'txtConfirmPassw
         '
-        Me.txtPass.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.Location = New System.Drawing.Point(613, 574)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(378, 40)
-        Me.txtPass.TabIndex = 16
+        Me.txtConfirmPassw.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtConfirmPassw.Location = New System.Drawing.Point(613, 574)
+        Me.txtConfirmPassw.Name = "txtConfirmPassw"
+        Me.txtConfirmPassw.Size = New System.Drawing.Size(378, 40)
+        Me.txtConfirmPassw.TabIndex = 16
         '
         'lblRetypPassw
         '
@@ -305,6 +307,7 @@ Partial Class Register
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.btnFullScreen)
         Me.Panel2.Controls.Add(Me.btnMinimize)
         Me.Panel2.Controls.Add(Me.btnClose)
         Me.Panel2.Location = New System.Drawing.Point(1, 0)
@@ -315,12 +318,22 @@ Partial Class Register
         'btnMinimize
         '
         Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
-        Me.btnMinimize.Location = New System.Drawing.Point(878, 3)
+        Me.btnMinimize.Location = New System.Drawing.Point(787, 2)
         Me.btnMinimize.Name = "btnMinimize"
         Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
         Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnMinimize.TabIndex = 24
         Me.btnMinimize.TabStop = False
+        '
+        'btnFullScreen
+        '
+        Me.btnFullScreen.Image = CType(resources.GetObject("btnFullScreen.Image"), System.Drawing.Image)
+        Me.btnFullScreen.Location = New System.Drawing.Point(893, 5)
+        Me.btnFullScreen.Name = "btnFullScreen"
+        Me.btnFullScreen.Size = New System.Drawing.Size(97, 44)
+        Me.btnFullScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnFullScreen.TabIndex = 27
+        Me.btnFullScreen.TabStop = False
         '
         'Register
         '
@@ -334,7 +347,7 @@ Partial Class Register
         Me.Controls.Add(Me.btnLogIn)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnRegister)
-        Me.Controls.Add(Me.txtPass)
+        Me.Controls.Add(Me.txtConfirmPassw)
         Me.Controls.Add(Me.lblRetypPassw)
         Me.Controls.Add(Me.txtPassw)
         Me.Controls.Add(Me.lblPassw)
@@ -345,7 +358,7 @@ Partial Class Register
         Me.Controls.Add(Me.lblContact)
         Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.lblEmail)
-        Me.Controls.Add(Me.txtSurname)
+        Me.Controls.Add(Me.txtIdNum)
         Me.Controls.Add(Me.lblSurname)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.lblName)
@@ -360,13 +373,14 @@ Partial Class Register
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnFullScreen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents lblName As System.Windows.Forms.Label
     Friend WithEvents txtName As System.Windows.Forms.TextBox
-    Friend WithEvents txtSurname As System.Windows.Forms.TextBox
+    Friend WithEvents txtIdNum As System.Windows.Forms.TextBox
     Friend WithEvents lblSurname As System.Windows.Forms.Label
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
     Friend WithEvents lblEmail As System.Windows.Forms.Label
@@ -380,7 +394,7 @@ Partial Class Register
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtPassw As System.Windows.Forms.TextBox
     Friend WithEvents lblPassw As System.Windows.Forms.Label
-    Friend WithEvents txtPass As System.Windows.Forms.TextBox
+    Friend WithEvents txtConfirmPassw As System.Windows.Forms.TextBox
     Friend WithEvents lblRetypPassw As System.Windows.Forms.Label
     Friend WithEvents btnRegister As System.Windows.Forms.PictureBox
     Friend WithEvents btnLogIn As System.Windows.Forms.Label
@@ -392,4 +406,5 @@ Partial Class Register
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btnMinimize As System.Windows.Forms.PictureBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents btnFullScreen As System.Windows.Forms.PictureBox
 End Class

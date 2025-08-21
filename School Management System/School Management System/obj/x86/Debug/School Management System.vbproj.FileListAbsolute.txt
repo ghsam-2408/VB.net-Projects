@@ -32,3 +32,5 @@ C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Manage
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Dashboard.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Departments.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Fees.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School_Management.accdb
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.exe.config
