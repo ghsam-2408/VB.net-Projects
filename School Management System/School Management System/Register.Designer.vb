@@ -36,8 +36,8 @@ Partial Class Register
         Me.lblUserName = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtPassw = New System.Windows.Forms.TextBox()
         Me.lblPassw = New System.Windows.Forms.Label()
         Me.txtPass = New System.Windows.Forms.TextBox()
@@ -92,9 +92,9 @@ Partial Class Register
         Me.lblSurname.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSurname.Location = New System.Drawing.Point(522, 264)
         Me.lblSurname.Name = "lblSurname"
-        Me.lblSurname.Size = New System.Drawing.Size(123, 32)
+        Me.lblSurname.Size = New System.Drawing.Size(110, 32)
         Me.lblSurname.TabIndex = 2
-        Me.lblSurname.Text = "Surname"
+        Me.lblSurname.Text = "ID Num"
         '
         'txtEmail
         '
@@ -171,16 +171,6 @@ Partial Class Register
         Me.Panel1.Size = New System.Drawing.Size(1114, 177)
         Me.Panel1.TabIndex = 12
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(160, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(113, 32)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Register"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -190,6 +180,16 @@ Partial Class Register
         Me.Label7.Size = New System.Drawing.Size(72, 32)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Here"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(160, 74)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(113, 32)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Register"
         '
         'txtPassw
         '

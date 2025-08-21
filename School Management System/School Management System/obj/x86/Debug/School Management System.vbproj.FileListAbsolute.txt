@@ -29,3 +29,6 @@ C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Manage
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.MainMenu.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Students.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Teachers.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Dashboard.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Departments.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Fees.resources
