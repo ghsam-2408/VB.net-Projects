@@ -17,9 +17,8 @@
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+    Private Sub btnClose_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnClose.Click
         Me.Close()
-
 
     End Sub
 
@@ -32,6 +31,11 @@
             Me.Close()
 
         End If
+
+    End Sub
+
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+        Students.Show()
 
     End Sub
 End Class

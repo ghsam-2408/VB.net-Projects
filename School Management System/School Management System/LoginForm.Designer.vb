@@ -36,19 +36,21 @@ Partial Class LoginForm
         Me.btnSignUp = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.picOpenEye = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.picClosedEye = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picOpenEye, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picClosedEye, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -170,15 +172,16 @@ Partial Class LoginForm
         Me.PictureBox3.TabIndex = 10
         Me.PictureBox3.TabStop = False
         '
-        'PictureBox4
+        'picOpenEye
         '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(997, 419)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(66, 40)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 11
-        Me.PictureBox4.TabStop = False
+        Me.picOpenEye.BackColor = System.Drawing.Color.White
+        Me.picOpenEye.Image = CType(resources.GetObject("picOpenEye.Image"), System.Drawing.Image)
+        Me.picOpenEye.Location = New System.Drawing.Point(997, 419)
+        Me.picOpenEye.Name = "picOpenEye"
+        Me.picOpenEye.Size = New System.Drawing.Size(66, 40)
+        Me.picOpenEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picOpenEye.TabIndex = 11
+        Me.picOpenEye.TabStop = False
         '
         'Panel2
         '
@@ -210,14 +213,26 @@ Partial Class LoginForm
         Me.btnClose.TabIndex = 25
         Me.btnClose.TabStop = False
         '
+        'picClosedEye
+        '
+        Me.picClosedEye.BackColor = System.Drawing.Color.White
+        Me.picClosedEye.Image = CType(resources.GetObject("picClosedEye.Image"), System.Drawing.Image)
+        Me.picClosedEye.Location = New System.Drawing.Point(997, 419)
+        Me.picClosedEye.Name = "picClosedEye"
+        Me.picClosedEye.Size = New System.Drawing.Size(66, 40)
+        Me.picClosedEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picClosedEye.TabIndex = 13
+        Me.picClosedEye.TabStop = False
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1116, 822)
+        Me.Controls.Add(Me.picClosedEye)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.picOpenEye)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.btnSignUp)
@@ -237,10 +252,11 @@ Partial Class LoginForm
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picOpenEye, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picClosedEye, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -257,10 +273,11 @@ Partial Class LoginForm
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents picOpenEye As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btnMinimize As System.Windows.Forms.PictureBox
     Friend WithEvents btnClose As System.Windows.Forms.PictureBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents picClosedEye As System.Windows.Forms.PictureBox
 
 End Class
