@@ -124,6 +124,7 @@ Public Class Students
 
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
+        Me.Show()
 
     End Sub
 
@@ -163,9 +164,9 @@ Public Class Students
 
                 ' Check if insertion was successful
                 If rowsAffected > 0 Then
-                    MessageBox.Show("Record inserted successfully!")
+                    MsgBox("Recorded successfully!", MsgBoxStyle.Information, "Success")
                 Else
-                    MessageBox.Show("Failed to insert record.")
+                    MsgBox("Failed to insert record.", MsgBoxStyle.Critical, "Error")
                 End If
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)

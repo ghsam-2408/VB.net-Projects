@@ -58,15 +58,10 @@ Partial Class Fees
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnPay = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.btnReceipt = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.School_ManagementDataSet3 = New School_Management_System.School_ManagementDataSet3()
-        Me.FeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FeesTableAdapter = New School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
         Me.StudentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FeeTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AmountPaidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -75,6 +70,10 @@ Partial Class Fees
         Me.PaymentMethodDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReceiptNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.School_ManagementDataSet3 = New School_Management_System.School_ManagementDataSet3()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FeesTableAdapter = New School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,11 +86,10 @@ Partial Class Fees
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'paymentDate
@@ -170,6 +168,7 @@ Partial Class Fees
         '
         'Panel1
         '
+        Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Panel1.Controls.Add(Me.txtForm)
         Me.Panel1.Controls.Add(Me.paymentMethod)
@@ -317,7 +316,7 @@ Partial Class Fees
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(433, 8)
+        Me.Label9.Location = New System.Drawing.Point(603, 5)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(191, 32)
         Me.Label9.TabIndex = 16
@@ -340,7 +339,7 @@ Partial Class Fees
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(389, 1)
+        Me.PictureBox6.Location = New System.Drawing.Point(559, -2)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(47, 46)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -433,7 +432,6 @@ Partial Class Fees
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.PictureBox8)
         Me.Panel3.Controls.Add(Me.btnReceipt)
         Me.Panel3.Controls.Add(Me.PictureBox4)
         Me.Panel3.Controls.Add(Me.PictureBox3)
@@ -448,24 +446,15 @@ Partial Class Fees
         Me.Panel3.Size = New System.Drawing.Size(210, 533)
         Me.Panel3.TabIndex = 34
         '
-        'PictureBox8
-        '
-        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(18, 316)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(47, 46)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox8.TabIndex = 9
-        Me.PictureBox8.TabStop = False
-        '
         'btnReceipt
         '
         Me.btnReceipt.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar
-        Me.btnReceipt.BackColor = System.Drawing.Color.Yellow
+        Me.btnReceipt.AutoSize = True
+        Me.btnReceipt.BackColor = System.Drawing.Color.PaleGreen
         Me.btnReceipt.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReceipt.Location = New System.Drawing.Point(71, 303)
+        Me.btnReceipt.Location = New System.Drawing.Point(10, 292)
         Me.btnReceipt.Name = "btnReceipt"
-        Me.btnReceipt.Size = New System.Drawing.Size(125, 73)
+        Me.btnReceipt.Size = New System.Drawing.Size(184, 73)
         Me.btnReceipt.TabIndex = 7
         Me.btnReceipt.Text = "Print Receipt"
         Me.btnReceipt.UseVisualStyleBackColor = False
@@ -502,20 +491,6 @@ Partial Class Fees
         Me.DataGridView1.RowTemplate.Height = 28
         Me.DataGridView1.Size = New System.Drawing.Size(1432, 347)
         Me.DataGridView1.TabIndex = 37
-        '
-        'School_ManagementDataSet3
-        '
-        Me.School_ManagementDataSet3.DataSetName = "School_ManagementDataSet3"
-        Me.School_ManagementDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FeesBindingSource
-        '
-        Me.FeesBindingSource.DataMember = "Fees"
-        Me.FeesBindingSource.DataSource = Me.School_ManagementDataSet3
-        '
-        'FeesTableAdapter
-        '
-        Me.FeesTableAdapter.ClearBeforeFill = True
         '
         'StudentIDDataGridViewTextBoxColumn
         '
@@ -573,6 +548,20 @@ Partial Class Fees
         Me.DepartmentDataGridViewTextBoxColumn.HeaderText = "Department"
         Me.DepartmentDataGridViewTextBoxColumn.Name = "DepartmentDataGridViewTextBoxColumn"
         '
+        'FeesBindingSource
+        '
+        Me.FeesBindingSource.DataMember = "Fees"
+        Me.FeesBindingSource.DataSource = Me.School_ManagementDataSet3
+        '
+        'School_ManagementDataSet3
+        '
+        Me.School_ManagementDataSet3.DataSetName = "School_ManagementDataSet3"
+        Me.School_ManagementDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FeesTableAdapter
+        '
+        Me.FeesTableAdapter.ClearBeforeFill = True
+        '
         'Fees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -603,13 +592,14 @@ Partial Class Fees
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents paymentDate As System.Windows.Forms.DateTimePicker
@@ -643,7 +633,6 @@ Partial Class Fees
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnPay As System.Windows.Forms.Button
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
     Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents btnReceipt As System.Windows.Forms.Button
     Friend WithEvents txtDepartment As System.Windows.Forms.TextBox

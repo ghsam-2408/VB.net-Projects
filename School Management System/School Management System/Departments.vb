@@ -116,6 +116,8 @@ Public Class Departments
 
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
+        Me.Close()
+
     End Sub
 
     Private Sub Departments_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

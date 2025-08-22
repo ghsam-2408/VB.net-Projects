@@ -150,5 +150,7 @@ Public Class Teachers
 
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
+        Me.Close()
+
     End Sub
 End Class

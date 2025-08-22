@@ -25,6 +25,7 @@ Partial Class Students
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Students))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btnFullscreen = New System.Windows.Forms.PictureBox()
         Me.btnHome = New System.Windows.Forms.PictureBox()
@@ -63,9 +64,6 @@ Partial Class Students
         Me.profilepic = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.School_ManagementDataSet2 = New School_Management_System.School_ManagementDataSet2()
-        Me.StudentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
         Me.StudentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StudentNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateofBirthDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -75,7 +73,13 @@ Partial Class Students
         Me.FormDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubjectsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.School_ManagementDataSet2 = New School_Management_System.School_ManagementDataSet2()
+        Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,13 +92,14 @@ Partial Class Students
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.profilepic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StudentsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.btnFullscreen)
         Me.Panel2.Controls.Add(Me.btnHome)
@@ -105,11 +110,21 @@ Partial Class Students
         Me.Panel2.Size = New System.Drawing.Size(1420, 52)
         Me.Panel2.TabIndex = 26
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(562, 3)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(47, 46)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 7
+        Me.PictureBox5.TabStop = False
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(396, 7)
+        Me.Label9.Location = New System.Drawing.Point(605, 7)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(271, 32)
         Me.Label9.TabIndex = 16
@@ -157,6 +172,7 @@ Partial Class Students
         '
         'Panel1
         '
+        Me.Panel1.AutoSize = True
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Panel1.Controls.Add(Me.txtGender)
         Me.Panel1.Controls.Add(Me.txtDOB)
@@ -442,7 +458,7 @@ Partial Class Students
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(125, 46)
         Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "Save"
+        Me.btnSave.Text = "Register"
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
@@ -481,20 +497,6 @@ Partial Class Students
         Me.DataGridView1.RowTemplate.Height = 28
         Me.DataGridView1.Size = New System.Drawing.Size(1411, 311)
         Me.DataGridView1.TabIndex = 28
-        '
-        'School_ManagementDataSet2
-        '
-        Me.School_ManagementDataSet2.DataSetName = "School_ManagementDataSet2"
-        Me.School_ManagementDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StudentsBindingSource
-        '
-        Me.StudentsBindingSource.DataMember = "Students"
-        Me.StudentsBindingSource.DataSource = Me.School_ManagementDataSet2
-        '
-        'StudentsTableAdapter
-        '
-        Me.StudentsTableAdapter.ClearBeforeFill = True
         '
         'StudentIDDataGridViewTextBoxColumn
         '
@@ -559,6 +561,39 @@ Partial Class Students
         Me.SubjectsDataGridViewTextBoxColumn.HeaderText = "Subjects"
         Me.SubjectsDataGridViewTextBoxColumn.Name = "SubjectsDataGridViewTextBoxColumn"
         '
+        'StudentsBindingSource
+        '
+        Me.StudentsBindingSource.DataMember = "Students"
+        Me.StudentsBindingSource.DataSource = Me.School_ManagementDataSet2
+        '
+        'School_ManagementDataSet2
+        '
+        Me.School_ManagementDataSet2.DataSetName = "School_ManagementDataSet2"
+        Me.School_ManagementDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StudentsTableAdapter
+        '
+        Me.StudentsTableAdapter.ClearBeforeFill = True
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(1284, 602)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(125, 46)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Search"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(899, 606)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(388, 40)
+        Me.txtSearch.TabIndex = 21
+        '
         'Students
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -566,6 +601,8 @@ Partial Class Students
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1525, 1017)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.profilepic)
         Me.Controls.Add(Me.btnUploadImg)
@@ -577,6 +614,7 @@ Partial Class Students
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
@@ -590,9 +628,10 @@ Partial Class Students
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.profilepic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StudentsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
@@ -646,4 +685,7 @@ Partial Class Students
     Friend WithEvents FormDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SubjectsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
 End Class

@@ -95,7 +95,7 @@ Public Class Fees
 
                 ' Check if insertion was successful
                 If rowsAffected > 0 Then
-                    MessageBox.Show("Record inserted successfully!")
+                    MsgBox("Recorded successfully!", MsgBoxStyle.Information, "Success")
                 Else
                     MessageBox.Show("Failed to insert record.")
                 End If
@@ -190,5 +190,7 @@ Public Class Fees
 
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
+        Me.Close()
+
     End Sub
 End Class

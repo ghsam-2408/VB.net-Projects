@@ -41,6 +41,7 @@
 
     Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStudentsb.Click
         Students.Show()
+        Me.Close()
 
     End Sub
 
@@ -52,5 +53,29 @@
             Me.FormBorderStyle = FormBorderStyle.Sizable
             Me.WindowState = FormWindowState.Normal
         End If
+    End Sub
+
+    Private Sub btnStaff_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStaff.Click
+        Teachers.Show()
+        Me.Close()
+
+    End Sub
+
+    Private Sub btnFeess_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFeess.Click
+        Fees.Show()
+        Me.Close()
+
+    End Sub
+
+    Private Sub btnDepartm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDepartm.Click
+        Departments.Show()
+        Me.Close()
+
+    End Sub
+
+    Private Sub btnDash_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDash.Click
+        Dashboard.Show()
+        Me.Close()
+
     End Sub
 End Class

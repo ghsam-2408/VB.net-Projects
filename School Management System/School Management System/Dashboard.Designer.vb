@@ -373,9 +373,9 @@ Partial Class Dashboard
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(3, 50)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(115, 29)
+        Me.Label5.Size = New System.Drawing.Size(116, 29)
         Me.Label5.TabIndex = 34
-        Me.Label5.Text = "Students"
+        Me.Label5.Text = "Analytics"
         '
         'Panel8
         '
@@ -550,6 +550,7 @@ Partial Class Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1481, 905)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Panel11)

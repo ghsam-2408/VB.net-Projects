@@ -73,6 +73,8 @@ Public Class LoginForm
         txtPassw.Clear()
         txtUsername.Clear()
         txtUsername.Focus()
+        MainMenu.Show()
+
 
     End Sub
 
