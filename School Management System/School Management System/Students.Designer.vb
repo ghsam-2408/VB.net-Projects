@@ -72,8 +72,8 @@ Partial Class Students
         Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubjectsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StudentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.School_ManagementDataSet2 = New School_Management_System.School_ManagementDataSet2()
-        Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
+        Me.School_ManagementDataSet2 = New School_Management_Systems.School_ManagementDataSet2()
+        Me.StudentsTableAdapter = New School_Management_Systems.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
@@ -671,9 +671,9 @@ Partial Class Students
     Friend WithEvents txtSubjects As System.Windows.Forms.RichTextBox
     Friend WithEvents txtGender As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents School_ManagementDataSet2 As School_Management_System.School_ManagementDataSet2
+    Friend WithEvents School_ManagementDataSet2 As School_Management_Systems.School_ManagementDataSet2
     Friend WithEvents StudentsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents StudentsTableAdapter As School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter
+    Friend WithEvents StudentsTableAdapter As School_Management_Systems.School_ManagementDataSet2TableAdapters.StudentsTableAdapter
     Friend WithEvents StudentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents StudentNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DateofBirthDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn

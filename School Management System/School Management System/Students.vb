@@ -303,9 +303,4 @@ Public Class Students
             mycon.Close()
         End Try
     End Sub
-
-
-    Private Sub txtForm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtForm.TextChanged
-
-    End Sub
 End Class

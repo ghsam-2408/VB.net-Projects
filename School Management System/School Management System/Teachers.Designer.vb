@@ -57,10 +57,10 @@ Partial Class Teachers
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.School_ManagementDataSet = New School_Management_System.School_ManagementDataSet()
-        Me.School_ManagementDataSet1 = New School_Management_System.School_ManagementDataSet1()
+        Me.School_ManagementDataSet = New School_Management_Systems.School_ManagementDataSet()
+        Me.School_ManagementDataSet1 = New School_Management_Systems.School_ManagementDataSet1()
         Me.TeachersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TeachersTableAdapter = New School_Management_System.School_ManagementDataSet1TableAdapters.TeachersTableAdapter()
+        Me.TeachersTableAdapter = New School_Management_Systems.School_ManagementDataSet1TableAdapters.TeachersTableAdapter()
         Me.EmployeeIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FullNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.JobTitleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -555,10 +555,10 @@ Partial Class Teachers
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents txtSubjectsTaught As System.Windows.Forms.RichTextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents School_ManagementDataSet As School_Management_System.School_ManagementDataSet
-    Friend WithEvents School_ManagementDataSet1 As School_Management_System.School_ManagementDataSet1
+    Friend WithEvents School_ManagementDataSet As School_Management_Systems.School_ManagementDataSet
+    Friend WithEvents School_ManagementDataSet1 As School_Management_Systems.School_ManagementDataSet1
     Friend WithEvents TeachersBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TeachersTableAdapter As School_Management_System.School_ManagementDataSet1TableAdapters.TeachersTableAdapter
+    Friend WithEvents TeachersTableAdapter As School_Management_Systems.School_ManagementDataSet1TableAdapters.TeachersTableAdapter
     Friend WithEvents EmployeeIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FullNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents JobTitleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn

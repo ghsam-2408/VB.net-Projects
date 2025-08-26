@@ -19,18 +19,18 @@ C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Manage
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.exe
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.pdb
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.xml
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.LoginForm.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Resources.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.SplashScreen.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.vbproj.GenerateResource.Cache
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.exe.manifest
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School Management System.application
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Register.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.MainMenu.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Students.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Teachers.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Dashboard.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Departments.resources
-C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_System.Fees.resources
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School_Management.accdb
 C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\bin\Debug\School Management System.exe.config
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Dashboard.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Departments.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Fees.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.LoginForm.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.MainMenu.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Resources.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Register.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.SplashScreen.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Students.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\School Management System\School Management System\obj\x86\Debug\School_Management_Systems.Teachers.resources

@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{03D3C3C9-D8B8-495A-BFCC-F08CF5B1CA3A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>School_Management_System.My.MyApplication</StartupObject>
-    <RootNamespace>School_Management_System</RootNamespace>
+    <StartupObject>School_Management_Systems.My.MyApplication</StartupObject>
+    <RootNamespace>School_Management_Systems</RootNamespace>
     <AssemblyName>School Management System</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>

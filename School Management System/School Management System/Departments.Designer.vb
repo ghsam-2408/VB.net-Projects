@@ -55,11 +55,11 @@ Partial Class Departments
         Me.HODDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DepartmentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.School_ManagementDataSet4 = New School_Management_System.School_ManagementDataSet4()
+        Me.School_ManagementDataSet4 = New School_Management_Systems.School_ManagementDataSet4()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.DepartmentsTableAdapter = New School_Management_System.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter()
+        Me.DepartmentsTableAdapter = New School_Management_Systems.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -478,9 +478,9 @@ Partial Class Departments
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents txtDescription As System.Windows.Forms.RichTextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents School_ManagementDataSet4 As School_Management_System.School_ManagementDataSet4
+    Friend WithEvents School_ManagementDataSet4 As School_Management_Systems.School_ManagementDataSet4
     Friend WithEvents DepartmentsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DepartmentsTableAdapter As School_Management_System.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter
+    Friend WithEvents DepartmentsTableAdapter As School_Management_Systems.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter
     Friend WithEvents DepartmentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DepartmentNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HODDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn

@@ -71,9 +71,9 @@ Partial Class Fees
         Me.ReceiptNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.School_ManagementDataSet3 = New School_Management_System.School_ManagementDataSet3()
+        Me.School_ManagementDataSet3 = New School_Management_Systems.School_ManagementDataSet3()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FeesTableAdapter = New School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
+        Me.FeesTableAdapter = New School_Management_Systems.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -641,9 +641,9 @@ Partial Class Fees
     Friend WithEvents paymentMethod As System.Windows.Forms.ComboBox
     Friend WithEvents txtForm As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents School_ManagementDataSet3 As School_Management_System.School_ManagementDataSet3
+    Friend WithEvents School_ManagementDataSet3 As School_Management_Systems.School_ManagementDataSet3
     Friend WithEvents FeesBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents FeesTableAdapter As School_Management_System.School_ManagementDataSet3TableAdapters.FeesTableAdapter
+    Friend WithEvents FeesTableAdapter As School_Management_Systems.School_ManagementDataSet3TableAdapters.FeesTableAdapter
     Friend WithEvents StudentIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FeeTypeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AmountPaidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn

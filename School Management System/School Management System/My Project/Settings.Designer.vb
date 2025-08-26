@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("My.Settings.Language = ""English"""&Global.Microsoft.VisualBasic.ChrW(10))>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("My.Settings.Language = ""English"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
         Public Property Setting() As String
             Get
                 Return CType(Me("Setting"),String)
@@ -87,9 +87,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.School_Management_System.My.MySettings
+        Friend ReadOnly Property Settings() As Global.School_Management_Systems.My.MySettings
             Get
-                Return Global.School_Management_System.My.MySettings.Default
+                Return Global.School_Management_Systems.My.MySettings.Default
             End Get
         End Property
     End Module

@@ -55,7 +55,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>G5ehJ9b69J0SCjrKsw2+T6ZzV48=</dsig:DigestValue>
+        <dsig:DigestValue>PKEKKcGkgml7MUJpYjPgFHxqyh8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -68,13 +68,13 @@
       <dsig:DigestValue>n1CVqhuY6fsVvdmZdP2m5RFUjL4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="School Management System.exe.config" size="2420">
+  <file name="School Management System.exe.config" size="2424">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>krAOs8WU+ZB95w5aJm3nPwePuEA=</dsig:DigestValue>
+      <dsig:DigestValue>qiO9MCT0qBNeSQjn+lm/Ovde5kE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="School_Management.accdb" size="1015808">
