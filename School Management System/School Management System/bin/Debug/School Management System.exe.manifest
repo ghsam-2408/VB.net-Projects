@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="School Management System.exe" size="1612800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="School Management System.exe" size="1613824">
       <assemblyIdentity name="School Management System" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>QscGP705rFRDMqYkU3pvrj4isIs=</dsig:DigestValue>
+        <dsig:DigestValue>aHMJIjg2R8hVZFB5wTgqf4HtO5k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

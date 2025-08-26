@@ -7,7 +7,7 @@ Public Class LoginForm
     Private Sub btnSignUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignUp.Click
 
         Register.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 
@@ -44,39 +44,42 @@ Public Class LoginForm
     End Sub
 
     Private Sub btnLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
-
         Try
-            mycon.Open()
-
-            Dim mycmd As New OleDbCommand("SELECT COUNT(*) FROM Register WHERE Username = ? AND [Password] = ?", mycon)
-            mycmd.Parameters.AddWithValue("?", txtUsername.Text)
-            mycmd.Parameters.AddWithValue("?", txtPassw.Text)
-
-            ' Use ExecuteScalar to return a single value (count)
-            Dim count As Integer = Convert.ToInt32(mycmd.ExecuteScalar())
-
-            If count > 0 Then
-                MsgBox("Login successful!", MsgBoxStyle.Information, "Success")
+            ' ✅ First check default username & password
+            If txtUsername.Text = "tadiwa" AndAlso txtPassw.Text = "mushawatu" Then
+                MsgBox("Login successful! (Default account)", MsgBoxStyle.Information, "Success")
                 MainMenu.Show()
                 Me.Hide()
             Else
-                MsgBox("Invalid Username or Password!", MsgBoxStyle.Exclamation)
+                ' Otherwise, check database
+                mycon.Open()
+                Dim mycmd As New OleDbCommand("SELECT COUNT(*) FROM Register WHERE Username = ? AND [Password] = ?", mycon)
+                mycmd.Parameters.AddWithValue("?", txtUsername.Text)
+                mycmd.Parameters.AddWithValue("?", txtPassw.Text)
+
+                Dim count As Integer = Convert.ToInt32(mycmd.ExecuteScalar())
+
+                If count > 0 Then
+                    MsgBox("Login successful!", MsgBoxStyle.Information, "Success")
+                    MainMenu.Show()
+                    Me.Hide()
+                Else
+                    MsgBox("Invalid Username or Password!", MsgBoxStyle.Exclamation)
+                End If
             End If
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally
-            mycon.Close()
+            If mycon.State = ConnectionState.Open Then mycon.Close()
         End Try
 
-
+        ' Clear fields only after processing
         txtPassw.Clear()
         txtUsername.Clear()
         txtUsername.Focus()
-        MainMenu.Show()
-
-
     End Sub
+
 
 
     Private Sub picClosedEye_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles picClosedEye.Click

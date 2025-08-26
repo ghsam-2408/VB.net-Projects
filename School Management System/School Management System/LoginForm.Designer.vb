@@ -43,6 +43,7 @@ Partial Class LoginForm
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.picClosedEye = New System.Windows.Forms.PictureBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -237,6 +238,16 @@ Partial Class LoginForm
         Me.picClosedEye.TabIndex = 13
         Me.picClosedEye.TabStop = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 14.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(357, 151)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(758, 32)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Use username ""tadiwa""  and password  ""mushawatu"" or signup"
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -244,6 +255,7 @@ Partial Class LoginForm
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1116, 822)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.picClosedEye)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.picOpenEye)
@@ -295,5 +307,6 @@ Partial Class LoginForm
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents picClosedEye As System.Windows.Forms.PictureBox
     Friend WithEvents btnFullscreen As System.Windows.Forms.PictureBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 
 End Class

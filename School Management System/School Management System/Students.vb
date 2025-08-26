@@ -35,12 +35,19 @@ Public Class Students
         End If
 
         ' Validate gender
-        If String.IsNullOrWhiteSpace(txtGender.Text) Then
+        If txtGender.SelectedIndex = -1 Then
             txtGender.BackColor = Color.LightCoral
             isValid = False
         Else
             txtGender.BackColor = Color.White
         End If
+
+        'If String.IsNullOrWhiteSpace(txtGender.Text) Then
+        'txtGender.BackColor = Color.LightCoral
+        'isValid = False
+        'Else
+        'txtGender.BackColor = Color.White
+        'End If
 
         ' Validate phone
         If String.IsNullOrWhiteSpace(txtPhone.Text) Then
@@ -201,16 +208,17 @@ Public Class Students
         End Try
     End Sub
 
-    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs)
+    ' Populate textboxes when a row is clicked
+    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
 
             txtStudentID.Text = row.Cells(0).Value.ToString()
             txtStudentName.Text = row.Cells(1).Value.ToString()
-            txtDOB.Text = row.Cells(2).Value.ToString()
-            txtGender.Text = row.Cells(3).Value.ToString()
+            txtDOB.Value = row.Cells(2).Value.ToString()
+            txtGender.SelectedItem = row.Cells(3).Value.ToString()
             txtPhone.Text = row.Cells(4).Value.ToString()
-            txtAdmissionDate.Text = row.Cells(5).Value.ToString()
+            txtAdmissionDate.Value = row.Cells(5).Value.ToString()
             txtForm.Text = row.Cells(6).Value.ToString()
             txtDepartment.Text = row.Cells(7).Value.ToString()
             txtSubjects.Text = row.Cells(8).Value.ToString()
@@ -289,7 +297,7 @@ Public Class Students
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             mycon.Open()
-            Dim query As String = "SELECT * FROM Departments WHERE Department_ID LIKE ?"
+            Dim query As String = "SELECT * FROM Students WHERE Student_ID LIKE ?"
             Dim da As New OleDbDataAdapter(query, mycon)
             da.SelectCommand.Parameters.AddWithValue("?", "%" & txtSearch.Text & "%")
 
