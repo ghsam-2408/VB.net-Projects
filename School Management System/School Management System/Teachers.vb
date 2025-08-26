@@ -93,6 +93,8 @@ Public Class Teachers
                 ' Check if insertion was successful
                 If rowsAffected > 0 Then
                     MessageBox.Show("Record inserted successfully!")
+                    LoadData()
+
                 Else
                     MessageBox.Show("Failed to insert record.")
                 End If
@@ -125,6 +127,8 @@ Public Class Teachers
     End Sub
 
     Private Sub Teachers_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadData()
+
         'TODO: This line of code loads data into the 'School_ManagementDataSet1.Teachers' table. You can move, or remove it, as needed.
         Me.TeachersTableAdapter.Fill(Me.School_ManagementDataSet1.Teachers)
         'TODO: This line of code loads data into the 'School_ManagementDataSet.Teachers' table. You can move, or remove it, as needed.
@@ -138,7 +142,7 @@ Public Class Teachers
         btnDelete.Cursor = Cursors.Hand
         btnReload.Cursor = Cursors.Hand
         btnUpdate.Cursor = Cursors.Hand
-        
+
 
 
     End Sub
@@ -152,5 +156,115 @@ Public Class Teachers
         MainMenu.Show()
         Me.Close()
 
+    End Sub
+
+    Private Sub btnReload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReload.Click
+        LoadData()
+
+    End Sub
+    ' Load data into DataGridView
+    Private Sub LoadData()
+        Dim da As OleDbDataAdapter
+        Dim dt As DataTable
+        Try
+            mycon.Open()
+            Dim query As String = "SELECT * FROM Departments"
+            da = New OleDbDataAdapter(query, mycon)
+            dt = New DataTable()
+            da.Fill(dt)
+
+            DataGridView1.DataSource = dt
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            mycon.Close()
+        End Try
+    End Sub
+
+
+    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
+        If txtEmployeeID.Text = "" Then
+            MessageBox.Show("Please select a record to delete.")
+            Exit Sub
+        End If
+
+        If MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Try
+                If mycon.State = ConnectionState.Open Then mycon.Close()
+                mycon.Open()
+
+                Dim query As String = "DELETE FROM Students WHERE Student_ID=?"
+                Dim cmd As New OleDbCommand(query, mycon)
+                cmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
+
+                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Record deleted successfully!")
+                    LoadData() ' Refresh grid
+                    ClearFields()
+                Else
+                    MessageBox.Show("Delete failed.")
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Error deleting: " & ex.Message)
+            Finally
+                If mycon.State = ConnectionState.Open Then mycon.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+        Try
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+            mycon.Open()
+
+            Dim query As String = "UPDATE Students SET Employee_ID=?, Full_Name=?, Job_Title=?, Admission_Date=?, Phone=?, Department=?, Subjects_Taught=? WHERE Employee_ID=?"
+            Dim cmd As New OleDbCommand(query, mycon)
+
+            cmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
+            cmd.Parameters.AddWithValue("?", txtFullName.Text)
+            cmd.Parameters.AddWithValue("?", txtJobTitle.Text)
+            cmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
+            cmd.Parameters.AddWithValue("?", txtAdmissionDate.Value)
+            cmd.Parameters.AddWithValue("?", Convert.ToInt32(txtPhone.Text))
+            cmd.Parameters.AddWithValue("?", txtDepartment.Text)
+            cmd.Parameters.AddWithValue("?", txtSubjectsTaught.Text)
+
+
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+            If rowsAffected > 0 Then
+                MessageBox.Show("Record updated successfully!")
+                LoadData() ' Refresh grid
+            Else
+                MessageBox.Show("Update failed.")
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error updating: " & ex.Message)
+        Finally
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+        End Try
+    End Sub
+
+    ' Populate textboxes when a row is clicked
+    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+
+            txtEmployeeID.Text = row.Cells(0).Value.ToString()
+            txtFullName.Text = row.Cells(1).Value.ToString()
+            txtJobTitle.Text = row.Cells(2).Value.ToString()
+            txtAdmissionDate.Text = row.Cells(3).Value.ToString()
+            txtPhone.Text = row.Cells(4).Value.ToString()
+            txtDepartment.Text = row.Cells(5).Value.ToString()
+            txtSubjectsTaught.Text = row.Cells(6).Value.ToString()
+
+
+
+        End If
     End Sub
 End Class

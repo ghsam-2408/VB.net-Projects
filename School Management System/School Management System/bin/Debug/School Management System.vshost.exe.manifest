@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="School Management System.exe" size="1605120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="School Management System.exe" size="1612800">
       <assemblyIdentity name="School Management System" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>272d2eG2o7VIzF5rReQqYDfxED4=</dsig:DigestValue>
+        <dsig:DigestValue>x5KnHX5BrV0e125i9cqYFf5+uP0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -68,13 +68,13 @@
       <dsig:DigestValue>n1CVqhuY6fsVvdmZdP2m5RFUjL4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="School Management System.exe.config" size="2419">
+  <file name="School Management System.exe.config" size="2420">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>pPKNgoeQh/cAbigbsLLH5izsWkA=</dsig:DigestValue>
+      <dsig:DigestValue>krAOs8WU+ZB95w5aJm3nPwePuEA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="School_Management.accdb" size="1015808">

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class Departments
-    
+
     Private cmdBuilder As OleDbCommandBuilder
     Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\School_Management.accdb")
 
@@ -253,6 +253,10 @@ Public Class Departments
 
     Private Sub btnReload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReload.Click
         LoadData()
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

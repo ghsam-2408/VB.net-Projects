@@ -76,7 +76,7 @@ Partial Class Students
         Me.StudentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.School_ManagementDataSet2 = New School_Management_System.School_ManagementDataSet2()
         Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -575,16 +575,16 @@ Partial Class Students
         '
         Me.StudentsTableAdapter.ClearBeforeFill = True
         '
-        'Button1
+        'btnSearch
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(1284, 602)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(125, 46)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnSearch.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(1284, 602)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(125, 46)
+        Me.btnSearch.TabIndex = 7
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
@@ -602,7 +602,7 @@ Partial Class Students
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1525, 1017)
         Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.profilepic)
         Me.Controls.Add(Me.btnUploadImg)
@@ -685,7 +685,7 @@ Partial Class Students
     Friend WithEvents FormDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SubjectsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
 End Class

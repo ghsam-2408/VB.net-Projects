@@ -96,6 +96,8 @@ Public Class Fees
                 ' Check if insertion was successful
                 If rowsAffected > 0 Then
                     MsgBox("Recorded successfully!", MsgBoxStyle.Information, "Success")
+                    LoadData()
+
                 Else
                     MessageBox.Show("Failed to insert record.")
                 End If
@@ -127,6 +129,8 @@ Public Class Fees
     End Sub
 
     Private Sub Fees_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadData()
+
         'TODO: This line of code loads data into the 'School_ManagementDataSet3.Fees' table. You can move, or remove it, as needed.
         Me.FeesTableAdapter.Fill(Me.School_ManagementDataSet3.Fees)
         txtReceiptNumber.Enabled = False
@@ -191,6 +195,139 @@ Public Class Fees
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
         Me.Close()
+
+    End Sub
+
+    Private Sub LoadData()
+        Try
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+            mycon.Open()
+
+            Dim query As String = "SELECT * FROM Fees"
+            Dim da As New OleDbDataAdapter(query, mycon)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+
+            DataGridView1.DataSource = dt
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading data: " & ex.Message)
+        Finally
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+        End Try
+    End Sub
+
+    ' Populate textboxes when a row is clicked
+    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+
+            txtStudentId.Text = row.Cells(0).Value.ToString()
+            txtFeeType.Text = row.Cells(1).Value.ToString()
+            txtAmntPaid.Text = row.Cells(2).Value.ToString()
+            txtForm.Text = row.Cells(3).Value.ToString()
+            paymentDate.Text = row.Cells(4).Value.ToString()
+            paymentMethod.Text = row.Cells(5).Value.ToString()
+            txtReceiptNumber.Text = row.Cells(6).Value.ToString()
+            txtDepartment.Text = row.Cells(7).Value.ToString()
+
+
+
+
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
+        If txtStudentId.Text = "" Then
+            MessageBox.Show("Please select a record to delete.")
+            Exit Sub
+        End If
+
+        If MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            Try
+                If mycon.State = ConnectionState.Open Then mycon.Close()
+                mycon.Open()
+
+                Dim query As String = "DELETE FROM Fees WHERE Receipt_Number=?"
+                Dim cmd As New OleDbCommand(query, mycon)
+                cmd.Parameters.AddWithValue("?", txtReceiptNumber.Text)
+
+                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Record deleted successfully!")
+                    LoadData() ' Refresh grid
+                    ClearFields()
+                Else
+                    MessageBox.Show("Delete failed.")
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Error deleting: " & ex.Message)
+            Finally
+                If mycon.State = ConnectionState.Open Then mycon.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+        Try
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+            mycon.Open()
+
+            Dim query As String = "UPDATE Fees SET Student_ID=?, Fee_Type=?, Amount_Paid=?, Form=?, Payment_Date=?, Payment_Method=?, Receipt_Number=?, Department=? WHERE Receipt_Number=?"
+            Dim cmd As New OleDbCommand(query, mycon)
+
+            cmd.Parameters.AddWithValue("?", txtStudentId.Text)
+            cmd.Parameters.AddWithValue("?", txtFeeType.Text)
+            cmd.Parameters.AddWithValue("?", txtAmntPaid.Text)
+            cmd.Parameters.AddWithValue("?", txtForm.Text)
+            cmd.Parameters.AddWithValue("?", paymentDate.Text)
+            cmd.Parameters.AddWithValue("?", paymentMethod.Text)
+            cmd.Parameters.AddWithValue("?", txtReceiptNumber.Text)
+            cmd.Parameters.AddWithValue("?", txtDepartment.Text)
+            cmd.Parameters.AddWithValue("?", txtReceiptNumber.Text) ' for WHERE
+
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+            If rowsAffected > 0 Then
+                MessageBox.Show("Record updated successfully!")
+                LoadData() ' Refresh grid
+            Else
+                MessageBox.Show("Update failed.")
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error updating: " & ex.Message)
+        Finally
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+        End Try
+    End Sub
+
+    Private Sub btnReload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReload.Click
+        LoadData()
+
+    End Sub
+
+    Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+        Try
+            mycon.Open()
+            Dim query As String = "SELECT * FROM Fees WHERE Student_ID LIKE ?"
+            Dim da As New OleDbDataAdapter(query, mycon)
+            da.SelectCommand.Parameters.AddWithValue("?", "%" & txtSearch.Text & "%")
+
+            Dim dt As New DataTable()
+            da.Fill(dt)
+            DataGridView1.DataSource = dt
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            mycon.Close()
+        End Try
+    End Sub
+
+    Private Sub btnReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReceipt.Click
 
     End Sub
 End Class
