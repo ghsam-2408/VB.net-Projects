@@ -81,7 +81,7 @@ Public Class Teachers
                 mycmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
                 mycmd.Parameters.AddWithValue("?", txtFullName.Text)
                 mycmd.Parameters.AddWithValue("?", txtJobTitle.Text)
-                mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
+                mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Value)
                 mycmd.Parameters.AddWithValue("?", txtPhone.Text)
                 mycmd.Parameters.AddWithValue("?", txtDepartment.Text)
                 mycmd.Parameters.AddWithValue("?", txtSubjectsTaught.Text)
@@ -93,7 +93,7 @@ Public Class Teachers
                 ' Check if insertion was successful
                 If rowsAffected > 0 Then
                     MessageBox.Show("Record inserted successfully!")
-                    LoadData()
+                    'LoadData()
 
                 Else
                     MessageBox.Show("Failed to insert record.")
@@ -105,6 +105,8 @@ Public Class Teachers
                 If mycon.State = ConnectionState.Open Then
                     mycon.Close()
                 End If
+                LoadData()
+
             End Try
         End If
 
@@ -168,7 +170,7 @@ Public Class Teachers
         Dim dt As DataTable
         Try
             mycon.Open()
-            Dim query As String = "SELECT * FROM Departments"
+            Dim query As String = "SELECT * FROM Teachers"
             da = New OleDbDataAdapter(query, mycon)
             dt = New DataTable()
             da.Fill(dt)
@@ -194,7 +196,7 @@ Public Class Teachers
                 If mycon.State = ConnectionState.Open Then mycon.Close()
                 mycon.Open()
 
-                Dim query As String = "DELETE FROM Students WHERE Student_ID=?"
+                Dim query As String = "DELETE FROM Teachers WHERE Employee_ID=?"
                 Dim cmd As New OleDbCommand(query, mycon)
                 cmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
 
@@ -202,8 +204,7 @@ Public Class Teachers
 
                 If rowsAffected > 0 Then
                     MessageBox.Show("Record deleted successfully!")
-                    LoadData() ' Refresh grid
-                    ClearFields()
+                    
                 Else
                     MessageBox.Show("Delete failed.")
                 End If
@@ -211,7 +212,13 @@ Public Class Teachers
             Catch ex As Exception
                 MessageBox.Show("Error deleting: " & ex.Message)
             Finally
-                If mycon.State = ConnectionState.Open Then mycon.Close()
+                If mycon.State = ConnectionState.Open Then
+                    mycon.Close()
+                End If
+                LoadData()
+
+                ClearFields()
+
             End Try
         End If
     End Sub
@@ -221,24 +228,25 @@ Public Class Teachers
             If mycon.State = ConnectionState.Open Then mycon.Close()
             mycon.Open()
 
-            Dim query As String = "UPDATE Students SET Employee_ID=?, Full_Name=?, Job_Title=?, Admission_Date=?, Phone=?, Department=?, Subjects_Taught=? WHERE Employee_ID=?"
+            Dim query As String = "UPDATE Teachers SET Employee_ID=?, Full_Name=?, Job_Title=?, Admission_Date=?, Phone=?, Department=?, Subjects_Taught=? WHERE Employee_ID=?"
             Dim cmd As New OleDbCommand(query, mycon)
 
             cmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
             cmd.Parameters.AddWithValue("?", txtFullName.Text)
             cmd.Parameters.AddWithValue("?", txtJobTitle.Text)
-            cmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
             cmd.Parameters.AddWithValue("?", txtAdmissionDate.Value)
+            'cmd.Parameters.AddWithValue("?", txtPhone.Text)
             cmd.Parameters.AddWithValue("?", Convert.ToInt32(txtPhone.Text))
             cmd.Parameters.AddWithValue("?", txtDepartment.Text)
             cmd.Parameters.AddWithValue("?", txtSubjectsTaught.Text)
+            cmd.Parameters.AddWithValue("?", txtEmployeeID.Text)
+
 
 
             Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
             If rowsAffected > 0 Then
                 MessageBox.Show("Record updated successfully!")
-                LoadData() ' Refresh grid
             Else
                 MessageBox.Show("Update failed.")
             End If
@@ -246,7 +254,12 @@ Public Class Teachers
         Catch ex As Exception
             MessageBox.Show("Error updating: " & ex.Message)
         Finally
-            If mycon.State = ConnectionState.Open Then mycon.Close()
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+
+            End If
+            LoadData()
+
         End Try
     End Sub
 
