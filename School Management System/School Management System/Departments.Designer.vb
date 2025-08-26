@@ -60,6 +60,7 @@ Partial Class Departments
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.DepartmentsTableAdapter = New School_Management_Systems.School_ManagementDataSet4TableAdapters.DepartmentsTableAdapter()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -318,6 +319,7 @@ Partial Class Departments
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.PictureBox6)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.PictureBox5)
@@ -412,6 +414,16 @@ Partial Class Departments
         '
         Me.DepartmentsTableAdapter.ClearBeforeFill = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(62, 17)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(149, 32)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "MainMenu"
+        '
         'Departments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -485,4 +497,5 @@ Partial Class Departments
     Friend WithEvents DepartmentNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HODDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

@@ -328,6 +328,12 @@ Public Class Fees
     End Sub
 
     Private Sub btnReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReceipt.Click
+        MsgBox("Receipt Printed Successfully", MsgBoxStyle.Information, "Success")
+    End Sub
+
+    Private Sub Label10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label10.Click
+        MainMenu.Show()
+        Me.Close()
 
     End Sub
 End Class

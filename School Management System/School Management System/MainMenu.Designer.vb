@@ -272,7 +272,7 @@ Partial Class MainMenu
         'btnClose
         '
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
-        Me.btnClose.Location = New System.Drawing.Point(1003, 0)
+        Me.btnClose.Location = New System.Drawing.Point(1364, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(100, 50)
         Me.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -282,7 +282,7 @@ Partial Class MainMenu
         'btnMinimize
         '
         Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
-        Me.btnMinimize.Location = New System.Drawing.Point(794, 3)
+        Me.btnMinimize.Location = New System.Drawing.Point(1155, 3)
         Me.btnMinimize.Name = "btnMinimize"
         Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
         Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -297,13 +297,13 @@ Partial Class MainMenu
         Me.Panel2.Controls.Add(Me.btnClose)
         Me.Panel2.Location = New System.Drawing.Point(1, 1)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1094, 52)
+        Me.Panel2.Size = New System.Drawing.Size(1464, 52)
         Me.Panel2.TabIndex = 25
         '
         'btnFullscreen
         '
         Me.btnFullscreen.Image = CType(resources.GetObject("btnFullscreen.Image"), System.Drawing.Image)
-        Me.btnFullscreen.Location = New System.Drawing.Point(900, 3)
+        Me.btnFullscreen.Location = New System.Drawing.Point(1261, 3)
         Me.btnFullscreen.Name = "btnFullscreen"
         Me.btnFullscreen.Size = New System.Drawing.Size(97, 44)
         Me.btnFullscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -323,7 +323,7 @@ Partial Class MainMenu
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
         Me.PictureBox7.Location = New System.Drawing.Point(439, 174)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(665, 464)
+        Me.PictureBox7.Size = New System.Drawing.Size(1015, 679)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox7.TabIndex = 28
         Me.PictureBox7.TabStop = False
@@ -332,14 +332,16 @@ Partial Class MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1116, 822)
+        Me.ClientSize = New System.Drawing.Size(1466, 883)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "MainMenu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MainMenu"
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)

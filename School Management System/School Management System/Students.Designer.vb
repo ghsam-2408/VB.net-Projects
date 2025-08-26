@@ -33,8 +33,10 @@ Partial Class Students
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtGender = New System.Windows.Forms.ComboBox()
+        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
         Me.txtSubjects = New System.Windows.Forms.RichTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
         Me.txtDepartment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtForm = New System.Windows.Forms.TextBox()
@@ -76,8 +78,7 @@ Partial Class Students
         Me.StudentsTableAdapter = New School_Management_Systems.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
-        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,6 +100,7 @@ Partial Class Students
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.btnFullscreen)
@@ -208,6 +210,14 @@ Partial Class Students
         Me.txtGender.Size = New System.Drawing.Size(230, 40)
         Me.txtGender.TabIndex = 20
         '
+        'txtDOB
+        '
+        Me.txtDOB.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDOB.Location = New System.Drawing.Point(9, 287)
+        Me.txtDOB.Name = "txtDOB"
+        Me.txtDOB.Size = New System.Drawing.Size(345, 33)
+        Me.txtDOB.TabIndex = 19
+        '
         'txtSubjects
         '
         Me.txtSubjects.Location = New System.Drawing.Point(896, 47)
@@ -225,6 +235,14 @@ Partial Class Students
         Me.Label10.Size = New System.Drawing.Size(116, 32)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Subjects"
+        '
+        'txtAdmissionDate
+        '
+        Me.txtAdmissionDate.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAdmissionDate.Location = New System.Drawing.Point(502, 186)
+        Me.txtAdmissionDate.Name = "txtAdmissionDate"
+        Me.txtAdmissionDate.Size = New System.Drawing.Size(345, 33)
+        Me.txtAdmissionDate.TabIndex = 16
         '
         'txtDepartment
         '
@@ -578,21 +596,15 @@ Partial Class Students
         Me.txtSearch.Size = New System.Drawing.Size(388, 40)
         Me.txtSearch.TabIndex = 21
         '
-        'txtAdmissionDate
+        'Label11
         '
-        Me.txtAdmissionDate.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAdmissionDate.Location = New System.Drawing.Point(502, 186)
-        Me.txtAdmissionDate.Name = "txtAdmissionDate"
-        Me.txtAdmissionDate.Size = New System.Drawing.Size(345, 33)
-        Me.txtAdmissionDate.TabIndex = 16
-        '
-        'txtDOB
-        '
-        Me.txtDOB.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDOB.Location = New System.Drawing.Point(9, 287)
-        Me.txtDOB.Name = "txtDOB"
-        Me.txtDOB.Size = New System.Drawing.Size(345, 33)
-        Me.txtDOB.TabIndex = 19
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(58, 15)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(149, 32)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "MainMenu"
         '
         'Students
         '
@@ -688,4 +700,5 @@ Partial Class Students
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents txtAdmissionDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtDOB As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label11 As System.Windows.Forms.Label
 End Class

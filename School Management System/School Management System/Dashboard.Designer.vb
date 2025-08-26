@@ -27,51 +27,52 @@ Partial Class Dashboard
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.btnFullscreen = New System.Windows.Forms.PictureBox()
         Me.btnHome = New System.Windows.Forms.PictureBox()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDashboard = New System.Windows.Forms.GroupBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnDashboad = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnLogout = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnLoggout = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.panelStudents = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.panelDepartments = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.panelAnalytics = New System.Windows.Forms.Panel()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.panelFees = New System.Windows.Forms.Panel()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.panelStaff = New System.Windows.Forms.Panel()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.panelReports = New System.Windows.Forms.Panel()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,22 +81,22 @@ Partial Class Dashboard
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.btnLogout.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
+        Me.panelStudents.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
-        Me.Panel5.SuspendLayout()
+        Me.panelDepartments.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
-        Me.Panel7.SuspendLayout()
+        Me.panelAnalytics.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
-        Me.Panel9.SuspendLayout()
+        Me.panelFees.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel10.SuspendLayout()
-        Me.Panel11.SuspendLayout()
+        Me.panelStaff.SuspendLayout()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel12.SuspendLayout()
-        Me.Panel13.SuspendLayout()
+        Me.panelReports.SuspendLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel14.SuspendLayout()
         Me.SuspendLayout()
@@ -103,9 +104,10 @@ Partial Class Dashboard
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.PictureBox5)
+        Me.Panel2.Controls.Add(Me.btnFullscreen)
         Me.Panel2.Controls.Add(Me.btnHome)
         Me.Panel2.Controls.Add(Me.btnMinimize)
         Me.Panel2.Controls.Add(Me.btnClose)
@@ -134,15 +136,15 @@ Partial Class Dashboard
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "Dashboard"
         '
-        'PictureBox5
+        'btnFullscreen
         '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(1232, 5)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(97, 44)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 26
-        Me.PictureBox5.TabStop = False
+        Me.btnFullscreen.Image = CType(resources.GetObject("btnFullscreen.Image"), System.Drawing.Image)
+        Me.btnFullscreen.Location = New System.Drawing.Point(1232, 5)
+        Me.btnFullscreen.Name = "btnFullscreen"
+        Me.btnFullscreen.Size = New System.Drawing.Size(97, 44)
+        Me.btnFullscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnFullscreen.TabIndex = 26
+        Me.btnFullscreen.TabStop = False
         '
         'btnHome
         '
@@ -186,7 +188,7 @@ Partial Class Dashboard
         '
         'btnDashboard
         '
-        Me.btnDashboard.Controls.Add(Me.Label2)
+        Me.btnDashboard.Controls.Add(Me.btnDashboad)
         Me.btnDashboard.Controls.Add(Me.PictureBox2)
         Me.btnDashboard.Location = New System.Drawing.Point(15, 43)
         Me.btnDashboard.Name = "btnDashboard"
@@ -194,16 +196,16 @@ Partial Class Dashboard
         Me.btnDashboard.TabIndex = 2
         Me.btnDashboard.TabStop = False
         '
-        'Label2
+        'btnDashboad
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(85, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(184, 37)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Dashboard"
+        Me.btnDashboad.AutoSize = True
+        Me.btnDashboad.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDashboad.ForeColor = System.Drawing.Color.Red
+        Me.btnDashboad.Location = New System.Drawing.Point(85, 22)
+        Me.btnDashboad.Name = "btnDashboad"
+        Me.btnDashboad.Size = New System.Drawing.Size(184, 37)
+        Me.btnDashboad.TabIndex = 1
+        Me.btnDashboad.Text = "Dashboard"
         '
         'PictureBox2
         '
@@ -217,7 +219,7 @@ Partial Class Dashboard
         '
         'btnLogout
         '
-        Me.btnLogout.Controls.Add(Me.Label1)
+        Me.btnLogout.Controls.Add(Me.btnLoggout)
         Me.btnLogout.Controls.Add(Me.PictureBox7)
         Me.btnLogout.Location = New System.Drawing.Point(9, 751)
         Me.btnLogout.Name = "btnLogout"
@@ -225,16 +227,16 @@ Partial Class Dashboard
         Me.btnLogout.TabIndex = 0
         Me.btnLogout.TabStop = False
         '
-        'Label1
+        'btnLoggout
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(85, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(122, 37)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Logout"
+        Me.btnLoggout.AutoSize = True
+        Me.btnLoggout.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLoggout.ForeColor = System.Drawing.Color.Red
+        Me.btnLoggout.Location = New System.Drawing.Point(85, 22)
+        Me.btnLoggout.Name = "btnLoggout"
+        Me.btnLoggout.Size = New System.Drawing.Size(122, 37)
+        Me.btnLoggout.TabIndex = 1
+        Me.btnLoggout.Text = "Logout"
         '
         'PictureBox7
         '
@@ -246,16 +248,16 @@ Partial Class Dashboard
         Me.PictureBox7.TabIndex = 0
         Me.PictureBox7.TabStop = False
         '
-        'Panel3
+        'panelStudents
         '
-        Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel3.Controls.Add(Me.PictureBox3)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.Panel4)
-        Me.Panel3.Location = New System.Drawing.Point(378, 111)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(230, 158)
-        Me.Panel3.TabIndex = 33
+        Me.panelStudents.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelStudents.Controls.Add(Me.PictureBox3)
+        Me.panelStudents.Controls.Add(Me.Label3)
+        Me.panelStudents.Controls.Add(Me.Panel4)
+        Me.panelStudents.Location = New System.Drawing.Point(378, 111)
+        Me.panelStudents.Name = "panelStudents"
+        Me.panelStudents.Size = New System.Drawing.Size(230, 158)
+        Me.panelStudents.TabIndex = 33
         '
         'PictureBox3
         '
@@ -296,16 +298,16 @@ Partial Class Dashboard
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Total:"
         '
-        'Panel5
+        'panelDepartments
         '
-        Me.Panel5.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel5.Controls.Add(Me.PictureBox4)
-        Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Controls.Add(Me.Panel6)
-        Me.Panel5.Location = New System.Drawing.Point(378, 329)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(230, 158)
-        Me.Panel5.TabIndex = 35
+        Me.panelDepartments.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelDepartments.Controls.Add(Me.PictureBox4)
+        Me.panelDepartments.Controls.Add(Me.Label4)
+        Me.panelDepartments.Controls.Add(Me.Panel6)
+        Me.panelDepartments.Location = New System.Drawing.Point(378, 329)
+        Me.panelDepartments.Name = "panelDepartments"
+        Me.panelDepartments.Size = New System.Drawing.Size(230, 158)
+        Me.panelDepartments.TabIndex = 35
         '
         'PictureBox4
         '
@@ -346,16 +348,16 @@ Partial Class Dashboard
         Me.Label15.TabIndex = 41
         Me.Label15.Text = "Total:"
         '
-        'Panel7
+        'panelAnalytics
         '
-        Me.Panel7.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel7.Controls.Add(Me.PictureBox6)
-        Me.Panel7.Controls.Add(Me.Label5)
-        Me.Panel7.Controls.Add(Me.Panel8)
-        Me.Panel7.Location = New System.Drawing.Point(378, 556)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(230, 158)
-        Me.Panel7.TabIndex = 35
+        Me.panelAnalytics.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelAnalytics.Controls.Add(Me.PictureBox6)
+        Me.panelAnalytics.Controls.Add(Me.Label5)
+        Me.panelAnalytics.Controls.Add(Me.Panel8)
+        Me.panelAnalytics.Location = New System.Drawing.Point(378, 556)
+        Me.panelAnalytics.Name = "panelAnalytics"
+        Me.panelAnalytics.Size = New System.Drawing.Size(230, 158)
+        Me.panelAnalytics.TabIndex = 35
         '
         'PictureBox6
         '
@@ -396,16 +398,16 @@ Partial Class Dashboard
         Me.Label14.TabIndex = 40
         Me.Label14.Text = "Total:"
         '
-        'Panel9
+        'panelFees
         '
-        Me.Panel9.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel9.Controls.Add(Me.PictureBox8)
-        Me.Panel9.Controls.Add(Me.Label6)
-        Me.Panel9.Controls.Add(Me.Panel10)
-        Me.Panel9.Location = New System.Drawing.Point(744, 111)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(230, 158)
-        Me.Panel9.TabIndex = 35
+        Me.panelFees.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelFees.Controls.Add(Me.PictureBox8)
+        Me.panelFees.Controls.Add(Me.Label6)
+        Me.panelFees.Controls.Add(Me.Panel10)
+        Me.panelFees.Location = New System.Drawing.Point(744, 111)
+        Me.panelFees.Name = "panelFees"
+        Me.panelFees.Size = New System.Drawing.Size(230, 158)
+        Me.panelFees.TabIndex = 35
         '
         'PictureBox8
         '
@@ -446,16 +448,16 @@ Partial Class Dashboard
         Me.Label16.TabIndex = 42
         Me.Label16.Text = "Total:"
         '
-        'Panel11
+        'panelStaff
         '
-        Me.Panel11.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel11.Controls.Add(Me.PictureBox9)
-        Me.Panel11.Controls.Add(Me.Label7)
-        Me.Panel11.Controls.Add(Me.Panel12)
-        Me.Panel11.Location = New System.Drawing.Point(744, 329)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(230, 158)
-        Me.Panel11.TabIndex = 35
+        Me.panelStaff.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelStaff.Controls.Add(Me.PictureBox9)
+        Me.panelStaff.Controls.Add(Me.Label7)
+        Me.panelStaff.Controls.Add(Me.Panel12)
+        Me.panelStaff.Location = New System.Drawing.Point(744, 329)
+        Me.panelStaff.Name = "panelStaff"
+        Me.panelStaff.Size = New System.Drawing.Size(230, 158)
+        Me.panelStaff.TabIndex = 35
         '
         'PictureBox9
         '
@@ -496,16 +498,16 @@ Partial Class Dashboard
         Me.Label11.TabIndex = 37
         Me.Label11.Text = "Total:"
         '
-        'Panel13
+        'panelReports
         '
-        Me.Panel13.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel13.Controls.Add(Me.PictureBox10)
-        Me.Panel13.Controls.Add(Me.Label8)
-        Me.Panel13.Controls.Add(Me.Panel14)
-        Me.Panel13.Location = New System.Drawing.Point(744, 556)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(230, 158)
-        Me.Panel13.TabIndex = 36
+        Me.panelReports.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelReports.Controls.Add(Me.PictureBox10)
+        Me.panelReports.Controls.Add(Me.Label8)
+        Me.panelReports.Controls.Add(Me.Panel14)
+        Me.panelReports.Location = New System.Drawing.Point(744, 556)
+        Me.panelReports.Name = "panelReports"
+        Me.panelReports.Size = New System.Drawing.Size(230, 158)
+        Me.panelReports.TabIndex = 36
         '
         'PictureBox10
         '
@@ -546,27 +548,38 @@ Partial Class Dashboard
         Me.Label13.TabIndex = 39
         Me.Label13.Text = "Total:"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(62, 17)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(149, 32)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "MainMenu"
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1481, 905)
-        Me.Controls.Add(Me.Panel13)
-        Me.Controls.Add(Me.Panel11)
-        Me.Controls.Add(Me.Panel9)
-        Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel5)
-        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.panelReports)
+        Me.Controls.Add(Me.panelStaff)
+        Me.Controls.Add(Me.panelFees)
+        Me.Controls.Add(Me.panelAnalytics)
+        Me.Controls.Add(Me.panelDepartments)
+        Me.Controls.Add(Me.panelStudents)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHome, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
@@ -577,33 +590,33 @@ Partial Class Dashboard
         Me.btnLogout.ResumeLayout(False)
         Me.btnLogout.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        Me.panelStudents.ResumeLayout(False)
+        Me.panelStudents.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
+        Me.panelDepartments.ResumeLayout(False)
+        Me.panelDepartments.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
+        Me.panelAnalytics.ResumeLayout(False)
+        Me.panelAnalytics.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        Me.Panel9.ResumeLayout(False)
-        Me.Panel9.PerformLayout()
+        Me.panelFees.ResumeLayout(False)
+        Me.panelFees.PerformLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        Me.Panel11.ResumeLayout(False)
-        Me.Panel11.PerformLayout()
+        Me.panelStaff.ResumeLayout(False)
+        Me.panelStaff.PerformLayout()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
-        Me.Panel13.ResumeLayout(False)
-        Me.Panel13.PerformLayout()
+        Me.panelReports.ResumeLayout(False)
+        Me.panelReports.PerformLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel14.ResumeLayout(False)
         Me.Panel14.PerformLayout()
@@ -612,39 +625,39 @@ Partial Class Dashboard
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents btnFullscreen As System.Windows.Forms.PictureBox
     Friend WithEvents btnHome As System.Windows.Forms.PictureBox
     Friend WithEvents btnMinimize As System.Windows.Forms.PictureBox
     Friend WithEvents btnClose As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents btnDashboard As System.Windows.Forms.GroupBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents btnDashboad As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents btnLogout As System.Windows.Forms.GroupBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnLoggout As System.Windows.Forms.Label
     Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents panelStudents As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents panelDepartments As System.Windows.Forms.Panel
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents Panel7 As System.Windows.Forms.Panel
+    Friend WithEvents panelAnalytics As System.Windows.Forms.Panel
     Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
-    Friend WithEvents Panel9 As System.Windows.Forms.Panel
+    Friend WithEvents panelFees As System.Windows.Forms.Panel
     Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Panel10 As System.Windows.Forms.Panel
-    Friend WithEvents Panel11 As System.Windows.Forms.Panel
+    Friend WithEvents panelStaff As System.Windows.Forms.Panel
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Panel12 As System.Windows.Forms.Panel
-    Friend WithEvents Panel13 As System.Windows.Forms.Panel
+    Friend WithEvents panelReports As System.Windows.Forms.Panel
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Panel14 As System.Windows.Forms.Panel
@@ -655,4 +668,5 @@ Partial Class Dashboard
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

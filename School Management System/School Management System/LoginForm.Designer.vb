@@ -90,7 +90,7 @@ Partial Class LoginForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(571, 338)
+        Me.Label2.Location = New System.Drawing.Point(616, 336)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(124, 33)
         Me.Label2.TabIndex = 2
@@ -100,7 +100,7 @@ Partial Class LoginForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(571, 419)
+        Me.Label3.Location = New System.Drawing.Point(616, 417)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(121, 33)
         Me.Label3.TabIndex = 3
@@ -120,7 +120,7 @@ Partial Class LoginForm
         '
         Me.btnLogin.BackColor = System.Drawing.Color.Lime
         Me.btnLogin.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.Location = New System.Drawing.Point(708, 500)
+        Me.btnLogin.Location = New System.Drawing.Point(753, 498)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(164, 51)
         Me.btnLogin.TabIndex = 5
@@ -130,7 +130,7 @@ Partial Class LoginForm
         'txtUsername
         '
         Me.txtUsername.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(732, 331)
+        Me.txtUsername.Location = New System.Drawing.Point(777, 329)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(331, 40)
         Me.txtUsername.TabIndex = 6
@@ -138,7 +138,7 @@ Partial Class LoginForm
         'txtPassw
         '
         Me.txtPassw.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassw.Location = New System.Drawing.Point(732, 419)
+        Me.txtPassw.Location = New System.Drawing.Point(777, 417)
         Me.txtPassw.Name = "txtPassw"
         Me.txtPassw.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassw.Size = New System.Drawing.Size(331, 40)
@@ -158,7 +158,7 @@ Partial Class LoginForm
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(504, 316)
+        Me.PictureBox2.Location = New System.Drawing.Point(549, 314)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(70, 76)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -168,7 +168,7 @@ Partial Class LoginForm
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(513, 398)
+        Me.PictureBox3.Location = New System.Drawing.Point(558, 396)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(61, 61)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -179,7 +179,7 @@ Partial Class LoginForm
         '
         Me.picOpenEye.BackColor = System.Drawing.Color.White
         Me.picOpenEye.Image = CType(resources.GetObject("picOpenEye.Image"), System.Drawing.Image)
-        Me.picOpenEye.Location = New System.Drawing.Point(997, 419)
+        Me.picOpenEye.Location = New System.Drawing.Point(1042, 417)
         Me.picOpenEye.Name = "picOpenEye"
         Me.picOpenEye.Size = New System.Drawing.Size(66, 40)
         Me.picOpenEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -194,13 +194,13 @@ Partial Class LoginForm
         Me.Panel2.Controls.Add(Me.btnClose)
         Me.Panel2.Location = New System.Drawing.Point(1, 1)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1114, 49)
+        Me.Panel2.Size = New System.Drawing.Size(1276, 49)
         Me.Panel2.TabIndex = 12
         '
         'btnFullscreen
         '
         Me.btnFullscreen.Image = CType(resources.GetObject("btnFullscreen.Image"), System.Drawing.Image)
-        Me.btnFullscreen.Location = New System.Drawing.Point(910, 3)
+        Me.btnFullscreen.Location = New System.Drawing.Point(1073, 6)
         Me.btnFullscreen.Name = "btnFullscreen"
         Me.btnFullscreen.Size = New System.Drawing.Size(97, 44)
         Me.btnFullscreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -210,7 +210,7 @@ Partial Class LoginForm
         'btnMinimize
         '
         Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
-        Me.btnMinimize.Location = New System.Drawing.Point(804, -1)
+        Me.btnMinimize.Location = New System.Drawing.Point(967, 2)
         Me.btnMinimize.Name = "btnMinimize"
         Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
         Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -220,7 +220,7 @@ Partial Class LoginForm
         'btnClose
         '
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
-        Me.btnClose.Location = New System.Drawing.Point(1013, -3)
+        Me.btnClose.Location = New System.Drawing.Point(1176, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(100, 50)
         Me.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -231,7 +231,7 @@ Partial Class LoginForm
         '
         Me.picClosedEye.BackColor = System.Drawing.Color.White
         Me.picClosedEye.Image = CType(resources.GetObject("picClosedEye.Image"), System.Drawing.Image)
-        Me.picClosedEye.Location = New System.Drawing.Point(997, 419)
+        Me.picClosedEye.Location = New System.Drawing.Point(1042, 417)
         Me.picClosedEye.Name = "picClosedEye"
         Me.picClosedEye.Size = New System.Drawing.Size(66, 40)
         Me.picClosedEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -242,7 +242,7 @@ Partial Class LoginForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Times New Roman", 14.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(357, 151)
+        Me.Label5.Location = New System.Drawing.Point(498, 151)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(758, 32)
         Me.Label5.TabIndex = 14
@@ -254,7 +254,7 @@ Partial Class LoginForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1116, 822)
+        Me.ClientSize = New System.Drawing.Size(1280, 822)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.picClosedEye)
         Me.Controls.Add(Me.Panel2)
@@ -273,7 +273,7 @@ Partial Class LoginForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "LoginForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "LogIn"
+        Me.Text = "s"
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()

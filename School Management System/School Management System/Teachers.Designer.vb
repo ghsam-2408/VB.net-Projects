@@ -56,11 +56,6 @@ Partial Class Teachers
         Me.txtEmployeeID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.School_ManagementDataSet = New School_Management_Systems.School_ManagementDataSet()
-        Me.School_ManagementDataSet1 = New School_Management_Systems.School_ManagementDataSet1()
-        Me.TeachersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TeachersTableAdapter = New School_Management_Systems.School_ManagementDataSet1TableAdapters.TeachersTableAdapter()
         Me.EmployeeIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FullNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.JobTitleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,6 +63,12 @@ Partial Class Teachers
         Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DepartmentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubjectsTaughtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TeachersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.School_ManagementDataSet1 = New School_Management_Systems.School_ManagementDataSet1()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.School_ManagementDataSet = New School_Management_Systems.School_ManagementDataSet()
+        Me.TeachersTableAdapter = New School_Management_Systems.School_ManagementDataSet1TableAdapters.TeachersTableAdapter()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,14 +82,15 @@ Partial Class Teachers
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.School_ManagementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.School_ManagementDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TeachersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.School_ManagementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.PictureBox6)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.btnFullscreen)
@@ -420,25 +422,6 @@ Partial Class Teachers
         Me.DataGridView1.Size = New System.Drawing.Size(1474, 300)
         Me.DataGridView1.TabIndex = 30
         '
-        'School_ManagementDataSet
-        '
-        Me.School_ManagementDataSet.DataSetName = "School_ManagementDataSet"
-        Me.School_ManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'School_ManagementDataSet1
-        '
-        Me.School_ManagementDataSet1.DataSetName = "School_ManagementDataSet1"
-        Me.School_ManagementDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TeachersBindingSource
-        '
-        Me.TeachersBindingSource.DataMember = "Teachers"
-        Me.TeachersBindingSource.DataSource = Me.School_ManagementDataSet1
-        '
-        'TeachersTableAdapter
-        '
-        Me.TeachersTableAdapter.ClearBeforeFill = True
-        '
         'EmployeeIDDataGridViewTextBoxColumn
         '
         Me.EmployeeIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -488,6 +471,35 @@ Partial Class Teachers
         Me.SubjectsTaughtDataGridViewTextBoxColumn.HeaderText = "Subjects_Taught"
         Me.SubjectsTaughtDataGridViewTextBoxColumn.Name = "SubjectsTaughtDataGridViewTextBoxColumn"
         '
+        'TeachersBindingSource
+        '
+        Me.TeachersBindingSource.DataMember = "Teachers"
+        Me.TeachersBindingSource.DataSource = Me.School_ManagementDataSet1
+        '
+        'School_ManagementDataSet1
+        '
+        Me.School_ManagementDataSet1.DataSetName = "School_ManagementDataSet1"
+        Me.School_ManagementDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'School_ManagementDataSet
+        '
+        Me.School_ManagementDataSet.DataSetName = "School_ManagementDataSet"
+        Me.School_ManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TeachersTableAdapter
+        '
+        Me.TeachersTableAdapter.ClearBeforeFill = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(59, 14)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(149, 32)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "MainMenu"
+        '
         'Teachers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -500,6 +512,7 @@ Partial Class Teachers
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Teachers"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Teachers"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -516,9 +529,9 @@ Partial Class Teachers
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.School_ManagementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.School_ManagementDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TeachersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.School_ManagementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -566,4 +579,5 @@ Partial Class Teachers
     Friend WithEvents PhoneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SubjectsTaughtDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

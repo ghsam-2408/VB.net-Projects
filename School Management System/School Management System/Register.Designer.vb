@@ -50,16 +50,16 @@ Partial Class Register
         Me.radioFemale = New System.Windows.Forms.RadioButton()
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnFullScreen = New System.Windows.Forms.PictureBox()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btnFullScreen = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.btnRegister, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnFullScreen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblName
@@ -315,16 +315,6 @@ Partial Class Register
         Me.Panel2.Size = New System.Drawing.Size(1114, 52)
         Me.Panel2.TabIndex = 24
         '
-        'btnMinimize
-        '
-        Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
-        Me.btnMinimize.Location = New System.Drawing.Point(787, 2)
-        Me.btnMinimize.Name = "btnMinimize"
-        Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
-        Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnMinimize.TabIndex = 24
-        Me.btnMinimize.TabStop = False
-        '
         'btnFullScreen
         '
         Me.btnFullScreen.Image = CType(resources.GetObject("btnFullScreen.Image"), System.Drawing.Image)
@@ -335,10 +325,21 @@ Partial Class Register
         Me.btnFullScreen.TabIndex = 27
         Me.btnFullScreen.TabStop = False
         '
+        'btnMinimize
+        '
+        Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
+        Me.btnMinimize.Location = New System.Drawing.Point(787, 2)
+        Me.btnMinimize.Name = "btnMinimize"
+        Me.btnMinimize.Size = New System.Drawing.Size(100, 50)
+        Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMinimize.TabIndex = 24
+        Me.btnMinimize.TabStop = False
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1116, 822)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.radioFemale)
@@ -372,8 +373,8 @@ Partial Class Register
         CType(Me.btnRegister, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnFullScreen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -74,6 +74,7 @@ Partial Class Fees
         Me.School_ManagementDataSet3 = New School_Management_Systems.School_ManagementDataSet3()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.FeesTableAdapter = New School_Management_Systems.School_ManagementDataSet3TableAdapters.FeesTableAdapter()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -325,6 +326,7 @@ Partial Class Fees
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.PictureBox6)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.PictureBox5)
@@ -562,6 +564,16 @@ Partial Class Fees
         '
         Me.FeesTableAdapter.ClearBeforeFill = True
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(56, 17)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(149, 32)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "MainMenu"
+        '
         'Fees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -652,4 +664,5 @@ Partial Class Fees
     Friend WithEvents PaymentMethodDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ReceiptNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DepartmentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

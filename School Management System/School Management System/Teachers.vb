@@ -280,4 +280,10 @@ Public Class Teachers
 
         End If
     End Sub
+
+    Private Sub Label8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label8.Click
+        MainMenu.Show()
+        Me.Close()
+
+    End Sub
 End Class

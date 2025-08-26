@@ -133,7 +133,7 @@ Public Class Students
 
     Private Sub btnHome_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHome.Click
         MainMenu.Show()
-        Me.Show()
+        Me.Close()
 
     End Sub
 
@@ -310,5 +310,11 @@ Public Class Students
         Finally
             mycon.Close()
         End Try
+    End Sub
+
+    Private Sub Label11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label11.Click
+        MainMenu.Show()
+        Me.Close()
+
     End Sub
 End Class
