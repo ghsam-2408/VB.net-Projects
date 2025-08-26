@@ -217,17 +217,28 @@ Public Class Departments
             If mycon.State = ConnectionState.Open Then mycon.Close()
             mycon.Open()
 
-            cmdBuilder = New OleDbCommandBuilder(da)
-            da.Update(dt) ' 🔹 Push changes back to database
+            Dim query As String = "UPDATE Departments SET Department_ID=?, Department_Name=?, HOD=?, Description=? WHERE Department_ID=?"
+            Dim cmd As New OleDbCommand(query, mycon)
 
-            mycon.Close()
+            cmd.Parameters.AddWithValue("?", txtDeptID.Text)
+            cmd.Parameters.AddWithValue("?", txtDeptName.Text)
+            cmd.Parameters.AddWithValue("?", txtHOD.Text)
+            cmd.Parameters.AddWithValue("?", txtDescription.Text)
+            cmd.Parameters.AddWithValue("?", txtDeptID.Text)  ' for WHERE
 
-            ' 🔄 Reload data so DataGridView shows latest values
-            LoadData()
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
-            MessageBox.Show("Record(s) updated successfully and reloaded!")
+            If rowsAffected > 0 Then
+                MessageBox.Show("Record updated successfully!")
+                LoadData() ' Refresh grid
+            Else
+                MessageBox.Show("Update failed.")
+            End If
+
         Catch ex As Exception
-            MessageBox.Show("Error while updating: " & ex.Message)
+            MessageBox.Show("Error updating: " & ex.Message)
+        Finally
+            If mycon.State = ConnectionState.Open Then mycon.Close()
         End Try
 
 

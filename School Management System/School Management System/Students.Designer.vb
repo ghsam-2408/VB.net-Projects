@@ -33,10 +33,8 @@ Partial Class Students
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtGender = New System.Windows.Forms.ComboBox()
-        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
         Me.txtSubjects = New System.Windows.Forms.RichTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
         Me.txtDepartment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtForm = New System.Windows.Forms.TextBox()
@@ -78,6 +76,8 @@ Partial Class Students
         Me.StudentsTableAdapter = New School_Management_System.School_ManagementDataSet2TableAdapters.StudentsTableAdapter()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.txtAdmissionDate = New System.Windows.Forms.DateTimePicker()
+        Me.txtDOB = New System.Windows.Forms.DateTimePicker()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnFullscreen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,14 +208,6 @@ Partial Class Students
         Me.txtGender.Size = New System.Drawing.Size(230, 40)
         Me.txtGender.TabIndex = 20
         '
-        'txtDOB
-        '
-        Me.txtDOB.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDOB.Location = New System.Drawing.Point(9, 287)
-        Me.txtDOB.Name = "txtDOB"
-        Me.txtDOB.Size = New System.Drawing.Size(345, 33)
-        Me.txtDOB.TabIndex = 19
-        '
         'txtSubjects
         '
         Me.txtSubjects.Location = New System.Drawing.Point(896, 47)
@@ -233,14 +225,6 @@ Partial Class Students
         Me.Label10.Size = New System.Drawing.Size(116, 32)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Subjects"
-        '
-        'txtAdmissionDate
-        '
-        Me.txtAdmissionDate.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAdmissionDate.Location = New System.Drawing.Point(502, 186)
-        Me.txtAdmissionDate.Name = "txtAdmissionDate"
-        Me.txtAdmissionDate.Size = New System.Drawing.Size(345, 33)
-        Me.txtAdmissionDate.TabIndex = 16
         '
         'txtDepartment
         '
@@ -594,6 +578,22 @@ Partial Class Students
         Me.txtSearch.Size = New System.Drawing.Size(388, 40)
         Me.txtSearch.TabIndex = 21
         '
+        'txtAdmissionDate
+        '
+        Me.txtAdmissionDate.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAdmissionDate.Location = New System.Drawing.Point(502, 186)
+        Me.txtAdmissionDate.Name = "txtAdmissionDate"
+        Me.txtAdmissionDate.Size = New System.Drawing.Size(345, 33)
+        Me.txtAdmissionDate.TabIndex = 16
+        '
+        'txtDOB
+        '
+        Me.txtDOB.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDOB.Location = New System.Drawing.Point(9, 287)
+        Me.txtDOB.Name = "txtDOB"
+        Me.txtDOB.Size = New System.Drawing.Size(345, 33)
+        Me.txtDOB.TabIndex = 19
+        '
         'Students
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -667,10 +667,8 @@ Partial Class Students
     Friend WithEvents txtStudentID As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents txtAdmissionDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtSubjects As System.Windows.Forms.RichTextBox
-    Friend WithEvents txtDOB As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtGender As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents School_ManagementDataSet2 As School_Management_System.School_ManagementDataSet2
@@ -688,4 +686,6 @@ Partial Class Students
     Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents txtAdmissionDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtDOB As System.Windows.Forms.DateTimePicker
 End Class

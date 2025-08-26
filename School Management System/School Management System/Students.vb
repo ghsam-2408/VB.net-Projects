@@ -151,10 +151,10 @@ Public Class Students
                 ' Use parameters to prevent SQL injection
                 mycmd.Parameters.AddWithValue("?", txtStudentID.Text)
                 mycmd.Parameters.AddWithValue("?", txtStudentName.Text)
-                mycmd.Parameters.AddWithValue("?", txtDOB.Text)
+                mycmd.Parameters.AddWithValue("?", txtDOB.Value)
                 mycmd.Parameters.AddWithValue("?", txtGender.SelectedItem.ToString())
                 mycmd.Parameters.AddWithValue("?", txtPhone.Text)
-                mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
+                mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Value)
                 mycmd.Parameters.AddWithValue("?", txtForm.Text)
                 mycmd.Parameters.AddWithValue("?", txtDepartment.Text)
                 mycmd.Parameters.AddWithValue("?", txtSubjects.Text)
@@ -228,11 +228,11 @@ Public Class Students
             Dim cmd As New OleDbCommand(query, mycon)
 
             cmd.Parameters.AddWithValue("?", txtStudentName.Text)
-            cmd.Parameters.AddWithValue("?", txtDOB.Value)
+            cmd.Parameters.AddWithValue("?", txtDOB.Text)
             cmd.Parameters.AddWithValue("?", txtGender.Text)
-            cmd.Parameters.AddWithValue("?", Convert.ToInt64(txtPhone.Text))
-            cmd.Parameters.AddWithValue("?", txtAdmissionDate.Value)
-            cmd.Parameters.AddWithValue("?", Convert.ToInt32(txtForm.Text))
+            cmd.Parameters.AddWithValue("?", txtPhone.Text)
+            cmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
+            cmd.Parameters.AddWithValue("?", txtForm.Text)
             cmd.Parameters.AddWithValue("?", txtDepartment.Text)
             cmd.Parameters.AddWithValue("?", txtSubjects.Text)
             cmd.Parameters.AddWithValue("?", txtStudentID.Text) ' WHERE condition
@@ -305,4 +305,7 @@ Public Class Students
     End Sub
 
 
+    Private Sub txtForm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtForm.TextChanged
+
+    End Sub
 End Class
