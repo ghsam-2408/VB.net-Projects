@@ -1,0 +1,139 @@
+﻿Imports System.Data.OleDb
+Public Class RegistrationForm
+
+
+
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EnrollmentManagement.accdb")
+
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        Private Function ValidateFields() As Boolean
+        Dim isValid As Boolean = True
+
+        ' Validate name
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            txtName.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtName.BackColor = Color.White
+        End If
+
+        ' Validate ID number
+        If String.IsNullOrWhiteSpace(txtIdNum.Text) Then
+            txtIdNum.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtIdNum.BackColor = Color.White
+        End If
+
+        ' Validate email
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            txtEmail.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtEmail.BackColor = Color.White
+        End If
+        ' Validate contact
+        If String.IsNullOrWhiteSpace(txtContact.Text) Then
+            txtContact.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtContact.BackColor = Color.White
+        End If
+
+        ' Validate username
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            txtUsername.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtUsername.BackColor = Color.White
+        End If
+
+        ' Validate password
+        If String.IsNullOrWhiteSpace(txtPassw.Text) OrElse txtPassw.Text <> txtConfirmPassw.Text Then
+            txtPassw.BackColor = Color.LightCoral
+            txtConfirmPassw.BackColor = Color.LightCoral
+            MsgBox("Passwords do not match", MsgBoxStyle.Exclamation)
+            isValid = False
+        Else
+            txtPassw.BackColor = Color.White
+            txtConfirmPassw.BackColor = Color.White
+        End If
+        ' Validate gender
+        If Not radioMale.Checked AndAlso Not radioFemale.Checked Then
+            MsgBox("Please select a gender", MsgBoxStyle.Exclamation)
+            isValid = False
+        End If
+
+        If Not isValid Then
+            MsgBox("Please fill in all the required fields", MsgBoxStyle.Critical)
+        End If
+
+        Return isValid
+    End Function
+
+
+    Private Sub btnRegister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegister.Click
+        If ValidateFields() Then
+            ' Proceed with registration
+            ' Your registration code here
+            Dim gender As String
+            If radioMale.Checked Then
+                gender = "Male"
+            ElseIf radioFemale.Checked Then
+                gender = "Female"
+            Else
+                MsgBox("Please select a gender")
+                Exit Sub
+            End If
+
+            Try
+                mycon.Open()
+                Dim mycmd As New OleDbCommand("INSERT INTO UserRegistration (Full_Name, ID_Number, Email, Contact, Username, Gender, [Password]) VALUES (?, ?, ?, ?, ?, ?, ?)", mycon)
+
+                ' Use parameters to prevent SQL injection
+                mycmd.Parameters.AddWithValue("?", txtName.Text)
+                mycmd.Parameters.AddWithValue("?", txtIdNum.Text)
+                mycmd.Parameters.AddWithValue("?", txtEmail.Text)
+                mycmd.Parameters.AddWithValue("?", txtContact.Text)
+                mycmd.Parameters.AddWithValue("?", txtUsername.Text)
+                mycmd.Parameters.AddWithValue("?", gender)
+                mycmd.Parameters.AddWithValue("?", txtPassw.Text)
+
+
+                ' Execute the query
+                Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
+
+                ' Check if insertion was successful
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Record inserted successfully!")
+                Else
+                    MessageBox.Show("Failed to insert record.")
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            Finally
+                ' Ensure the connection is closed properly
+                If mycon.State = ConnectionState.Open Then
+                    mycon.Close()
+                End If
+            End Try
+        End If
+
+        ClearFields()
+
+
+    End Sub
+    Private Sub ClearFields()
+        txtName.Text = String.Empty
+        txtIdNum.Text = String.Empty
+        txtEmail.Text = String.Empty
+        txtContact.Text = String.Empty
+        txtUsername.Text = String.Empty
+        txtPassw.Text = String.Empty
+        txtConfirmPassw.Text = String.Empty
+        radioMale.Checked = False
+        radioFemale.Checked = False
+    End Sub
+    End Sub
+End Class

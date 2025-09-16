@@ -1,0 +1,41 @@
+﻿Imports System.Data.OleDb
+
+Public Class RegistrationForm
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\School_Management.accdb")
+
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+
+        Try
+            mycon.Open()
+            Dim mycmd As New OleDbCommand("INSERT INTO Register (Full_Name, ID_Number, Email, Contact, Username, Gender, [Password]) VALUES (?, ?, ?, ?, ?, ?, ?)", mycon)
+
+            ' Use parameters to prevent SQL injection
+            mycmd.Parameters.AddWithValue("?", txtName.Text)
+            mycmd.Parameters.AddWithValue("?", txtIdNum.Text)
+            mycmd.Parameters.AddWithValue("?", txtEmail.Text)
+            mycmd.Parameters.AddWithValue("?", txtContact.Text)
+            mycmd.Parameters.AddWithValue("?", txtUsername.Text)
+            mycmd.Parameters.AddWithValue("?", gender)
+            mycmd.Parameters.AddWithValue("?", txtPassw.Text)
+
+
+            ' Execute the query
+            Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
+
+            ' Check if insertion was successful
+            If rowsAffected > 0 Then
+                MessageBox.Show("Record inserted successfully!")
+            Else
+                MessageBox.Show("Failed to insert record.")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            ' Ensure the connection is closed properly
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+        End Try
+    End Sub
+End Class

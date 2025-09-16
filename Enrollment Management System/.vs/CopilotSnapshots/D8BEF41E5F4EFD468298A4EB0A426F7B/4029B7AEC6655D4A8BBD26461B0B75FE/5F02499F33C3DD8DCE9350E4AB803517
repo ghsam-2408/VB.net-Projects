@@ -1,0 +1,271 @@
+﻿Imports System.IO
+Imports System.Xml
+
+' Alternative version using XML file storage (no external database packages required)
+Public Class RegistrationForm_SimpleVersion
+
+    ' XML file path - will be created in the application directory
+    Private ReadOnly dataFilePath As String = Path.Combine(Application.StartupPath, "Students.xml")
+
+    Private Sub RegistrationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Initialize data file when form loads
+        InitializeDataFile()
+        ' Set password fields to use password character
+        txtPassword.UseSystemPasswordChar = True
+        txtRetypePassword.UseSystemPasswordChar = True
+        ' Load existing data
+        LoadStudentData()
+    End Sub
+
+    Private Sub InitializeDataFile()
+        Try
+            ' Create XML file if it doesn't exist
+            If Not File.Exists(dataFilePath) Then
+                Dim xmlDoc As New XmlDocument()
+                Dim root As XmlElement = xmlDoc.CreateElement("Students")
+                xmlDoc.AppendChild(root)
+                xmlDoc.Save(dataFilePath)
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error initializing data file: {ex.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        ' Validate input fields
+        If Not ValidateInput() Then
+            Return
+        End If
+
+        ' Check if passwords match
+        If txtPassword.Text <> txtRetypePassword.Text Then
+            MessageBox.Show("Passwords do not match!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return
+        End If
+
+        ' Check for duplicate entries
+        If CheckForDuplicates() Then
+            Return
+        End If
+
+        Try
+            ' Save student data to XML file
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load(dataFilePath)
+
+            Dim root As XmlElement = xmlDoc.DocumentElement
+            Dim studentNode As XmlElement = xmlDoc.CreateElement("Student")
+
+            ' Create child elements for each field
+            Dim idNode As XmlElement = xmlDoc.CreateElement("ID")
+            idNode.InnerText = Guid.NewGuid().ToString()
+            studentNode.AppendChild(idNode)
+
+            Dim nameNode As XmlElement = xmlDoc.CreateElement("Name")
+            nameNode.InnerText = txtName.Text.Trim()
+            studentNode.AppendChild(nameNode)
+
+            Dim surnameNode As XmlElement = xmlDoc.CreateElement("Surname")
+            surnameNode.InnerText = txtSurname.Text.Trim()
+            studentNode.AppendChild(surnameNode)
+
+            Dim usernameNode As XmlElement = xmlDoc.CreateElement("Username")
+            usernameNode.InnerText = txtUsername.Text.Trim()
+            studentNode.AppendChild(usernameNode)
+
+            Dim idNumberNode As XmlElement = xmlDoc.CreateElement("IDNumber")
+            idNumberNode.InnerText = txtIdNumber.Text.Trim()
+            studentNode.AppendChild(idNumberNode)
+
+            Dim emailNode As XmlElement = xmlDoc.CreateElement("Email")
+            emailNode.InnerText = txtEmail.Text.Trim()
+            studentNode.AppendChild(emailNode)
+
+            Dim genderNode As XmlElement = xmlDoc.CreateElement("Gender")
+            genderNode.InnerText = txtGender.Text
+            studentNode.AppendChild(genderNode)
+
+            ' Note: In a real application, you should hash passwords before storing them
+            Dim passwordNode As XmlElement = xmlDoc.CreateElement("Password")
+            passwordNode.InnerText = txtPassword.Text
+            studentNode.AppendChild(passwordNode)
+
+            Dim registrationDateNode As XmlElement = xmlDoc.CreateElement("RegistrationDate")
+            registrationDateNode.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            studentNode.AppendChild(registrationDateNode)
+
+            root.AppendChild(studentNode)
+            xmlDoc.Save(dataFilePath)
+
+            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            
+            ' Clear the form after successful registration
+            ClearForm()
+            
+            ' Refresh the DataGridView to show the new record
+            LoadStudentData()
+
+        Catch ex As Exception
+            MessageBox.Show($"An error occurred during registration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function CheckForDuplicates() As Boolean
+        Try
+            If Not File.Exists(dataFilePath) Then
+                Return False
+            End If
+
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load(dataFilePath)
+
+            For Each studentNode As XmlNode In xmlDoc.SelectNodes("//Student")
+                Dim username As String = studentNode.SelectSingleNode("Username")?.InnerText
+                Dim idNumber As String = studentNode.SelectSingleNode("IDNumber")?.InnerText
+                Dim email As String = studentNode.SelectSingleNode("Email")?.InnerText
+
+                If username?.ToLower() = txtUsername.Text.Trim().ToLower() Then
+                    MessageBox.Show("Username already exists. Please choose a different username.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtUsername.Focus()
+                    Return True
+                End If
+
+                If idNumber = txtIdNumber.Text.Trim() Then
+                    MessageBox.Show("ID Number already exists in the system.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtIdNumber.Focus()
+                    Return True
+                End If
+
+                If email?.ToLower() = txtEmail.Text.Trim().ToLower() Then
+                    MessageBox.Show("Email address already exists in the system.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtEmail.Focus()
+                    Return True
+                End If
+            Next
+
+            Return False
+        Catch ex As Exception
+            MessageBox.Show($"Error checking for duplicates: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return True
+        End Try
+    End Function
+
+    Private Function ValidateInput() As Boolean
+        ' Check if all required fields are filled
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            MessageBox.Show("Please enter your name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtSurname.Text) Then
+            MessageBox.Show("Please enter your surname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtSurname.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            MessageBox.Show("Please enter a username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUsername.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtIdNumber.Text) Then
+            MessageBox.Show("Please enter your ID number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtIdNumber.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            MessageBox.Show("Please enter your email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        End If
+
+        ' Basic email validation
+        If Not txtEmail.Text.Contains("@") OrElse Not txtEmail.Text.Contains(".") Then
+            MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        End If
+
+        If txtGender.SelectedIndex = -1 Then
+            MessageBox.Show("Please select your gender.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtGender.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            MessageBox.Show("Please enter a password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        End If
+
+        If txtPassword.Text.Length < 6 Then
+            MessageBox.Show("Password must be at least 6 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtRetypePassword.Text) Then
+            MessageBox.Show("Please retype your password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Sub ClearForm()
+        ' Clear all input fields
+        txtName.Clear()
+        txtSurname.Clear()
+        txtUsername.Clear()
+        txtIdNumber.Clear()
+        txtEmail.Clear()
+        txtGender.SelectedIndex = -1
+        txtPassword.Clear()
+        txtRetypePassword.Clear()
+        txtName.Focus()
+    End Sub
+
+    Private Sub LoadStudentData()
+        Try
+            If Not File.Exists(dataFilePath) Then
+                Return
+            End If
+
+            Dim xmlDoc As New XmlDocument()
+            xmlDoc.Load(dataFilePath)
+
+            Dim dataTable As New DataTable()
+            dataTable.Columns.Add("ID", GetType(String))
+            dataTable.Columns.Add("Name", GetType(String))
+            dataTable.Columns.Add("Surname", GetType(String))
+            dataTable.Columns.Add("Username", GetType(String))
+            dataTable.Columns.Add("IDNumber", GetType(String))
+            dataTable.Columns.Add("Email", GetType(String))
+            dataTable.Columns.Add("Gender", GetType(String))
+            dataTable.Columns.Add("RegistrationDate", GetType(String))
+
+            For Each studentNode As XmlNode In xmlDoc.SelectNodes("//Student")
+                Dim row As DataRow = dataTable.NewRow()
+                row("ID") = studentNode.SelectSingleNode("ID")?.InnerText
+                row("Name") = studentNode.SelectSingleNode("Name")?.InnerText
+                row("Surname") = studentNode.SelectSingleNode("Surname")?.InnerText
+                row("Username") = studentNode.SelectSingleNode("Username")?.InnerText
+                row("IDNumber") = studentNode.SelectSingleNode("IDNumber")?.InnerText
+                row("Email") = studentNode.SelectSingleNode("Email")?.InnerText
+                row("Gender") = studentNode.SelectSingleNode("Gender")?.InnerText
+                row("RegistrationDate") = studentNode.SelectSingleNode("RegistrationDate")?.InnerText
+                dataTable.Rows.Add(row)
+            Next
+
+            DataGridView1.DataSource = dataTable
+
+        Catch ex As Exception
+            MessageBox.Show($"Error loading student data: {ex.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+End Class

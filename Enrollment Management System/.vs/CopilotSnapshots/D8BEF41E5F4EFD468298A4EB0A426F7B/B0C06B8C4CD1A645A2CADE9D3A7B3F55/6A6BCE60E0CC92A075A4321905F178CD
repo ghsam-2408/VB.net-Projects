@@ -1,0 +1,143 @@
+﻿Imports System.Data.OleDb
+Imports System.Data
+
+Public Class RegistrationForm
+
+
+
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EnrollmentManagement.accdb")
+
+
+    Private Function ValidateFields() As Boolean
+        Dim isValid As Boolean = True
+
+        ' Validate name
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            txtName.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtName.BackColor = Color.White
+        End If
+
+        ' Validate surname
+        If String.IsNullOrWhiteSpace(txtSurname.Text) Then
+            txtSurname.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtSurname.BackColor = Color.White
+        End If
+
+        ' Validate ID number
+        If String.IsNullOrWhiteSpace(txtIdNumber.Text) Then
+            txtIdNumber.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtIdNumber.BackColor = Color.White
+        End If
+
+        ' Validate email
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            txtEmail.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtEmail.BackColor = Color.White
+        End If
+
+        ' Validate username
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            txtUsername.BackColor = Color.LightCoral
+            isValid = False
+        Else
+            txtUsername.BackColor = Color.White
+        End If
+
+        ' Validate password
+        If String.IsNullOrWhiteSpace(txtPassword.Text) OrElse txtPassword.Text <> txtRetypePassword.Text Then
+            txtPassword.BackColor = Color.LightCoral
+            txtRetypePassword.BackColor = Color.LightCoral
+            MsgBox("Passwords do not match", MsgBoxStyle.Exclamation)
+            isValid = False
+        Else
+            txtPassword.BackColor = Color.White
+            txtRetypePassword.BackColor = Color.White
+        End If
+
+        ' Validate gender
+        If txtGender.SelectedIndex = -1 Then
+            txtGender.BackColor = Color.LightCoral
+            MsgBox("Please select a gender", MsgBoxStyle.Exclamation)
+            isValid = False
+        Else
+            txtGender.BackColor = Color.White
+        End If
+
+        If Not isValid Then
+            MsgBox("Please fill in all the required fields", MsgBoxStyle.Critical)
+        End If
+
+        Return isValid
+    End Function
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        If ValidateFields() Then
+            ' Proceed with registration
+            Dim gender As String = txtGender.Text
+
+            Try
+                mycon.Open()
+                Dim mycmd As New OleDbCommand("INSERT INTO UserRegistration (Full_Name, Surname, ID_Number, Email, Username, Gender, [Password]) VALUES (?, ?, ?, ?, ?, ?, ?)", mycon)
+
+                ' Use parameters to prevent SQL injection
+                mycmd.Parameters.AddWithValue("?", txtName.Text)
+                mycmd.Parameters.AddWithValue("?", txtSurname.Text)
+                mycmd.Parameters.AddWithValue("?", txtIdNumber.Text)
+                mycmd.Parameters.AddWithValue("?", txtEmail.Text)
+                mycmd.Parameters.AddWithValue("?", txtUsername.Text)
+                mycmd.Parameters.AddWithValue("?", gender)
+                mycmd.Parameters.AddWithValue("?", txtPassword.Text)
+
+
+                ' Execute the query
+                Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
+
+                ' Check if insertion was successful
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Record inserted successfully!")
+                    ClearFields()
+                Else
+                    MessageBox.Show("Failed to insert record.")
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            Finally
+                ' Ensure the connection is closed properly
+                If mycon.State = ConnectionState.Open Then
+                    mycon.Close()
+                End If
+            End Try
+        End If
+    End Sub
+
+    Private Sub ClearFields()
+        txtName.Text = String.Empty
+        txtSurname.Text = String.Empty
+        txtIdNumber.Text = String.Empty
+        txtEmail.Text = String.Empty
+        txtUsername.Text = String.Empty
+        txtPassword.Text = String.Empty
+        txtRetypePassword.Text = String.Empty
+        txtGender.SelectedIndex = -1
+        
+        ' Reset background colors
+        txtName.BackColor = Color.White
+        txtSurname.BackColor = Color.White
+        txtIdNumber.BackColor = Color.White
+        txtEmail.BackColor = Color.White
+        txtUsername.BackColor = Color.White
+        txtPassword.BackColor = Color.White
+        txtRetypePassword.BackColor = Color.White
+        txtGender.BackColor = Color.White
+    End Sub
+
+End Class

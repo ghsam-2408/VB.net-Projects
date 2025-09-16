@@ -1,0 +1,443 @@
+﻿Imports System.Data.OleDb
+Imports System.Data
+Imports System.Text.RegularExpressions
+
+Public Class RegistrationForm
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\School_Management.accdb")
+
+    Private Sub RegistrationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Set password fields to use password character
+        txtPassword.UseSystemPasswordChar = True
+        txtRetypePassword.UseSystemPasswordChar = True
+
+        ' Initialize form
+        InitializeForm()
+
+        ' Load existing data
+        LoadRegisteredUsers()
+    End Sub
+
+    Private Sub InitializeForm()
+        ' Set default values and tooltips
+        txtGender.DropDownStyle = ComboBoxStyle.DropDownList
+
+        ' Add tooltips for better user experience
+        Dim toolTip As New ToolTip()
+        toolTip.SetToolTip(txtName, "Enter your first name")
+        toolTip.SetToolTip(txtSurname, "Enter your last name")
+        toolTip.SetToolTip(txtIdNumber, "Enter your ID number (13 digits)")
+        toolTip.SetToolTip(txtEmail, "Enter a valid email address")
+        toolTip.SetToolTip(txtUsername, "Enter a unique username (3-20 characters)")
+        toolTip.SetToolTip(txtPassword, "Password must be at least 6 characters")
+        toolTip.SetToolTip(txtRetypePassword, "Re-enter the same password")
+
+        ' Focus on first field
+        txtName.Focus()
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        ' Validate all fields before proceeding
+        If Not ValidateAllFields() Then
+            Return
+        End If
+
+        ' Check if user already exists
+        If CheckUserExists() Then
+            Return
+        End If
+
+        ' Show confirmation dialog
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to register this user?",
+                                                   "Confirm Registration",
+                                                   MessageBoxButtons.YesNo,
+                                                   MessageBoxIcon.Question)
+
+        If result = DialogResult.No Then
+            Return
+        End If
+
+        ' Proceed with registration
+        RegisterUser()
+    End Sub
+
+    Private Function ValidateAllFields() As Boolean
+        Dim isValid As Boolean = True
+
+        ' Reset all field colors first
+        ResetFieldColors()
+
+        ' Validate Name
+        If Not ValidateName() Then
+            isValid = False
+        End If
+
+        ' Validate Surname
+        If Not ValidateSurname() Then
+            isValid = False
+        End If
+
+        ' Validate ID Number
+        If Not ValidateIdNumber() Then
+            isValid = False
+        End If
+
+        ' Validate Email
+        If Not ValidateEmail() Then
+            isValid = False
+        End If
+
+        ' Validate Username
+        If Not ValidateUsername() Then
+            isValid = False
+        End If
+
+        ' Validate Gender
+        If Not ValidateGender() Then
+            isValid = False
+        End If
+
+        ' Validate Password
+        If Not ValidatePassword() Then
+            isValid = False
+        End If
+
+        ' Validate Password Confirmation
+        If Not ValidatePasswordConfirmation() Then
+            isValid = False
+        End If
+
+        If Not isValid Then
+            MessageBox.Show("Please correct the highlighted fields and try again.",
+                          "Validation Error",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning)
+        End If
+
+        Return isValid
+    End Function
+
+    Private Function ValidateName() As Boolean
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            txtName.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter your first name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return False
+        ElseIf txtName.Text.Trim().Length < 2 Then
+            txtName.BackColor = Color.LightCoral
+            MessageBox.Show("Name must be at least 2 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtName.Text.Trim(), "^[a-zA-Z\s]+$") Then
+            txtName.BackColor = Color.LightCoral
+            MessageBox.Show("Name can only contain letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidateSurname() As Boolean
+        If String.IsNullOrWhiteSpace(txtSurname.Text) Then
+            txtSurname.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter your surname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtSurname.Focus()
+            Return False
+        ElseIf txtSurname.Text.Trim().Length < 2 Then
+            txtSurname.BackColor = Color.LightCoral
+            MessageBox.Show("Surname must be at least 2 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtSurname.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtSurname.Text.Trim(), "^[a-zA-Z\s]+$") Then
+            txtSurname.BackColor = Color.LightCoral
+            MessageBox.Show("Surname can only contain letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtSurname.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidateIdNumber() As Boolean
+        If String.IsNullOrWhiteSpace(txtIdNumber.Text) Then
+            txtIdNumber.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter your ID number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtIdNumber.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtIdNumber.Text.Trim(), "^\d{13}$") Then
+            txtIdNumber.BackColor = Color.LightCoral
+            MessageBox.Show("ID number must be exactly 13 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtIdNumber.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidateEmail() As Boolean
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            txtEmail.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter your email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtEmail.Text.Trim(), "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") Then
+            txtEmail.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidateUsername() As Boolean
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            txtUsername.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter a username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUsername.Focus()
+            Return False
+        ElseIf txtUsername.Text.Trim().Length < 3 OrElse txtUsername.Text.Trim().Length > 20 Then
+            txtUsername.BackColor = Color.LightCoral
+            MessageBox.Show("Username must be between 3 and 20 characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUsername.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtUsername.Text.Trim(), "^[a-zA-Z0-9_]+$") Then
+            txtUsername.BackColor = Color.LightCoral
+            MessageBox.Show("Username can only contain letters, numbers, and underscores.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUsername.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidateGender() As Boolean
+        If txtGender.SelectedIndex = -1 Then
+            txtGender.BackColor = Color.LightCoral
+            MessageBox.Show("Please select your gender.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtGender.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidatePassword() As Boolean
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            txtPassword.BackColor = Color.LightCoral
+            MessageBox.Show("Please enter a password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        ElseIf txtPassword.Text.Length < 6 Then
+            txtPassword.BackColor = Color.LightCoral
+            MessageBox.Show("Password must be at least 6 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        ElseIf Not Regex.IsMatch(txtPassword.Text, "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$") Then
+            txtPassword.BackColor = Color.LightCoral
+            MessageBox.Show("Password must contain at least one lowercase letter, one uppercase letter, and one number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function ValidatePasswordConfirmation() As Boolean
+        If String.IsNullOrWhiteSpace(txtRetypePassword.Text) Then
+            txtRetypePassword.BackColor = Color.LightCoral
+            MessageBox.Show("Please confirm your password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return False
+        ElseIf txtPassword.Text <> txtRetypePassword.Text Then
+            txtPassword.BackColor = Color.LightCoral
+            txtRetypePassword.BackColor = Color.LightCoral
+            MessageBox.Show("Passwords do not match!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function CheckUserExists() As Boolean
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                ' Check for existing username, email, or ID number
+                Dim checkQuery As String = "SELECT COUNT(*) FROM Register WHERE Username = ? OR Email = ? OR ID_Number = ?"
+                Using command As New OleDbCommand(checkQuery, connection)
+                    command.Parameters.AddWithValue("?", txtUsername.Text.Trim())
+                    command.Parameters.AddWithValue("?", txtEmail.Text.Trim())
+                    command.Parameters.AddWithValue("?", txtIdNumber.Text.Trim())
+
+                    Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                    If count > 0 Then
+                        MessageBox.Show("A user with this username, email, or ID number already exists.",
+                                      "User Exists",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning)
+                        Return True
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error checking user existence: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return True
+        End Try
+
+        Return False
+    End Function
+
+    Private Sub RegisterUser()
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                ' Note: Removed Contact field since it's not in your form designer
+                Dim insertQuery As String = "INSERT INTO Register (Full_Name, ID_Number, Email, Username, Gender, [Password]) VALUES (?, ?, ?, ?, ?, ?)"
+
+                Using command As New OleDbCommand(insertQuery, connection)
+                    ' Combine name and surname for Full_Name
+                    Dim fullName As String = txtName.Text.Trim() & " " & txtSurname.Text.Trim()
+
+                    command.Parameters.AddWithValue("?", fullName)
+                    command.Parameters.AddWithValue("?", txtIdNumber.Text.Trim())
+                    command.Parameters.AddWithValue("?", txtEmail.Text.Trim())
+                    command.Parameters.AddWithValue("?", txtUsername.Text.Trim())
+                    command.Parameters.AddWithValue("?", txtGender.Text)
+                    command.Parameters.AddWithValue("?", txtPassword.Text) ' In production, hash this password
+
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("Registration successful! Welcome to the system.",
+                                      "Success",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information)
+
+                        ClearAllFields()
+                        LoadRegisteredUsers()
+                    Else
+                        MessageBox.Show("Failed to register user. Please try again.",
+                                      "Registration Failed",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Error)
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show($"Registration error: {ex.Message}",
+                          "Database Error",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ClearAllFields()
+        ' Clear all text fields
+        txtName.Clear()
+        txtSurname.Clear()
+        txtIdNumber.Clear()
+        txtEmail.Clear()
+        txtUsername.Clear()
+        txtPassword.Clear()
+        txtRetypePassword.Clear()
+
+        ' Reset combobox
+        txtGender.SelectedIndex = -1
+
+        ' Reset field colors
+        ResetFieldColors()
+
+        ' Focus on first field
+        txtName.Focus()
+    End Sub
+
+    Private Sub ResetFieldColors()
+        txtName.BackColor = Color.White
+        txtSurname.BackColor = Color.White
+        txtIdNumber.BackColor = Color.White
+        txtEmail.BackColor = Color.White
+        txtUsername.BackColor = Color.White
+        txtPassword.BackColor = Color.White
+        txtRetypePassword.BackColor = Color.White
+        txtGender.BackColor = Color.White
+    End Sub
+
+    Private Sub LoadRegisteredUsers()
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                Dim selectQuery As String = "SELECT ID, Full_Name, ID_Number, Email, Username, Gender FROM Register ORDER BY ID DESC"
+
+                Using adapter As New OleDbDataAdapter(selectQuery, connection)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+                    DataGridView1.DataSource = dataTable
+
+                    ' Format DataGridView
+                    If DataGridView1.Columns.Count > 0 Then
+                        DataGridView1.Columns("ID").HeaderText = "ID"
+                        DataGridView1.Columns("Full_Name").HeaderText = "Full Name"
+                        DataGridView1.Columns("ID_Number").HeaderText = "ID Number"
+                        DataGridView1.Columns("Email").HeaderText = "Email"
+                        DataGridView1.Columns("Username").HeaderText = "Username"
+                        DataGridView1.Columns("Gender").HeaderText = "Gender"
+
+                        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            ' Only show error if it's not a "file not found" error
+            If Not ex.Message.Contains("Could not find file") Then
+                MessageBox.Show($"Error loading registered users: {ex.Message}",
+                              "Database Error",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error)
+            End If
+        End Try
+    End Sub
+
+    ' Event handlers for real-time validation feedback
+    Private Sub txtName_Leave(sender As Object, e As EventArgs) Handles txtName.Leave
+        If Not String.IsNullOrWhiteSpace(txtName.Text) Then
+            ValidateName()
+        End If
+    End Sub
+
+    Private Sub txtSurname_Leave(sender As Object, e As EventArgs) Handles txtSurname.Leave
+        If Not String.IsNullOrWhiteSpace(txtSurname.Text) Then
+            ValidateSurname()
+        End If
+    End Sub
+
+    Private Sub txtIdNumber_Leave(sender As Object, e As EventArgs) Handles txtIdNumber.Leave
+        If Not String.IsNullOrWhiteSpace(txtIdNumber.Text) Then
+            ValidateIdNumber()
+        End If
+    End Sub
+
+    Private Sub txtEmail_Leave(sender As Object, e As EventArgs) Handles txtEmail.Leave
+        If Not String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            ValidateEmail()
+        End If
+    End Sub
+
+    Private Sub txtUsername_Leave(sender As Object, e As EventArgs) Handles txtUsername.Leave
+        If Not String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            ValidateUsername()
+        End If
+    End Sub
+
+    Private Sub txtPassword_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
+        If Not String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            ValidatePassword()
+        End If
+    End Sub
+
+    Private Sub txtRetypePassword_Leave(sender As Object, e As EventArgs) Handles txtRetypePassword.Leave
+        If Not String.IsNullOrWhiteSpace(txtRetypePassword.Text) Then
+            ValidatePasswordConfirmation()
+        End If
+    End Sub
+
+End Class

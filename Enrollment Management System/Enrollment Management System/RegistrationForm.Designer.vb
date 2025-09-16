@@ -40,9 +40,9 @@ Partial Class RegistrationForm
         DataGridView1 = New DataGridView()
         Panel1 = New Panel()
         txtGender = New ComboBox()
-        Button1 = New Button()
+        btnRegister = New Button()
         Label9 = New Label()
-        Label10 = New Label()
+        btnLogin = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -209,15 +209,15 @@ Partial Class RegistrationForm
         txtGender.Size = New Size(392, 46)
         txtGender.TabIndex = 18
         ' 
-        ' Button1
+        ' btnRegister
         ' 
-        Button1.Font = New Font("Microsoft Sans Serif", 16F)
-        Button1.Location = New Point(450, 745)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(198, 64)
-        Button1.TabIndex = 19
-        Button1.Text = "Register"
-        Button1.UseVisualStyleBackColor = True
+        btnRegister.Font = New Font("Microsoft Sans Serif", 16F)
+        btnRegister.Location = New Point(450, 745)
+        btnRegister.Name = "btnRegister"
+        btnRegister.Size = New Size(198, 64)
+        btnRegister.TabIndex = 19
+        btnRegister.Text = "Register"
+        btnRegister.UseVisualStyleBackColor = True
         ' 
         ' Label9
         ' 
@@ -229,17 +229,17 @@ Partial Class RegistrationForm
         Label9.TabIndex = 20
         Label9.Text = "Already Have an Account?"
         ' 
-        ' Label10
+        ' btnLogin
         ' 
-        Label10.AutoSize = True
-        Label10.BackColor = Color.Red
-        Label10.Font = New Font("Microsoft Sans Serif", 16F)
-        Label10.ForeColor = Color.White
-        Label10.Location = New Point(650, 868)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(96, 37)
-        Label10.TabIndex = 21
-        Label10.Text = "Login"
+        btnLogin.AutoSize = True
+        btnLogin.BackColor = Color.Red
+        btnLogin.Font = New Font("Microsoft Sans Serif", 16F)
+        btnLogin.ForeColor = Color.White
+        btnLogin.Location = New Point(650, 868)
+        btnLogin.Name = "btnLogin"
+        btnLogin.Size = New Size(96, 37)
+        btnLogin.TabIndex = 21
+        btnLogin.Text = "Login"
         ' 
         ' RegistrationForm
         ' 
@@ -247,9 +247,9 @@ Partial Class RegistrationForm
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
         ClientSize = New Size(1111, 1122)
-        Controls.Add(Label10)
+        Controls.Add(btnLogin)
         Controls.Add(Label9)
-        Controls.Add(Button1)
+        Controls.Add(btnRegister)
         Controls.Add(txtGender)
         Controls.Add(Panel1)
         Controls.Add(DataGridView1)
@@ -294,7 +294,7 @@ Partial Class RegistrationForm
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtGender As ComboBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnRegister As Button
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents btnLogin As Label
 End Class

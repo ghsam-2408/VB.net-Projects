@@ -1,0 +1,214 @@
+﻿Imports Microsoft.Data.Sqlite
+Imports System.IO
+
+Public Class RegistrationForm
+
+    ' Database file path - will be created in the application directory
+    Private ReadOnly dbPath As String = Path.Combine(Application.StartupPath, "EnrollmentDB.db")
+
+    Private Sub RegistrationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Initialize database when form loads
+        InitializeDatabase()
+        ' Set password fields to use password character
+        txtPassword.UseSystemPasswordChar = True
+        txtRetypePassword.UseSystemPasswordChar = True
+    End Sub
+
+    Private Sub InitializeDatabase()
+        Try
+            ' Create database file if it doesn't exist
+            If Not File.Exists(dbPath) Then
+                SQLiteConnection.CreateFile(dbPath)
+            End If
+
+            ' Create the Students table if it doesn't exist
+            Using connection As New SqliteConnection($"Data Source={dbPath}")
+                connection.Open()
+                Dim createTableQuery As String = "
+                    CREATE TABLE IF NOT EXISTS Students (
+                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Name TEXT NOT NULL,
+                        Surname TEXT NOT NULL,
+                        Username TEXT UNIQUE NOT NULL,
+                        IDNumber TEXT UNIQUE NOT NULL,
+                        Email TEXT UNIQUE NOT NULL,
+                        Gender TEXT NOT NULL,
+                        Password TEXT NOT NULL,
+                        RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP
+                    )"
+
+                Using command As New SqliteCommand(createTableQuery, connection)
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error initializing database: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        ' Validate input fields
+        If Not ValidateInput() Then
+            Return
+        End If
+
+        ' Check if passwords match
+        If txtPassword.Text <> txtRetypePassword.Text Then
+            MessageBox.Show("Passwords do not match!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return
+        End If
+
+        Try
+            ' Insert student data into database
+            Using connection As New SqliteConnection($"Data Source={dbPath}")
+                connection.Open()
+
+                Dim insertQuery As String = "
+                    INSERT INTO Students (Name, Surname, Username, IDNumber, Email, Gender, Password)
+                    VALUES (@Name, @Surname, @Username, @IDNumber, @Email, @Gender, @Password)"
+
+                Using command As New SqliteCommand(insertQuery, connection)
+                    ' Add parameters to prevent SQL injection
+                    command.Parameters.AddWithValue("@Name", txtName.Text.Trim())
+                    command.Parameters.AddWithValue("@Surname", txtSurname.Text.Trim())
+                    command.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
+                    command.Parameters.AddWithValue("@IDNumber", txtIdNumber.Text.Trim())
+                    command.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
+                    command.Parameters.AddWithValue("@Gender", txtGender.Text)
+                    ' Note: In a real application, you should hash passwords before storing them
+                    command.Parameters.AddWithValue("@Password", txtPassword.Text)
+
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+
+            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            
+            ' Clear the form after successful registration
+            ClearForm()
+            
+            ' Refresh the DataGridView to show the new record
+            LoadStudentData()
+
+        Catch ex As SqliteException
+            ' Handle specific database errors
+            If ex.Message.Contains("UNIQUE constraint failed") Then
+                If ex.Message.Contains("Username") Then
+                    MessageBox.Show("Username already exists. Please choose a different username.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtUsername.Focus()
+                ElseIf ex.Message.Contains("IDNumber") Then
+                    MessageBox.Show("ID Number already exists in the system.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtIdNumber.Focus()
+                ElseIf ex.Message.Contains("Email") Then
+                    MessageBox.Show("Email address already exists in the system.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtEmail.Focus()
+                End If
+            Else
+                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"An error occurred during registration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function ValidateInput() As Boolean
+        ' Check if all required fields are filled
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            MessageBox.Show("Please enter your name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtSurname.Text) Then
+            MessageBox.Show("Please enter your surname.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtSurname.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            MessageBox.Show("Please enter a username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUsername.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtIdNumber.Text) Then
+            MessageBox.Show("Please enter your ID number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtIdNumber.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            MessageBox.Show("Please enter your email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        End If
+
+        ' Basic email validation
+        If Not txtEmail.Text.Contains("@") OrElse Not txtEmail.Text.Contains(".") Then
+            MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Return False
+        End If
+
+        If txtGender.SelectedIndex = -1 Then
+            MessageBox.Show("Please select your gender.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtGender.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            MessageBox.Show("Please enter a password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        End If
+
+        If txtPassword.Text.Length < 6 Then
+            MessageBox.Show("Password must be at least 6 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPassword.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtRetypePassword.Text) Then
+            MessageBox.Show("Please retype your password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtRetypePassword.Focus()
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Sub ClearForm()
+        ' Clear all input fields
+        txtName.Clear()
+        txtSurname.Clear()
+        txtUsername.Clear()
+        txtIdNumber.Clear()
+        txtEmail.Clear()
+        txtGender.SelectedIndex = -1
+        txtPassword.Clear()
+        txtRetypePassword.Clear()
+        txtName.Focus()
+    End Sub
+
+    Private Sub LoadStudentData()
+        Try
+            Using connection As New SqliteConnection($"Data Source={dbPath}")
+                connection.Open()
+                
+                Dim selectQuery As String = "
+                    SELECT ID, Name, Surname, Username, IDNumber, Email, Gender, RegistrationDate
+                    FROM Students
+                    ORDER BY RegistrationDate DESC"
+
+                Using adapter As New SqliteDataAdapter(selectQuery, connection)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+                    DataGridView1.DataSource = dataTable
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error loading student data: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+End Class

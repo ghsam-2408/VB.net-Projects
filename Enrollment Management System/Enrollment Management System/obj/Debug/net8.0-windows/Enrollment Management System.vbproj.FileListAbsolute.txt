@@ -1,0 +1,28 @@
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.Dashboard.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.FeesPayments.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.LoginForm.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.MainMenu.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.Resources.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.RegistrationForm.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.SplashScreen.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment_Management_System.StudentsEnrollment.resources
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.vbproj.GenerateResource.cache
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.AssemblyInfoInputs.cache
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.AssemblyInfo.vb
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.vbproj.CoreCompileInputs.cache
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.sourcelink.json
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.vbproj.AssemblyReference.cache
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\Enrollment Management System.exe
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\Enrollment Management System.deps.json
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\Enrollment Management System.runtimeconfig.json
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\Enrollment Management System.dll
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\Enrollment Management System.pdb
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\System.Data.OleDb.dll
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.OleDb.dll
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollme.F7D64711.Up2Date
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.dll
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\refint\Enrollment Management System.dll
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.pdb
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\Enrollment Management System.genruntimeconfig.cache
+C:\Users\GH Sam\Documents\VB.net-Projects\Enrollment Management System\Enrollment Management System\obj\Debug\net8.0-windows\ref\Enrollment Management System.dll
