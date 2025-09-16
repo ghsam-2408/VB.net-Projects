@@ -45,10 +45,10 @@ Partial Class StudentsEnrollment
         txtAdmissionDate = New DateTimePicker()
         txtGender = New ComboBox()
         Panel2 = New Panel()
+        btnReload = New Button()
         btnUpdate = New Button()
         btnDelete = New Button()
         btnSave = New Button()
-        btnReload = New Button()
         btnSearch = New Button()
         txtSearch = New TextBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +58,7 @@ Partial Class StudentsEnrollment
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(48, 859)
+        DataGridView1.Location = New Point(270, 844)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.Size = New Size(1087, 240)
@@ -266,6 +266,17 @@ Partial Class StudentsEnrollment
         Panel2.Size = New Size(1139, 67)
         Panel2.TabIndex = 35
         ' 
+        ' btnReload
+        ' 
+        btnReload.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
+        btnReload.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnReload.Location = New Point(870, 3)
+        btnReload.Name = "btnReload"
+        btnReload.Size = New Size(129, 50)
+        btnReload.TabIndex = 3
+        btnReload.Text = "Re-load"
+        btnReload.UseVisualStyleBackColor = False
+        ' 
         ' btnUpdate
         ' 
         btnUpdate.BackColor = Color.Yellow
@@ -298,17 +309,6 @@ Partial Class StudentsEnrollment
         btnSave.TabIndex = 0
         btnSave.Text = "Save"
         btnSave.UseVisualStyleBackColor = False
-        ' 
-        ' btnReload
-        ' 
-        btnReload.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
-        btnReload.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnReload.Location = New Point(870, 3)
-        btnReload.Name = "btnReload"
-        btnReload.Size = New Size(129, 50)
-        btnReload.TabIndex = 3
-        btnReload.Text = "Re-load"
-        btnReload.UseVisualStyleBackColor = False
         ' 
         ' btnSearch
         ' 
