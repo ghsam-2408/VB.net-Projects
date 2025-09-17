@@ -1,0 +1,51 @@
+﻿Imports System.Data.OleDb
+
+Public Class LoginForm
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EnrollmentManagement.accdb")
+
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnSignUp_Click(sender As Object, e As EventArgs) Handles btnSignUp.Click
+        Me.Close()
+        RegistrationForm.Show()
+    End Sub
+
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Try
+            ' ✅ First check default username & password
+            If txtUsername.Text = "joshua" AndAlso txtPassword.Text = "mushawatu" Then
+                MsgBox("Login successful! (Default account)", MsgBoxStyle.Information, "Success")
+                MainMenu.Show()
+                Me.Hide()
+            Else
+                ' Otherwise, check database
+                mycon.Open()
+                Dim mycmd As New OleDbCommand("SELECT COUNT(*) FROM UserRegistration WHERE Username = ? AND [Password] = ?", mycon)
+                mycmd.Parameters.AddWithValue("?", txtUsername.Text)
+                mycmd.Parameters.AddWithValue("?", txtPassword.Text)
+
+                Dim count As Integer = Convert.ToInt32(mycmd.ExecuteScalar())
+
+                If count > 0 Then
+                    MsgBox("Login successful!", MsgBoxStyle.Information, "Success")
+                    MainMenu.Show()
+                    Me.Hide()
+                Else
+                    MsgBox("Invalid Username or Password!", MsgBoxStyle.Exclamation)
+                End If
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            If mycon.State = ConnectionState.Open Then mycon.Close()
+        End Try
+
+        ' Clear fields only after processing
+        txtPassword.Clear()
+        txtUsername.Clear()
+        txtUsername.Focus()
+    End Sub
+End Class
