@@ -22,8 +22,10 @@ Partial Class FeesPayments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         txtSearch = New TextBox()
         Panel2 = New Panel()
+        btnPrintReceipt = New Button()
         btnReload = New Button()
         btnUpdate = New Button()
         btnDelete = New Button()
@@ -44,10 +46,13 @@ Partial Class FeesPayments
         txtAmountPaid = New TextBox()
         Label1 = New Label()
         txtStudentID = New TextBox()
-        btnPrintReceipt = New Button()
         btnSearch = New Button()
+        FeesPaymentsBindingSource = New BindingSource(components)
+        FeesPaymentsBindingSource1 = New BindingSource(components)
         DataGridView1 = New DataGridView()
         Panel2.SuspendLayout()
+        CType(FeesPaymentsBindingSource, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FeesPaymentsBindingSource1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -71,6 +76,17 @@ Partial Class FeesPayments
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1308, 67)
         Panel2.TabIndex = 57
+        ' 
+        ' btnPrintReceipt
+        ' 
+        btnPrintReceipt.BackColor = Color.DeepSkyBlue
+        btnPrintReceipt.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnPrintReceipt.Location = New Point(1045, 3)
+        btnPrintReceipt.Name = "btnPrintReceipt"
+        btnPrintReceipt.Size = New Size(205, 50)
+        btnPrintReceipt.TabIndex = 4
+        btnPrintReceipt.Text = "Print Receipt"
+        btnPrintReceipt.UseVisualStyleBackColor = False
         ' 
         ' btnReload
         ' 
@@ -113,14 +129,14 @@ Partial Class FeesPayments
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(129, 50)
         btnSave.TabIndex = 0
-        btnSave.Text = "Save"
+        btnSave.Text = "Pay"
         btnSave.UseVisualStyleBackColor = False
         ' 
         ' txtPaymentMethod
         ' 
         txtPaymentMethod.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         txtPaymentMethod.FormattingEnabled = True
-        txtPaymentMethod.Items.AddRange(New Object() {"Male", "Female"})
+        txtPaymentMethod.Items.AddRange(New Object() {"Cash", "Ecocash", "Bank Transfer", "Zipit"})
         txtPaymentMethod.Location = New Point(629, 414)
         txtPaymentMethod.Name = "txtPaymentMethod"
         txtPaymentMethod.Size = New Size(379, 46)
@@ -262,17 +278,6 @@ Partial Class FeesPayments
         txtStudentID.Size = New Size(379, 45)
         txtStudentID.TabIndex = 43
         ' 
-        ' btnPrintReceipt
-        ' 
-        btnPrintReceipt.BackColor = Color.DeepSkyBlue
-        btnPrintReceipt.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnPrintReceipt.Location = New Point(1045, 3)
-        btnPrintReceipt.Name = "btnPrintReceipt"
-        btnPrintReceipt.Size = New Size(205, 50)
-        btnPrintReceipt.TabIndex = 4
-        btnPrintReceipt.Text = "Print Receipt"
-        btnPrintReceipt.UseVisualStyleBackColor = False
-        ' 
         ' btnSearch
         ' 
         btnSearch.BackColor = Color.Olive
@@ -284,13 +289,21 @@ Partial Class FeesPayments
         btnSearch.Text = "Search"
         btnSearch.UseVisualStyleBackColor = False
         ' 
+        ' FeesPaymentsBindingSource
+        ' 
+        FeesPaymentsBindingSource.DataSource = GetType(FeesPayments)
+        ' 
+        ' FeesPaymentsBindingSource1
+        ' 
+        FeesPaymentsBindingSource1.DataSource = GetType(FeesPayments)
+        ' 
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(63, 957)
+        DataGridView1.Location = New Point(498, 1020)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(1279, 285)
+        DataGridView1.Size = New Size(1149, 225)
         DataGridView1.TabIndex = 61
         ' 
         ' FeesPayments
@@ -321,6 +334,8 @@ Partial Class FeesPayments
         Name = "FeesPayments"
         Text = "FeesPayments"
         Panel2.ResumeLayout(False)
+        CType(FeesPaymentsBindingSource, ComponentModel.ISupportInitialize).EndInit()
+        CType(FeesPaymentsBindingSource1, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -350,5 +365,7 @@ Partial Class FeesPayments
     Friend WithEvents txtStudentID As TextBox
     Friend WithEvents btnPrintReceipt As Button
     Friend WithEvents btnSearch As Button
+    Friend WithEvents FeesPaymentsBindingSource As BindingSource
+    Friend WithEvents FeesPaymentsBindingSource1 As BindingSource
     Friend WithEvents DataGridView1 As DataGridView
 End Class
