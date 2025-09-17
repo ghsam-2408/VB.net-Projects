@@ -265,55 +265,14 @@ Public Class StudentsEnrollment
         txtSubjects.BackColor = Color.White
     End Sub
 
-    Private Function CheckForDuplicates() As Boolean
-        Try
-            Using connection As New OleDbConnection(mycon.ConnectionString)
-                connection.Open()
-
-                ' Check for existing student ID or email
-                Dim checkQuery As String = "SELECT COUNT(*) FROM StudentsEnrollment WHERE StudentID = ? OR Email = ?"
-                Using command As New OleDbCommand(checkQuery, connection)
-                    command.Parameters.AddWithValue("?", txtStudentID.Text.Trim())
-                    command.Parameters.AddWithValue("?", txtEmail.Text.Trim())
-
-                    Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
-
-                    If count > 0 Then
-                        MessageBox.Show("A student with this ID or email already exists in the system." & vbCrLf & "Please use different details.",
-                                      "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Return True
-                    End If
-                End Using
-            End Using
-        Catch ex As Exception
-            MessageBox.Show($"Error checking for duplicates: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return True
-        End Try
-
-        Return False
-    End Function
-
-    Private Function GetSelectedSubjects() As String
-        Dim subjects As New List(Of String)
-        For Each item In txtSubjects.CheckedItems
-            subjects.Add(item.ToString())
-        Next
-        Return String.Join(", ", subjects)
-    End Function
-
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ' Validate all fields
         If Not ValidateFields() Then
             Return
         End If
 
-        ' Check for duplicates
-        If CheckForDuplicates() Then
-            Return
-        End If
-
         ' Show confirmation dialog
-        Dim selectedSubjects As String = GetSelectedSubjects()
+        'Dim selectedSubjects As String = GetSelectedSubjects()
         Dim confirmResult As DialogResult = MessageBox.Show(
             $"Please confirm the student enrollment details:" & vbCrLf & vbCrLf &
             $"Student ID: {txtStudentID.Text}" & vbCrLf &
@@ -324,7 +283,7 @@ Public Class StudentsEnrollment
             $"Gender: {txtGender.Text}" & vbCrLf &
             $"Date of Birth: {txtDOB.Value.ToShortDateString()}" & vbCrLf &
             $"Admission Date: {txtAdmissionDate.Value.ToShortDateString()}" & vbCrLf &
-            $"Subjects: {selectedSubjects}" & vbCrLf & vbCrLf &
+            $"Subjects: {txtSubjects.CheckedItems}" & vbCrLf & vbCrLf &
             "Do you want to proceed with enrollment?",
             "Confirm Student Enrollment", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -339,20 +298,27 @@ Public Class StudentsEnrollment
 
             mycon.Open()
 
+            ' Convert CheckedItems to string for database storage
+            Dim subjectsText As String = String.Join(", ", txtSubjects.CheckedItems.Cast(Of String)())
+
             ' Fixed SQL statement with correct column order matching parameter order
-            Dim mycmd As New OleDbCommand("INSERT INTO StudentsEnrollment (StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
+            Dim mycmd As New OleDbCommand("INSERT INTO StudentsEnrollment (Student_ID, Gender, Student_Name, Admission_Date, Student_Surname, Form, Email, Department, Subjects, Date_of_Birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
 
             ' Use parameters to prevent SQL injection - order must match the column order above
             mycmd.Parameters.AddWithValue("?", txtStudentID.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtGender.Text)
+
             mycmd.Parameters.AddWithValue("?", txtStudentName.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Text)
+
             mycmd.Parameters.AddWithValue("?", txtStudentSurname.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtForm.Text.Trim())
+
             mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
             mycmd.Parameters.AddWithValue("?", txtDepartment.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtForm.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtGender.Text)
-            mycmd.Parameters.AddWithValue("?", txtDOB.Value.Date)
-            mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Value.Date)
-            mycmd.Parameters.AddWithValue("?", selectedSubjects)
+            mycmd.Parameters.AddWithValue("?", txtSubjects.CheckedItems)
+
+            mycmd.Parameters.AddWithValue("?", txtDOB.Text)
 
             ' Execute the query
             Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
@@ -377,12 +343,7 @@ Public Class StudentsEnrollment
             End If
 
         Catch ex As OleDbException
-            If ex.Message.Contains("duplicate") OrElse ex.Message.Contains("violation") Then
-                MessageBox.Show("A student with these details already exists. Please check the Student ID or email.",
-                              "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+            MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
             MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
