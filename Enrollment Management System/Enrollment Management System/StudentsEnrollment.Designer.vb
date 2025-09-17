@@ -24,7 +24,6 @@ Partial Class StudentsEnrollment
     Private Sub InitializeComponent()
         DataGridView1 = New DataGridView()
         Label8 = New Label()
-        txtDepartment = New TextBox()
         Label7 = New Label()
         txtEmail = New TextBox()
         Label6 = New Label()
@@ -51,6 +50,7 @@ Partial Class StudentsEnrollment
         btnSave = New Button()
         btnSearch = New Button()
         txtSearch = New TextBox()
+        txtDepartment = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         SuspendLayout()
@@ -73,14 +73,6 @@ Partial Class StudentsEnrollment
         Label8.Size = New Size(171, 38)
         Label8.TabIndex = 32
         Label8.Text = "Department"
-        ' 
-        ' txtDepartment
-        ' 
-        txtDepartment.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold)
-        txtDepartment.Location = New Point(633, 522)
-        txtDepartment.Name = "txtDepartment"
-        txtDepartment.Size = New Size(379, 45)
-        txtDepartment.TabIndex = 31
         ' 
         ' Label7
         ' 
@@ -263,7 +255,7 @@ Partial Class StudentsEnrollment
         Panel2.Controls.Add(btnSave)
         Panel2.Location = New Point(35, 616)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1139, 67)
+        Panel2.Size = New Size(1139, 65)
         Panel2.TabIndex = 35
         ' 
         ' btnReload
@@ -307,7 +299,7 @@ Partial Class StudentsEnrollment
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(129, 50)
         btnSave.TabIndex = 0
-        btnSave.Text = "Save"
+        btnSave.Text = "Enroll Student"
         btnSave.UseVisualStyleBackColor = False
         ' 
         ' btnSearch
@@ -329,12 +321,23 @@ Partial Class StudentsEnrollment
         txtSearch.Size = New Size(379, 45)
         txtSearch.TabIndex = 42
         ' 
+        ' txtDepartment
+        ' 
+        txtDepartment.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        txtDepartment.FormattingEnabled = True
+        txtDepartment.Items.AddRange(New Object() {"Sciences", "Commercials", "Arts"})
+        txtDepartment.Location = New Point(630, 521)
+        txtDepartment.Name = "txtDepartment"
+        txtDepartment.Size = New Size(379, 46)
+        txtDepartment.TabIndex = 43
+        ' 
         ' StudentsEnrollment
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
         ClientSize = New Size(1911, 1250)
+        Controls.Add(txtDepartment)
         Controls.Add(txtSearch)
         Controls.Add(btnSearch)
         Controls.Add(Panel2)
@@ -347,7 +350,6 @@ Partial Class StudentsEnrollment
         Controls.Add(Panel1)
         Controls.Add(DataGridView1)
         Controls.Add(Label8)
-        Controls.Add(txtDepartment)
         Controls.Add(Label7)
         Controls.Add(txtEmail)
         Controls.Add(Label6)
@@ -371,7 +373,6 @@ Partial Class StudentsEnrollment
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtDepartment As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label6 As Label
@@ -398,4 +399,5 @@ Partial Class StudentsEnrollment
     Friend WithEvents btnReload As Button
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents txtDepartment As ComboBox
 End Class

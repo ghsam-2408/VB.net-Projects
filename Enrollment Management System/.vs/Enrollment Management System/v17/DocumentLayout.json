@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\registrationform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\registrationform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\registrationform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\registrationform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\enrollment management system.vbproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -22,11 +34,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginForm.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\LoginForm.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb",
+              "RelativeToolTip": "Enrollment Management System\\LoginForm.vb",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAmwFAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T03:11:16.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LoginForm.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\LoginForm.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\LoginForm.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T03:11:09.827Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentsEnrollment.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\StudentsEnrollment.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb",
+              "RelativeToolTip": "Enrollment Management System\\StudentsEnrollment.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T02:09:12.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistrationForm.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\RegistrationForm.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb",
+              "RelativeToolTip": "Enrollment Management System\\RegistrationForm.vb",
+              "ViewState": "AgIAAFcBAAAAAAAAAAD4v2sBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-16T17:01:53.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentsEnrollment.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\StudentsEnrollment.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\StudentsEnrollment.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T02:08:06.468Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Enrollment Management System.vbproj",
               "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Enrollment Management System.vbproj",
               "RelativeDocumentMoniker": "Enrollment Management System\\Enrollment Management System.vbproj",
@@ -34,33 +109,7 @@
               "RelativeToolTip": "Enrollment Management System\\Enrollment Management System.vbproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
-              "WhenOpened": "2025-09-16T18:20:32.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegistrationForm.vb",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb",
-              "RelativeDocumentMoniker": "Enrollment Management System\\RegistrationForm.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb",
-              "RelativeToolTip": "Enrollment Management System\\RegistrationForm.vb",
-              "ViewState": "AgIAAN4BAAAAAAAAAADwv+QBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-16T17:01:53.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegistrationForm.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb",
-              "RelativeDocumentMoniker": "Enrollment Management System\\RegistrationForm.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RegistrationForm.vb [Design]",
-              "RelativeToolTip": "Enrollment Management System\\RegistrationForm.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-16T17:00:21.347Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-16T18:20:32.182Z"
             }
           ]
         }

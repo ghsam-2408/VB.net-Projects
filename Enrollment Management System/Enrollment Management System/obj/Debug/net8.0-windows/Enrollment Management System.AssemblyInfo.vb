@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("Enrollment Management System"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+253142f898d45dae4412fe151386c65bbccd54d0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e58366ff1d6c490397120e2bb9e18fe010e533fd"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Enrollment Management System"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Enrollment Management System"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
