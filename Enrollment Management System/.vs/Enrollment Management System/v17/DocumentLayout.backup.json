@@ -1,26 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\",
+  "WorkspaceRootPath": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\enrollment management system.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\enrollment management system.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\studentsenrollment.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\vb.net-projects\\enrollment management system\\enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\feespayments.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\runapp.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\runapp.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\loginform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\splashscreen.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\cleanbuild.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\cleanbuild.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\buildmanager.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}|",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\buildmanager.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\my project\\application.myapp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\my project\\application.myapp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\applicationevents.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\applicationevents.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|c:\\users\\gh sam\\documents\\projects git\\vb.net-projects\\enrollment management system\\enrollment management system\\killapp.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|",
+      "RelativeMoniker": "D:0:0:{51A4D66F-E35E-49C5-B881-90DE74025E72}|Enrollment Management System\\Enrollment Management System.vbproj|solutionrelative:enrollment management system\\killapp.bat||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,63 +71,178 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Enrollment Management System",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Enrollment Management System.vbproj",
-              "RelativeDocumentMoniker": "Enrollment Management System\\Enrollment Management System.vbproj",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Enrollment Management System.vbproj",
-              "RelativeToolTip": "Enrollment Management System\\Enrollment Management System.vbproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
-              "WhenOpened": "2025-09-17T09:07:14.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SplashScreen.vb",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
-              "RelativeDocumentMoniker": "Enrollment Management System\\SplashScreen.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
-              "RelativeToolTip": "Enrollment Management System\\SplashScreen.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Title": "FeesPayments.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\FeesPayments.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\FeesPayments.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-17T09:06:42.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SplashScreen.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
-              "RelativeDocumentMoniker": "Enrollment Management System\\SplashScreen.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb [Design]",
-              "RelativeToolTip": "Enrollment Management System\\SplashScreen.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-17T09:00:36.999Z",
+              "WhenOpened": "2025-09-17T06:25:39.035Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FeesPayments.vb",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
               "RelativeDocumentMoniker": "Enrollment Management System\\FeesPayments.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
               "RelativeToolTip": "Enrollment Management System\\FeesPayments.vb",
-              "ViewState": "AgIAADgBAAAAAAAAAAAtwEUBAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAEUCAAAAAAAAAAAlwE0CAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-09-17T06:25:51.523Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FeesPayments.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb",
-              "RelativeDocumentMoniker": "Enrollment Management System\\FeesPayments.vb",
-              "ToolTip": "C:\\Users\\GH Sam\\Documents\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\FeesPayments.vb [Design]",
-              "RelativeToolTip": "Enrollment Management System\\FeesPayments.vb [Design]",
+              "DocumentIndex": 1,
+              "Title": "StudentsEnrollment.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\StudentsEnrollment.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\StudentsEnrollment.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\StudentsEnrollment.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-17T06:25:39.035Z",
+              "WhenOpened": "2025-09-17T12:45:26.43Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dashboard.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Dashboard.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Dashboard.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\Dashboard.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T12:00:11.398Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dashboard.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Dashboard.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\Dashboard.vb",
+              "RelativeToolTip": "Enrollment Management System\\Dashboard.vb",
+              "ViewState": "AgIAAHMBAAAAAAAAAAA8wH4BAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T12:00:51.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RunApp.bat",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RunApp.bat",
+              "RelativeDocumentMoniker": "Enrollment Management System\\RunApp.bat",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\RunApp.bat",
+              "RelativeToolTip": "Enrollment Management System\\RunApp.bat",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVEhL7dU/aBNhHMbxby5pgjo6WK1DaGOJ8Q8qFmxBWnGxaqk4OIriWBChKTEBFam0SkEdRByEDp3VRYqKDoJSMCpW0VoaTawWXJNo7tL7XV6XKvY1ryUYB8HPcvB7n/ee9ziOg79JKaWP/j2\u002BZGIgCyqsL9SHL2fV4\u002Bb7eg5UvYIK\u002B5KJuDo7OPRTvH7OnEph6UOdKx73Hj3lzsMnuCL68pKMBSWnzJuZHNPvZ3FsB8dxyGQ/8Tg9ydeSrceNjAWTUxkyH\u002BbI5D7iiiAivHo7w\u002BzcZ569nNLjRsaCWCSM5QMRj\u002B6uHXTvakcWijZFI3rcyFiglMK2HTwRlFIopRAR/BZUVEWPGxkLXk\u002B/Wzixy83xB9y4fR9PhJJtM5F\u002BoceNjAVbNrSyZtVKNkZbEHERzyW6rplYawudHW163MhYsGL5Mjrbt7M\u002B0ozfsghYFts2x\u002Bho28rV0TGGL13Rt1QV0Ae6YLCBw4d6Abg1fpeJ9HOKxSLiztPXn2B3104O9uzXt/1gfIJqQqEQhUKBc6kBhk\u002BnyOfzKO/3L7ymAm/exZ0vo1QFpSq45TKyxNddU0FFeTT4/RyPn6TvRJxgwM\u002BXYkGPLVJTQe/ePVy7PELT6kbWNjUyNnqdY0eP6LFFair4bmRokIsXzuvjqnzJRH8WfH/8T6hO5fTJf7/4Bn2yzOdgnYQEAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-09-17T11:05:46.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationEvents.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\ApplicationEvents.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\ApplicationEvents.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\ApplicationEvents.vb",
+              "RelativeToolTip": "Enrollment Management System\\ApplicationEvents.vb",
+              "ViewState": "AgIAAEwAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T11:01:43.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginForm.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\LoginForm.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\LoginForm.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\LoginForm.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T10:36:16.655Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CleanBuild.bat",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\CleanBuild.bat",
+              "RelativeDocumentMoniker": "Enrollment Management System\\CleanBuild.bat",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\CleanBuild.bat",
+              "RelativeToolTip": "Enrollment Management System\\CleanBuild.bat",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAFAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVEhL7dU/aBNhHMbxby5pgjo6WK1DaGOJ8Q8qFmxBWnGxaqk4OIriWBChKTEBFam0SkEdRByEDp3VRYqKDoJSMCpW0VoaTawWXJNo7tL7XV6XKvY1ryUYB8HPcvB7n/ee9ziOg79JKaWP/j2\u002BZGIgCyqsL9SHL2fV4\u002Bb7eg5UvYIK\u002B5KJuDo7OPRTvH7OnEph6UOdKx73Hj3lzsMnuCL68pKMBSWnzJuZHNPvZ3FsB8dxyGQ/8Tg9ydeSrceNjAWTUxkyH\u002BbI5D7iiiAivHo7w\u002BzcZ569nNLjRsaCWCSM5QMRj\u002B6uHXTvakcWijZFI3rcyFiglMK2HTwRlFIopRAR/BZUVEWPGxkLXk\u002B/Wzixy83xB9y4fR9PhJJtM5F\u002BoceNjAVbNrSyZtVKNkZbEHERzyW6rplYawudHW163MhYsGL5Mjrbt7M\u002B0ozfsghYFts2x\u002Bho28rV0TGGL13Rt1QV0Ae6YLCBw4d6Abg1fpeJ9HOKxSLiztPXn2B3104O9uzXt/1gfIJqQqEQhUKBc6kBhk\u002BnyOfzKO/3L7ymAm/exZ0vo1QFpSq45TKyxNddU0FFeTT4/RyPn6TvRJxgwM\u002BXYkGPLVJTQe/ePVy7PELT6kbWNjUyNnqdY0eP6LFFair4bmRokIsXzuvjqnzJRH8WfH/8T6hO5fTJf7/4Bn2yzOdgnYQEAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-09-17T10:59:48.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "KillApp.bat",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\KillApp.bat",
+              "RelativeDocumentMoniker": "Enrollment Management System\\KillApp.bat",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\KillApp.bat",
+              "RelativeToolTip": "Enrollment Management System\\KillApp.bat",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVEhL7dU/aBNhHMbxby5pgjo6WK1DaGOJ8Q8qFmxBWnGxaqk4OIriWBChKTEBFam0SkEdRByEDp3VRYqKDoJSMCpW0VoaTawWXJNo7tL7XV6XKvY1ryUYB8HPcvB7n/ee9ziOg79JKaWP/j2\u002BZGIgCyqsL9SHL2fV4\u002Bb7eg5UvYIK\u002B5KJuDo7OPRTvH7OnEph6UOdKx73Hj3lzsMnuCL68pKMBSWnzJuZHNPvZ3FsB8dxyGQ/8Tg9ydeSrceNjAWTUxkyH\u002BbI5D7iiiAivHo7w\u002BzcZ569nNLjRsaCWCSM5QMRj\u002B6uHXTvakcWijZFI3rcyFiglMK2HTwRlFIopRAR/BZUVEWPGxkLXk\u002B/Wzixy83xB9y4fR9PhJJtM5F\u002BoceNjAVbNrSyZtVKNkZbEHERzyW6rplYawudHW163MhYsGL5Mjrbt7M\u002B0ozfsghYFts2x\u002Bho28rV0TGGL13Rt1QV0Ae6YLCBw4d6Abg1fpeJ9HOKxSLiztPXn2B3104O9uzXt/1gfIJqQqEQhUKBc6kBhk\u002BnyOfzKO/3L7ymAm/exZ0vo1QFpSq45TKyxNddU0FFeTT4/RyPn6TvRJxgwM\u002BXYkGPLVJTQe/ePVy7PELT6kbWNjUyNnqdY0eP6LFFair4bmRokIsXzuvjqnzJRH8WfH/8T6hO5fTJf7/4Bn2yzOdgnYQEAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-09-17T11:05:30.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Application.myapp",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\My Project\\Application.myapp",
+              "RelativeDocumentMoniker": "Enrollment Management System\\My Project\\Application.myapp",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\My Project\\Application.myapp",
+              "RelativeToolTip": "Enrollment Management System\\My Project\\Application.myapp",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwAkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-17T11:00:54.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BuildManager.ps1",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\BuildManager.ps1",
+              "RelativeDocumentMoniker": "Enrollment Management System\\BuildManager.ps1",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\BuildManager.ps1",
+              "RelativeToolTip": "Enrollment Management System\\BuildManager.ps1",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-17T11:00:19.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SplashScreen.vb",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\SplashScreen.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
+              "RelativeToolTip": "Enrollment Management System\\SplashScreen.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T09:06:42.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SplashScreen.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb",
+              "RelativeDocumentMoniker": "Enrollment Management System\\SplashScreen.vb",
+              "ToolTip": "C:\\Users\\GH Sam\\Documents\\Projects Git\\VB.net-Projects\\Enrollment Management System\\Enrollment Management System\\SplashScreen.vb [Design]",
+              "RelativeToolTip": "Enrollment Management System\\SplashScreen.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-09-17T09:00:36.999Z",
               "EditorCaption": " [Design]"
             }
           ]

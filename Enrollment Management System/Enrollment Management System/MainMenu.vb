@@ -13,4 +13,10 @@
         Me.Close()
         FeesPayments.Show()
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        MsgBox("You have been logged out.", MsgBoxStyle.Information, "Logged Out")
+        Me.Close()
+        LoginForm.Show()
+    End Sub
 End Class

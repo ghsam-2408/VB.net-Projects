@@ -442,11 +442,11 @@ Public Class StudentsEnrollment
             Return
         End If
 
-        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
-        Dim studentID As String = selectedRow.Cells("StudentID").Value.ToString()
-        Dim studentName As String = selectedRow.Cells("StudentName").Value.ToString() & " " & selectedRow.Cells("StudentSurname").Value.ToString()
+        Dim selectedRow = DataGridView1.SelectedRows(0)
+        Dim studentID = selectedRow.Cells("StudentID").Value.ToString
+        Dim studentName = selectedRow.Cells("StudentName").Value.ToString & " " & selectedRow.Cells("StudentSurname").Value.ToString
 
-        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete the record for:" & vbCrLf & vbCrLf &
+        Dim result = MessageBox.Show($"Are you sure you want to delete the record for:" & vbCrLf & vbCrLf &
                                                    $"Student: {studentName}" & vbCrLf &
                                                    $"Student ID: {studentID}" & vbCrLf & vbCrLf &
                                                    "This action cannot be undone!",
@@ -455,15 +455,15 @@ Public Class StudentsEnrollment
         If result = DialogResult.Yes Then
             Try
                 Using connection As New OleDbConnection(mycon.ConnectionString)
-                    connection.Open()
-                    Dim deleteQuery As String = "DELETE FROM StudentsEnrollment WHERE ID = ?"
+                    connection.Open
+                    Dim deleteQuery = "DELETE FROM StudentsEnrollment WHERE ID = ?"
                     Using command As New OleDbCommand(deleteQuery, connection)
                         command.Parameters.AddWithValue("?", selectedRow.Cells("ID").Value)
-                        Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                        Dim rowsAffected = command.ExecuteNonQuery
 
                         If rowsAffected > 0 Then
                             MessageBox.Show("Student record deleted successfully!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            LoadStudentData()
+                            LoadStudentData
                         Else
                             MessageBox.Show("Failed to delete student record.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
@@ -594,4 +594,18 @@ Public Class StudentsEnrollment
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        MainMenu.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
+        Dashboard.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
+        FeesPayments.Show()
+    End Sub
 End Class

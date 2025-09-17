@@ -22,6 +22,7 @@ Partial Class LoginForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         btnLogin = New Button()
         txtUsername = New TextBox()
         txtPassword = New TextBox()
@@ -29,17 +30,20 @@ Partial Class LoginForm
         Label2 = New Label()
         Label3 = New Label()
         btnSignUp = New Button()
+        PictureBox1 = New PictureBox()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogin
         ' 
+        btnLogin.BackColor = Color.Lime
         btnLogin.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold)
         btnLogin.Location = New Point(717, 342)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(133, 49)
         btnLogin.TabIndex = 0
         btnLogin.Text = "Login"
-        btnLogin.UseVisualStyleBackColor = True
+        btnLogin.UseVisualStyleBackColor = False
         ' 
         ' txtUsername
         ' 
@@ -89,20 +93,33 @@ Partial Class LoginForm
         ' 
         ' btnSignUp
         ' 
+        btnSignUp.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         btnSignUp.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold)
         btnSignUp.Location = New Point(808, 439)
         btnSignUp.Name = "btnSignUp"
         btnSignUp.Size = New Size(257, 47)
         btnSignUp.TabIndex = 6
         btnSignUp.Text = "Create Account"
-        btnSignUp.UseVisualStyleBackColor = True
+        btnSignUp.UseVisualStyleBackColor = False
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(-4, 60)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(375, 469)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 7
+        PictureBox1.TabStop = False
         ' 
         ' LoginForm
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
+        BackColor = SystemColors.ActiveCaption
         ClientSize = New Size(1247, 576)
+        Controls.Add(PictureBox1)
         Controls.Add(btnSignUp)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -113,6 +130,7 @@ Partial Class LoginForm
         Name = "LoginForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Login"
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -124,5 +142,6 @@ Partial Class LoginForm
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btnSignUp As Button
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class

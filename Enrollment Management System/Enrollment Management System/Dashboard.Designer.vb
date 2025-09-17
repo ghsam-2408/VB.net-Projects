@@ -23,9 +23,6 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboard))
-        btnLogOut = New Panel()
-        PictureBox1 = New PictureBox()
-        btn = New Label()
         Panel1 = New Panel()
         Label2 = New Label()
         PictureBox2 = New PictureBox()
@@ -42,9 +39,11 @@ Partial Class Dashboard
         Label7 = New Label()
         PictureBox5 = New PictureBox()
         Label8 = New Label()
-        Panel5 = New Panel()
-        btnLogOut.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel6 = New Panel()
+        btnLogOut = New Button()
+        Button3 = New Button()
+        Button2 = New Button()
+        Button1 = New Button()
         Panel1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
@@ -53,37 +52,8 @@ Partial Class Dashboard
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         Panel4.SuspendLayout()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
-        Panel5.SuspendLayout()
+        Panel6.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' btnLogOut
-        ' 
-        btnLogOut.Controls.Add(PictureBox1)
-        btnLogOut.Controls.Add(btn)
-        btnLogOut.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnLogOut.Location = New Point(8, 626)
-        btnLogOut.Name = "btnLogOut"
-        btnLogOut.Size = New Size(209, 69)
-        btnLogOut.TabIndex = 38
-        ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(11, 3)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(78, 60)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 37
-        PictureBox1.TabStop = False
-        ' 
-        ' btn
-        ' 
-        btn.AutoSize = True
-        btn.Location = New Point(95, 15)
-        btn.Name = "btn"
-        btn.Size = New Size(108, 38)
-        btn.TabIndex = 36
-        btn.Text = "Logout"
         ' 
         ' Panel1
         ' 
@@ -214,7 +184,7 @@ Partial Class Dashboard
         Panel4.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Panel4.Location = New Point(758, 402)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(224, 176)
+        Panel4.Size = New Size(420, 378)
         Panel4.TabIndex = 41
         ' 
         ' Label7
@@ -245,30 +215,75 @@ Partial Class Dashboard
         Label8.TabIndex = 0
         Label8.Text = "Reports"
         ' 
-        ' Panel5
+        ' Panel6
         ' 
-        Panel5.BackColor = Color.Gray
-        Panel5.Controls.Add(btnLogOut)
-        Panel5.Location = New Point(4, 2)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(248, 788)
-        Panel5.TabIndex = 42
+        Panel6.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        Panel6.Controls.Add(btnLogOut)
+        Panel6.Controls.Add(Button3)
+        Panel6.Controls.Add(Button2)
+        Panel6.Controls.Add(Button1)
+        Panel6.Location = New Point(12, 12)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(1139, 67)
+        Panel6.TabIndex = 43
+        ' 
+        ' btnLogOut
+        ' 
+        btnLogOut.BackColor = Color.Red
+        btnLogOut.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnLogOut.Location = New Point(567, 3)
+        btnLogOut.Name = "btnLogOut"
+        btnLogOut.Size = New Size(176, 50)
+        btnLogOut.TabIndex = 5
+        btnLogOut.Text = "Logout"
+        btnLogOut.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.Red
+        Button3.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button3.Location = New Point(290, 3)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(176, 50)
+        Button3.TabIndex = 4
+        Button3.Text = "Enroll"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Red
+        Button2.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.Location = New Point(889, 3)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(204, 50)
+        Button2.TabIndex = 3
+        Button2.Text = "Fees Payment"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.Red
+        Button1.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(39, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(180, 50)
+        Button1.TabIndex = 2
+        Button1.Text = "MainMenu"
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.DarkSlateGray
         ClientSize = New Size(1393, 792)
-        Controls.Add(Panel5)
+        Controls.Add(Panel6)
         Controls.Add(Panel4)
         Controls.Add(Panel3)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Name = "Dashboard"
         Text = "Dashboard"
-        btnLogOut.ResumeLayout(False)
-        btnLogOut.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
@@ -281,13 +296,9 @@ Partial Class Dashboard
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
-        Panel5.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents btnLogOut As Panel
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents btn As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
@@ -304,5 +315,9 @@ Partial Class Dashboard
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnLogOut As Button
 End Class

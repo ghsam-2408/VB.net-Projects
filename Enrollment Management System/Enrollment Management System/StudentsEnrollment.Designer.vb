@@ -48,6 +48,9 @@ Partial Class StudentsEnrollment
         Label1 = New Label()
         txtStudentID = New TextBox()
         Panel1 = New Panel()
+        Button3 = New Button()
+        Button2 = New Button()
+        Button1 = New Button()
         txtSubjects = New CheckedListBox()
         Label9 = New Label()
         Label10 = New Label()
@@ -63,6 +66,7 @@ Partial Class StudentsEnrollment
         txtSearch = New TextBox()
         txtDepartment = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         SuspendLayout()
         ' 
@@ -70,10 +74,10 @@ Partial Class StudentsEnrollment
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {ID, StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects})
-        DataGridView1.Location = New Point(154, 816)
+        DataGridView1.Location = New Point(12, 816)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(1563, 240)
+        DataGridView1.Size = New Size(1705, 240)
         DataGridView1.TabIndex = 33
         ' 
         ' ID
@@ -276,10 +280,46 @@ Partial Class StudentsEnrollment
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        Panel1.Controls.Add(Button3)
+        Panel1.Controls.Add(Button2)
+        Panel1.Controls.Add(Button1)
         Panel1.Location = New Point(12, 2)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1139, 67)
         Panel1.TabIndex = 34
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.Red
+        Button3.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button3.Location = New Point(226, 3)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(176, 50)
+        Button3.TabIndex = 4
+        Button3.Text = "Dashboard"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Red
+        Button2.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.Location = New Point(441, 3)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(204, 50)
+        Button2.TabIndex = 3
+        Button2.Text = "Fees Payment"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.Red
+        Button1.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(23, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(180, 50)
+        Button1.TabIndex = 2
+        Button1.Text = "MainMenu"
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' txtSubjects
         ' 
@@ -425,6 +465,7 @@ Partial Class StudentsEnrollment
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
+        BackColor = SystemColors.ActiveCaption
         ClientSize = New Size(1911, 1250)
         Controls.Add(txtDepartment)
         Controls.Add(txtSearch)
@@ -455,6 +496,7 @@ Partial Class StudentsEnrollment
         StartPosition = FormStartPosition.CenterScreen
         Text = "StudentsEnrollment"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        Panel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
@@ -500,4 +542,7 @@ Partial Class StudentsEnrollment
     Friend WithEvents DateOfBirth As DataGridViewTextBoxColumn
     Friend WithEvents AdmissionDate As DataGridViewTextBoxColumn
     Friend WithEvents Subjects As DataGridViewTextBoxColumn
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
 End Class
