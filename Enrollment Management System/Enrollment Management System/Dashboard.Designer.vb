@@ -27,9 +27,9 @@ Partial Class Dashboard
         PictureBox1 = New PictureBox()
         btn = New Label()
         Panel1 = New Panel()
-        Label1 = New Label()
-        PictureBox2 = New PictureBox()
         Label2 = New Label()
+        PictureBox2 = New PictureBox()
+        Label1 = New Label()
         Panel2 = New Panel()
         Label3 = New Label()
         PictureBox3 = New PictureBox()
@@ -97,14 +97,14 @@ Partial Class Dashboard
         Panel1.Size = New Size(224, 176)
         Panel1.TabIndex = 39
         ' 
-        ' Label1
+        ' Label2
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(44, 81)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(109, 32)
-        Label1.TabIndex = 0
-        Label1.Text = "Students"
+        Label2.AutoSize = True
+        Label2.Location = New Point(17, 133)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(73, 32)
+        Label2.TabIndex = 2
+        Label2.Text = "Total:"
         ' 
         ' PictureBox2
         ' 
@@ -116,14 +116,14 @@ Partial Class Dashboard
         PictureBox2.TabIndex = 1
         PictureBox2.TabStop = False
         ' 
-        ' Label2
+        ' Label1
         ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(17, 133)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(73, 32)
-        Label2.TabIndex = 2
-        Label2.Text = "Total:"
+        Label1.AutoSize = True
+        Label1.Location = New Point(44, 81)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(109, 32)
+        Label1.TabIndex = 0
+        Label1.Text = "Students"
         ' 
         ' Panel2
         ' 
@@ -247,10 +247,11 @@ Partial Class Dashboard
         ' 
         ' Panel5
         ' 
+        Panel5.BackColor = Color.Gray
         Panel5.Controls.Add(btnLogOut)
-        Panel5.Location = New Point(4, 86)
+        Panel5.Location = New Point(4, 2)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(248, 704)
+        Panel5.Size = New Size(248, 788)
         Panel5.TabIndex = 42
         ' 
         ' Dashboard

@@ -1,0 +1,576 @@
+﻿Imports System.Data.OleDb
+Imports System.Data
+Imports System.Text.RegularExpressions
+
+Public Class FeesPayments
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EnrollmentManagement.accdb")
+
+    ' Constants for fees calculation
+    Private Const TOTAL_FEES As Decimal = 500D
+    Private receiptCounter As Integer = 1000 ' Starting receipt number
+
+    Private Sub FeesPayments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Initialize form settings
+        InitializeForm()
+
+        ' Load existing payment data
+        LoadPaymentData()
+    End Sub
+
+    Private Sub InitializeForm()
+        Try
+            ' Set ComboBox properties
+            txtPaymentMethod.DropDownStyle = ComboBoxStyle.DropDownList
+
+            ' Add payment method options if not already populated
+            If txtPaymentMethod.Items.Count = 0 Then
+                txtPaymentMethod.Items.Clear()
+                txtPaymentMethod.Items.Add("Cash")
+                txtPaymentMethod.Items.Add("Ecocash")
+                txtPaymentMethod.Items.Add("Bank Transfer")
+                txtPaymentMethod.Items.Add("Zipit")
+            End If
+            
+            ' Set date picker defaults
+            txtPaymentDate.Format = DateTimePickerFormat.Short
+            txtPaymentDate.Value = DateTime.Now
+            
+            ' ✅ DISABLE receipt number and balance fields as requested
+            txtReceiptNumber.ReadOnly = True
+            txtReceiptNumber.BackColor = Color.LightGray
+            txtBalance.ReadOnly = True
+            txtBalance.BackColor = Color.LightGray
+            
+            ' Generate initial receipt number
+            GenerateReceiptNumber()
+            
+            ' Add tooltips for better user experience
+            Dim toolTip As New ToolTip()
+            toolTip.SetToolTip(txtStudentID, "Enter student ID to search for student")
+            toolTip.SetToolTip(txtAmountPaid, "Enter the amount being paid")
+            toolTip.SetToolTip(txtFeeType, "Enter the type of fee (e.g., Tuition, Registration)")
+            toolTip.SetToolTip(txtEmail, "Student's email address (auto-filled)")
+            toolTip.SetToolTip(txtReceiptNumber, "Auto-generated receipt number")
+            toolTip.SetToolTip(txtBalance, "Automatically calculated balance")
+            toolTip.SetToolTip(txtPaymentMethod, "Select payment method")
+            toolTip.SetToolTip(txtPaymentDate, "Select payment date")
+            
+            ' Set focus to first field
+            txtStudentID.Focus()
+
+        Catch ex As Exception
+            MessageBox.Show($"Error initializing form: {ex.Message}", "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub GenerateReceiptNumber()
+        ' Generate auto receipt number in format: RCP-YYYY-XXXX
+        Dim currentYear As String = DateTime.Now.Year.ToString()
+        receiptCounter += 1
+        txtReceiptNumber.Text = $"RCP-{currentYear}-{receiptCounter:D4}"
+    End Sub
+
+    Private Sub CalculateBalance()
+        Try
+            Dim amountPaid As Decimal = 0
+            
+            ' Try to parse the amount paid
+            If Decimal.TryParse(txtAmountPaid.Text.Trim(), amountPaid) Then
+                ' ✅ Calculate balance automatically (Total Fees = 500)
+                Dim balance As Decimal = TOTAL_FEES - amountPaid
+                
+                ' Ensure balance is not negative
+                If balance < 0 Then
+                    balance = 0
+                End If
+                
+                ' Update balance field
+                txtBalance.Text = balance.ToString("F2")
+                
+                ' Visual feedback based on payment status
+                If balance = 0 Then
+                    txtBalance.BackColor = Color.LightGreen ' Fully paid
+                ElseIf balance < TOTAL_FEES Then
+                    txtBalance.BackColor = Color.LightYellow ' Partially paid
+                Else
+                    txtBalance.BackColor = Color.LightCoral ' Not paid
+                End If
+            Else
+                ' Clear balance if amount is invalid
+                txtBalance.Text = TOTAL_FEES.ToString("F2")
+                txtBalance.BackColor = Color.LightGray
+            End If
+            
+        Catch ex As Exception
+            MessageBox.Show($"Error calculating balance: {ex.Message}", "Calculation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Function ValidateFields() As Boolean
+        Dim isValid As Boolean = True
+        Dim errorMessages As New List(Of String)
+
+        ' Reset all field colors first
+        ResetFieldColors()
+
+        ' Validate Student ID
+        If Not ValidateStudentID() Then
+            errorMessages.Add("• Student ID is required")
+            isValid = False
+        End If
+
+        ' Validate Amount Paid
+        If Not ValidateAmountPaid() Then
+            errorMessages.Add("• Valid amount paid is required")
+            isValid = False
+        End If
+
+        ' Validate Fee Type
+        If Not ValidateFeeType() Then
+            errorMessages.Add("• Fee type is required")
+            isValid = False
+        End If
+
+        ' Validate Email
+        If Not ValidateEmail() Then
+            errorMessages.Add("• Valid email address is required")
+            isValid = False
+        End If
+
+        ' Validate Payment Method
+        If Not ValidatePaymentMethod() Then
+            errorMessages.Add("• Please select a payment method")
+            isValid = False
+        End If
+
+        ' Show consolidated error message if validation failed
+        If Not isValid Then
+            Dim fullErrorMessage As String = "Please correct the following errors:" & vbCrLf & vbCrLf & String.Join(vbCrLf, errorMessages)
+            MessageBox.Show(fullErrorMessage, "Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+
+        Return isValid
+    End Function
+
+    Private Function ValidateStudentID() As Boolean
+        If String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            txtStudentID.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtStudentID.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateAmountPaid() As Boolean
+        Dim amount As Decimal
+        If String.IsNullOrWhiteSpace(txtAmountPaid.Text) Then
+            txtAmountPaid.BackColor = Color.LightCoral
+            Return False
+        ElseIf Not Decimal.TryParse(txtAmountPaid.Text.Trim(), amount) Then
+            txtAmountPaid.BackColor = Color.LightCoral
+            Return False
+        ElseIf amount <= 0 Then
+            txtAmountPaid.BackColor = Color.LightCoral
+            Return False
+        ElseIf amount > TOTAL_FEES Then
+            txtAmountPaid.BackColor = Color.LightYellow
+            MessageBox.Show($"Amount paid ({amount:C}) exceeds total fees ({TOTAL_FEES:C}). Excess will be refunded.", 
+                          "Overpayment Notice", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return True
+        Else
+            txtAmountPaid.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateFeeType() As Boolean
+        If String.IsNullOrWhiteSpace(txtFeeType.Text) Then
+            txtFeeType.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtFeeType.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateEmail() As Boolean
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            txtEmail.BackColor = Color.LightCoral
+            Return False
+        ElseIf Not Regex.IsMatch(txtEmail.Text.Trim(), "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") Then
+            txtEmail.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtEmail.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidatePaymentMethod() As Boolean
+        If txtPaymentMethod.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtPaymentMethod.Text) Then
+            txtPaymentMethod.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtPaymentMethod.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Sub ResetFieldColors()
+    txtStudentID.BackColor = Color.White
+    txtAmountPaid.BackColor = Color.White
+    txtFeeType.BackColor = Color.White
+    txtEmail.BackColor = Color.White
+    txtPaymentMethod.BackColor = Color.White
+    ' Keep receipt number and balance with disabled colors
+    txtReceiptNumber.BackColor = Color.LightGray
+    txtBalance.BackColor = Color.LightGray
+    End Sub
+
+    Private Function SearchStudent(studentID As String) As Boolean
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+                
+                ' Search for student in StudentsEnrollment table
+                Dim searchQuery As String = "SELECT StudentName, StudentSurname, Email FROM StudentsEnrollment WHERE StudentID = ?"
+                Using command As New OleDbCommand(searchQuery, connection)
+                    command.Parameters.AddWithValue("?", studentID.Trim())
+                    
+                    Using reader As OleDbDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            ' Student found - auto-fill email
+                            txtEmail.Text = reader("Email").ToString()
+                            Return True
+                        Else
+                            ' Student not found
+                            txtEmail.Clear()
+                            MessageBox.Show($"Student with ID '{studentID}' not found in the enrollment system.", 
+                                          "Student Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return False
+                        End If
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error searching for student: {ex.Message}", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        ' Validate all fields
+        If Not ValidateFields() Then
+            Return
+        End If
+
+        ' Search for student first
+        If Not SearchStudent(txtStudentID.Text) Then
+            Return
+        End If
+
+        ' Show confirmation dialog
+        Dim amountPaid As Decimal = Decimal.Parse(txtAmountPaid.Text)
+        Dim balance As Decimal = Decimal.Parse(txtBalance.Text)
+        
+        Dim confirmResult As DialogResult = MessageBox.Show(
+            $"Please confirm the payment details:" & vbCrLf & vbCrLf &
+            $"Student ID: {txtStudentID.Text}" & vbCrLf &
+            $"Receipt Number: {txtReceiptNumber.Text}" & vbCrLf &
+            $"Fee Type: {txtFeeType.Text}" & vbCrLf &
+            $"Amount Paid: {amountPaid:C}" & vbCrLf &
+            $"Total Fees: {TOTAL_FEES:C}" & vbCrLf &
+            $"Balance: {balance:C}" & vbCrLf &
+            $"Payment Method: {txtPaymentMethod.Text}" & vbCrLf &
+            $"Payment Date: {txtPaymentDate.Value.ToShortDateString()}" & vbCrLf & vbCrLf &
+            "Do you want to process this payment?",
+            "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If confirmResult = DialogResult.No Then
+            Return
+        End If
+
+        Try
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+
+            mycon.Open()
+
+            ' Insert payment record
+            Dim mycmd As New OleDbCommand("INSERT INTO FeesPayments (StudentID, ReceiptNumber, AmountPaid, TotalFees, Balance, FeeType, Email, PaymentMethod, PaymentDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
+
+            mycmd.Parameters.AddWithValue("?", txtStudentID.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtReceiptNumber.Text)
+            mycmd.Parameters.AddWithValue("?", amountPaid)
+            mycmd.Parameters.AddWithValue("?", TOTAL_FEES)
+            mycmd.Parameters.AddWithValue("?", balance)
+            mycmd.Parameters.AddWithValue("?", txtFeeType.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtPaymentMethod.Text)
+            mycmd.Parameters.AddWithValue("?", txtPaymentDate.Value.Date)
+
+            ' Execute the query
+            Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
+
+            ' Check if insertion was successful
+            If rowsAffected > 0 Then
+                Dim paymentStatus As String = If(balance = 0, "PAID IN FULL", If(balance < TOTAL_FEES, "PARTIALLY PAID", "BALANCE DUE"))
+                
+                MessageBox.Show($"Payment processed successfully!" & vbCrLf & vbCrLf &
+                              $"Receipt Number: {txtReceiptNumber.Text}" & vbCrLf &
+                              $"Student ID: {txtStudentID.Text}" & vbCrLf &
+                              $"Amount Paid: {amountPaid:C}" & vbCrLf &
+                              $"Balance: {balance:C}" & vbCrLf &
+                              $"Status: {paymentStatus}" & vbCrLf & vbCrLf &
+                              "Payment receipt has been recorded in the system.",
+                              "Payment Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Clear fields after successful payment
+                ClearFields()
+
+                ' Refresh data display
+                LoadPaymentData()
+            Else
+                MessageBox.Show("Failed to process payment. Please try again.", "Payment Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As OleDbException
+            MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed properly
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+        End Try
+    End Sub
+
+    Private Sub ClearFields()
+        ' Clear all editable text fields
+        txtStudentID.Clear()
+        txtAmountPaid.Clear()
+        txtFeeType.Clear()
+        txtEmail.Clear()
+        txtSearch.Clear()
+
+        ' Reset ComboBox
+        txtPaymentMethod.SelectedIndex = -1
+
+        ' Reset date picker to today
+        txtPaymentDate.Value = DateTime.Now
+
+        ' Generate new receipt number
+        GenerateReceiptNumber()
+        
+        ' Reset balance to total fees
+        txtBalance.Text = TOTAL_FEES.ToString("F2")
+
+        ' Reset field colors
+        ResetFieldColors()
+
+        ' Set focus to first field
+        txtStudentID.Focus()
+    End Sub
+
+    Private Sub LoadPaymentData()
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                Dim selectQuery As String = "SELECT ID, StudentID, ReceiptNumber, AmountPaid, TotalFees, Balance, FeeType, Email, PaymentMethod, PaymentDate FROM FeesPayments ORDER BY ID DESC"
+
+                Using adapter As New OleDbDataAdapter(selectQuery, connection)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+
+                    ' Check if DataGridView1 exists
+                    If DataGridView1 IsNot Nothing Then
+                        DataGridView1.DataSource = dataTable
+
+                        ' Format DataGridView if it has data
+                        If DataGridView1.Columns.Count > 0 Then
+                            DataGridView1.Columns("ID").HeaderText = "ID"
+                            DataGridView1.Columns("StudentID").HeaderText = "Student ID"
+                            DataGridView1.Columns("ReceiptNumber").HeaderText = "Receipt Number"
+                            DataGridView1.Columns("AmountPaid").HeaderText = "Amount Paid"
+                            DataGridView1.Columns("TotalFees").HeaderText = "Total Fees"
+                            DataGridView1.Columns("Balance").HeaderText = "Balance"
+                            DataGridView1.Columns("FeeType").HeaderText = "Fee Type"
+                            DataGridView1.Columns("Email").HeaderText = "Email"
+                            DataGridView1.Columns("PaymentMethod").HeaderText = "Payment Method"
+                            DataGridView1.Columns("PaymentDate").HeaderText = "Payment Date"
+
+                            ' Format currency columns
+                            DataGridView1.Columns("AmountPaid").DefaultCellStyle.Format = "C"
+                            DataGridView1.Columns("TotalFees").DefaultCellStyle.Format = "C"
+                            DataGridView1.Columns("Balance").DefaultCellStyle.Format = "C"
+
+                            ' Auto-size columns
+                            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                            DataGridView1.ReadOnly = True
+                            DataGridView1.AllowUserToAddRows = False
+                            DataGridView1.AllowUserToDeleteRows = False
+                            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                        End If
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            ' Only show error if it's not a file/table not found error
+            If Not (ex.Message.Contains("Could not find file") OrElse ex.Message.Contains("does not exist")) Then
+                MessageBox.Show($"Error loading payment data: {ex.Message}", "Data Load Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End Try
+    End Sub
+
+    Private Sub btnReload_Click(sender As Object, e As EventArgs) Handles btnReload.Click
+        LoadPaymentData()
+        MessageBox.Show("Payment data reloaded successfully!", "Reload Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a payment record to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        Dim receiptNumber As String = selectedRow.Cells("ReceiptNumber").Value.ToString()
+        Dim studentID As String = selectedRow.Cells("StudentID").Value.ToString()
+
+        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete this payment record?" & vbCrLf & vbCrLf +
+                                                   $"Receipt Number: {receiptNumber}" & vbCrLf +
+                                                   $"Student ID: {studentID}" & vbCrLf & vbCrLf +
+                                                   "This action cannot be undone!",
+                                                   "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+        If result = DialogResult.Yes Then
+            Try
+                Using connection As New OleDbConnection(mycon.ConnectionString)
+                    connection.Open()
+                    Dim deleteQuery As String = "DELETE FROM FeesPayments WHERE ID = ?"
+                    Using command As New OleDbCommand(deleteQuery, connection)
+                        command.Parameters.AddWithValue("?", selectedRow.Cells("ID").Value)
+                        Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                        If rowsAffected > 0 Then
+                            MessageBox.Show("Payment record deleted successfully!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            LoadPaymentData()
+                        Else
+                            MessageBox.Show("Failed to delete payment record.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show($"Error deleting payment record: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a payment record to update.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Load selected record into form fields
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        txtStudentID.Text = selectedRow.Cells("StudentID").Value.ToString()
+        txtReceiptNumber.Text = selectedRow.Cells("ReceiptNumber").Value.ToString()
+        txtAmountPaid.Text = selectedRow.Cells("AmountPaid").Value.ToString()
+        txtBalance.Text = selectedRow.Cells("Balance").Value.ToString()
+        txtFeeType.Text = selectedRow.Cells("FeeType").Value.ToString()
+        txtEmail.Text = selectedRow.Cells("Email").Value.ToString()
+        txtPaymentMethod.Text = selectedRow.Cells("PaymentMethod").Value.ToString()
+
+        ' Handle date field safely
+        If DateTime.TryParse(selectedRow.Cells("PaymentDate").Value.ToString(), txtPaymentDate.Value) Then
+            ' Date parsed successfully
+        End If
+
+        MessageBox.Show("Payment record loaded for editing. Make your changes and click 'Pay' to update.", "Update Mode", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If String.IsNullOrWhiteSpace(txtSearch.Text) Then
+            LoadPaymentData() ' Show all records if search is empty
+            Return
+        End If
+
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                Dim searchQuery As String = "SELECT ID, StudentID, ReceiptNumber, AmountPaid, TotalFees, Balance, FeeType, Email, PaymentMethod, PaymentDate FROM FeesPayments WHERE StudentID LIKE ? OR ReceiptNumber LIKE ? OR FeeType LIKE ? OR Email LIKE ? ORDER BY ID DESC"
+
+                Using adapter As New OleDbDataAdapter(searchQuery, connection)
+                    Dim searchTerm As String = "%" & txtSearch.Text.Trim() & "%"
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+                    DataGridView1.DataSource = dataTable
+
+                    MessageBox.Show($"Search completed. Found {dataTable.Rows.Count} payment record(s).", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error searching payment records: {ex.Message}", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnPrintReceipt_Click(sender As Object, e As EventArgs) Handles btnPrintReceipt.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a payment record to print receipt.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        
+        ' Create a simple receipt display
+        Dim receipt As String = "PAYMENT RECEIPT" & vbCrLf &
+                              "==================" & vbCrLf & vbCrLf &
+                              $"Receipt Number: {selectedRow.Cells("ReceiptNumber").Value}" & vbCrLf &
+                              $"Student ID: {selectedRow.Cells("StudentID").Value}" & vbCrLf &
+                              $"Fee Type: {selectedRow.Cells("FeeType").Value}" & vbCrLf &
+                              $"Amount Paid: {Convert.ToDecimal(selectedRow.Cells("AmountPaid").Value):C}" & vbCrLf &
+                              $"Total Fees: {Convert.ToDecimal(selectedRow.Cells("TotalFees").Value):C}" & vbCrLf &
+                              $"Balance: {Convert.ToDecimal(selectedRow.Cells("Balance").Value):C}" & vbCrLf &
+                              $"Payment Method: {selectedRow.Cells("PaymentMethod").Value}" & vbCrLf &
+                              $"Payment Date: {Convert.ToDateTime(selectedRow.Cells("PaymentDate").Value):dd/MM/yyyy}" & vbCrLf & vbCrLf &
+                              "Thank you for your payment!"
+
+        MessageBox.Show(receipt, "Payment Receipt", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    ' Event handlers for automatic calculations
+    Private Sub txtAmountPaid_TextChanged(sender As Object, e As EventArgs) Handles txtAmountPaid.TextChanged
+        ' Automatically calculate balance when amount changes
+        CalculateBalance()
+    End Sub
+
+    Private Sub txtStudentID_Leave(sender As Object, e As EventArgs) Handles txtStudentID.Leave
+        If Not String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            SearchStudent(txtStudentID.Text)
+        End If
+    End Sub
+
+    Private Sub FeesPayments_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Ensure database connection is closed when form closes
+        Try
+            If mycon IsNot Nothing AndAlso mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+        Catch ex As Exception
+            ' Ignore errors when closing
+        End Try
+    End Sub
+
+End Class
