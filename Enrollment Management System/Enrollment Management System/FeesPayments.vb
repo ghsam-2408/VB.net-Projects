@@ -234,7 +234,7 @@ Public Class FeesPayments
                 connection.Open()
 
                 ' Search for student in StudentsEnrollment table
-                Dim searchQuery As String = "SELECT StudentName, StudentSurname, Email FROM StudentsEnrollment WHERE StudentID = ?"
+                Dim searchQuery As String = "SELECT Student_Name, Student_Surname, Email FROM StudentsEnrollment WHERE Student_ID = ?"
                 Using command As New OleDbCommand(searchQuery, connection)
                     command.Parameters.AddWithValue("?", studentID.Trim())
 
@@ -318,17 +318,20 @@ Public Class FeesPayments
             mycon.Open()
 
             ' Insert payment record
-            Dim mycmd As New OleDbCommand("INSERT INTO FeesPayments (StudentID, ReceiptNumber, AmountPaid, TotalFees, Balance, FeeType, Email, PaymentMethod, PaymentDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
+            Dim mycmd As New OleDbCommand("INSERT INTO FeesPayments (Student_ID, Payment_Date, Amount_Paid, Payment_Method, Fee_Type, Receipt_Number, Email, Balance, Total_Fees) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
 
             mycmd.Parameters.AddWithValue("?", txtStudentID.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtReceiptNumber.Text)
-            mycmd.Parameters.AddWithValue("?", amountPaid)
-            mycmd.Parameters.AddWithValue("?", TOTAL_FEES)
-            mycmd.Parameters.AddWithValue("?", balance)
-            mycmd.Parameters.AddWithValue("?", txtFeeType.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtPaymentMethod.Text)
             mycmd.Parameters.AddWithValue("?", txtPaymentDate.Value.Date)
+            mycmd.Parameters.AddWithValue("?", amountPaid)
+            mycmd.Parameters.AddWithValue("?", txtPaymentMethod.Text)
+            mycmd.Parameters.AddWithValue("?", txtFeeType.Text.Trim())
+
+            mycmd.Parameters.AddWithValue("?", txtReceiptNumber.Text)
+            mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
+
+            mycmd.Parameters.AddWithValue("?", balance)
+            mycmd.Parameters.AddWithValue("?", TOTAL_FEES)
+
 
             ' Execute the query
             Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()

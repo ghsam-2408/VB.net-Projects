@@ -316,7 +316,7 @@ Public Class StudentsEnrollment
 
             mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
             mycmd.Parameters.AddWithValue("?", txtDepartment.Text.Trim())
-            mycmd.Parameters.AddWithValue("?", txtSubjects.CheckedItems)
+            mycmd.Parameters.AddWithValue("?", txtSubjects.Text)
 
             mycmd.Parameters.AddWithValue("?", txtDOB.Text)
 
