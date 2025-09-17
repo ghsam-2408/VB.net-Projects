@@ -23,6 +23,17 @@ Partial Class StudentsEnrollment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         DataGridView1 = New DataGridView()
+        ID = New DataGridViewTextBoxColumn()
+        StudentID = New DataGridViewTextBoxColumn()
+        StudentName = New DataGridViewTextBoxColumn()
+        StudentSurname = New DataGridViewTextBoxColumn()
+        Email = New DataGridViewTextBoxColumn()
+        Department = New DataGridViewTextBoxColumn()
+        Form = New DataGridViewTextBoxColumn()
+        Gender = New DataGridViewTextBoxColumn()
+        DateOfBirth = New DataGridViewTextBoxColumn()
+        AdmissionDate = New DataGridViewTextBoxColumn()
+        Subjects = New DataGridViewTextBoxColumn()
         Label8 = New Label()
         Label7 = New Label()
         txtEmail = New TextBox()
@@ -58,11 +69,89 @@ Partial Class StudentsEnrollment
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(270, 844)
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {ID, StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects})
+        DataGridView1.Location = New Point(154, 816)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(1087, 240)
+        DataGridView1.Size = New Size(1563, 240)
         DataGridView1.TabIndex = 33
+        ' 
+        ' ID
+        ' 
+        ID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        ID.HeaderText = "ID"
+        ID.MinimumWidth = 8
+        ID.Name = "ID"
+        ' 
+        ' StudentID
+        ' 
+        StudentID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        StudentID.HeaderText = "Student ID"
+        StudentID.MinimumWidth = 8
+        StudentID.Name = "StudentID"
+        ' 
+        ' StudentName
+        ' 
+        StudentName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        StudentName.HeaderText = "Student Name"
+        StudentName.MinimumWidth = 8
+        StudentName.Name = "StudentName"
+        ' 
+        ' StudentSurname
+        ' 
+        StudentSurname.HeaderText = "Student Surname"
+        StudentSurname.MinimumWidth = 8
+        StudentSurname.Name = "StudentSurname"
+        StudentSurname.Width = 150
+        ' 
+        ' Email
+        ' 
+        Email.HeaderText = "Email"
+        Email.MinimumWidth = 8
+        Email.Name = "Email"
+        Email.Width = 150
+        ' 
+        ' Department
+        ' 
+        Department.HeaderText = "Department"
+        Department.MinimumWidth = 8
+        Department.Name = "Department"
+        Department.Width = 150
+        ' 
+        ' Form
+        ' 
+        Form.HeaderText = "Form"
+        Form.MinimumWidth = 8
+        Form.Name = "Form"
+        Form.Width = 150
+        ' 
+        ' Gender
+        ' 
+        Gender.HeaderText = "Gender"
+        Gender.MinimumWidth = 8
+        Gender.Name = "Gender"
+        Gender.Width = 150
+        ' 
+        ' DateOfBirth
+        ' 
+        DateOfBirth.HeaderText = "Date of Birth"
+        DateOfBirth.MinimumWidth = 8
+        DateOfBirth.Name = "DateOfBirth"
+        DateOfBirth.Width = 150
+        ' 
+        ' AdmissionDate
+        ' 
+        AdmissionDate.HeaderText = "Admission Date"
+        AdmissionDate.MinimumWidth = 8
+        AdmissionDate.Name = "AdmissionDate"
+        AdmissionDate.Width = 150
+        ' 
+        ' Subjects
+        ' 
+        Subjects.HeaderText = "Subjects"
+        Subjects.MinimumWidth = 8
+        Subjects.Name = "Subjects"
+        Subjects.Width = 150
         ' 
         ' Label8
         ' 
@@ -400,4 +489,15 @@ Partial Class StudentsEnrollment
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents txtDepartment As ComboBox
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents StudentID As DataGridViewTextBoxColumn
+    Friend WithEvents StudentName As DataGridViewTextBoxColumn
+    Friend WithEvents StudentSurname As DataGridViewTextBoxColumn
+    Friend WithEvents Email As DataGridViewTextBoxColumn
+    Friend WithEvents Department As DataGridViewTextBoxColumn
+    Friend WithEvents Form As DataGridViewTextBoxColumn
+    Friend WithEvents Gender As DataGridViewTextBoxColumn
+    Friend WithEvents DateOfBirth As DataGridViewTextBoxColumn
+    Friend WithEvents AdmissionDate As DataGridViewTextBoxColumn
+    Friend WithEvents Subjects As DataGridViewTextBoxColumn
 End Class

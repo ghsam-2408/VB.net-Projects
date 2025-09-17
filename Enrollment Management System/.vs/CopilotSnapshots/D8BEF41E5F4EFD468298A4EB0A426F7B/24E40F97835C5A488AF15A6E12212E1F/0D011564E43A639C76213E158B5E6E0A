@@ -1,0 +1,593 @@
+﻿Imports System.Data.OleDb
+Imports System.Data
+Imports System.Text.RegularExpressions
+Imports System.IO
+
+Public Class StudentsEnrollment
+    Dim mycon As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EnrollmentManagement.accdb")
+
+    Private Sub StudentsEnrollment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Initialize form settings
+        InitializeForm()
+
+        ' Load existing data
+        LoadStudentData()
+    End Sub
+
+    Private Sub InitializeForm()
+        Try
+            ' Set ComboBox properties
+            txtGender.DropDownStyle = ComboBoxStyle.DropDownList
+
+            ' Add gender options if not already populated
+            If txtGender.Items.Count = 0 Then
+                txtGender.Items.Clear()
+                txtGender.Items.Add("Male")
+                txtGender.Items.Add("Female")
+            End If
+
+            ' Initialize subjects checklist
+            InitializeSubjects()
+
+            ' Set date picker defaults
+            txtDOB.Format = DateTimePickerFormat.Short
+            txtAdmissionDate.Format = DateTimePickerFormat.Short
+            txtAdmissionDate.Value = DateTime.Now
+
+            ' Add tooltips for better user experience
+            Dim toolTip As New ToolTip()
+            toolTip.SetToolTip(txtStudentID, "Enter student ID")
+            toolTip.SetToolTip(txtStudentName, "Enter student's first name")
+            toolTip.SetToolTip(txtStudentSurname, "Enter student's surname")
+            toolTip.SetToolTip(txtEmail, "Enter valid email address")
+            toolTip.SetToolTip(txtDepartment, "Enter department name")
+            toolTip.SetToolTip(txtForm, "Enter form/grade level")
+            toolTip.SetToolTip(txtGender, "Select gender")
+            toolTip.SetToolTip(txtDOB, "Select date of birth")
+            toolTip.SetToolTip(txtAdmissionDate, "Select admission date")
+            toolTip.SetToolTip(txtSubjects, "Select subjects")
+
+            ' Set focus to first field
+            txtStudentID.Focus()
+
+        Catch ex As Exception
+            MessageBox.Show($"Error initializing form: {ex.Message}", "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub InitializeSubjects()
+        ' Add common subjects to the CheckedListBox
+        If txtSubjects.Items.Count = 0 Then
+            txtSubjects.Items.Clear()
+            txtSubjects.Items.Add("Mathematics")
+            txtSubjects.Items.Add("English")
+            txtSubjects.Items.Add("Science")
+            txtSubjects.Items.Add("History")
+            txtSubjects.Items.Add("Geography")
+            txtSubjects.Items.Add("Physical Education")
+            txtSubjects.Items.Add("Art")
+            txtSubjects.Items.Add("Music")
+            txtSubjects.Items.Add("Computer Science")
+            txtSubjects.Items.Add("Biology")
+            txtSubjects.Items.Add("Chemistry")
+            txtSubjects.Items.Add("Physics")
+        End If
+    End Sub
+
+    Private Function ValidateFields() As Boolean
+        Dim isValid As Boolean = True
+        Dim errorMessages As New List(Of String)
+
+        ' Reset all field colors first
+        ResetFieldColors()
+
+        ' Validate Student ID
+        If Not ValidateStudentID() Then
+            errorMessages.Add("• Student ID is required")
+            isValid = False
+        End If
+
+        ' Validate Student Name
+        If Not ValidateStudentName() Then
+            errorMessages.Add("• Student name is required (2-50 letters only)")
+            isValid = False
+        End If
+
+        ' Validate Student Surname
+        If Not ValidateStudentSurname() Then
+            errorMessages.Add("• Student surname is required (2-50 letters only)")
+            isValid = False
+        End If
+
+        ' Validate Email
+        If Not ValidateEmail() Then
+            errorMessages.Add("• Valid email address is required")
+            isValid = False
+        End If
+
+        ' Validate Department
+        If Not ValidateDepartment() Then
+            errorMessages.Add("• Department is required")
+            isValid = False
+        End If
+
+        ' Validate Form
+        If Not ValidateForm() Then
+            errorMessages.Add("• Form/Grade is required")
+            isValid = False
+        End If
+
+        ' Validate Gender
+        If Not ValidateGender() Then
+            errorMessages.Add("• Please select gender")
+            isValid = False
+        End If
+
+        ' Validate Date of Birth
+        If Not ValidateDOB() Then
+            errorMessages.Add("• Please select a valid date of birth")
+            isValid = False
+        End If
+
+        ' Validate Subjects
+        If Not ValidateSubjects() Then
+            errorMessages.Add("• Please select at least one subject")
+            isValid = False
+        End If
+
+        ' Show consolidated error message if validation failed
+        If Not isValid Then
+            Dim fullErrorMessage As String = "Please correct the following errors:" & vbCrLf & vbCrLf & String.Join(vbCrLf, errorMessages)
+            MessageBox.Show(fullErrorMessage, "Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+
+        Return isValid
+    End Function
+
+    Private Function ValidateStudentID() As Boolean
+        If String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            txtStudentID.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtStudentID.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateStudentName() As Boolean
+        If String.IsNullOrWhiteSpace(txtStudentName.Text) Then
+            txtStudentName.BackColor = Color.LightCoral
+            Return False
+        ElseIf txtStudentName.Text.Trim().Length < 2 Or txtStudentName.Text.Trim().Length > 50 Then
+            txtStudentName.BackColor = Color.LightCoral
+            Return False
+        ElseIf Not Regex.IsMatch(txtStudentName.Text.Trim(), "^[a-zA-Z\s]+$") Then
+            txtStudentName.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtStudentName.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateStudentSurname() As Boolean
+        If String.IsNullOrWhiteSpace(txtStudentSurname.Text) Then
+            txtStudentSurname.BackColor = Color.LightCoral
+            Return False
+        ElseIf txtStudentSurname.Text.Trim().Length < 2 Or txtStudentSurname.Text.Trim().Length > 50 Then
+            txtStudentSurname.BackColor = Color.LightCoral
+            Return False
+        ElseIf Not Regex.IsMatch(txtStudentSurname.Text.Trim(), "^[a-zA-Z\s]+$") Then
+            txtStudentSurname.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtStudentSurname.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateEmail() As Boolean
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            txtEmail.BackColor = Color.LightCoral
+            Return False
+        ElseIf Not Regex.IsMatch(txtEmail.Text.Trim(), "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") Then
+            txtEmail.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtEmail.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateDepartment() As Boolean
+        If String.IsNullOrWhiteSpace(txtDepartment.Text) Then
+            txtDepartment.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtDepartment.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateForm() As Boolean
+        If String.IsNullOrWhiteSpace(txtForm.Text) Then
+            txtForm.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtForm.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateGender() As Boolean
+        If txtGender.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtGender.Text) Then
+            txtGender.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtGender.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateDOB() As Boolean
+        ' Check if date of birth is reasonable (not in future, not too old)
+        If txtDOB.Value > DateTime.Now Then
+            txtDOB.BackColor = Color.LightCoral
+            Return False
+        ElseIf txtDOB.Value < DateTime.Now.AddYears(-100) Then
+            txtDOB.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtDOB.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Function ValidateSubjects() As Boolean
+        If txtSubjects.CheckedItems.Count = 0 Then
+            txtSubjects.BackColor = Color.LightCoral
+            Return False
+        Else
+            txtSubjects.BackColor = Color.LightGreen
+            Return True
+        End If
+    End Function
+
+    Private Sub ResetFieldColors()
+        txtStudentID.BackColor = Color.White
+        txtStudentName.BackColor = Color.White
+        txtStudentSurname.BackColor = Color.White
+        txtEmail.BackColor = Color.White
+        txtDepartment.BackColor = Color.White
+        txtForm.BackColor = Color.White
+        txtGender.BackColor = Color.White
+        txtDOB.BackColor = Color.White
+        txtSubjects.BackColor = Color.White
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        ' Validate all fields
+        If Not ValidateFields() Then
+            Return
+        End If
+
+        ' Show confirmation dialog
+        Dim selectedSubjects As String = GetSelectedSubjects()
+        Dim confirmResult As DialogResult = MessageBox.Show(
+            $"Please confirm the student enrollment details:" & vbCrLf & vbCrLf &
+            $"Student ID: {txtStudentID.Text}" & vbCrLf &
+            $"Name: {txtStudentName.Text} {txtStudentSurname.Text}" & vbCrLf &
+            $"Email: {txtEmail.Text}" & vbCrLf &
+            $"Department: {txtDepartment.Text}" & vbCrLf &
+            $"Form: {txtForm.Text}" & vbCrLf &
+            $"Gender: {txtGender.Text}" & vbCrLf &
+            $"Date of Birth: {txtDOB.Value.ToShortDateString()}" & vbCrLf &
+            $"Admission Date: {txtAdmissionDate.Value.ToShortDateString()}" & vbCrLf &
+            $"Subjects: {selectedSubjects}" & vbCrLf & vbCrLf &
+            "Do you want to proceed with enrollment?",
+            "Confirm Student Enrollment", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If confirmResult = DialogResult.No Then
+            Return
+        End If
+
+        Try
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+
+            mycon.Open()
+
+            ' Convert CheckedItems to string for database storage
+            Dim subjectsText As String = String.Join(", ", txtSubjects.CheckedItems.Cast(Of String)())
+
+            ' Fixed SQL statement with correct column order matching parameter order
+            Dim mycmd As New OleDbCommand("INSERT INTO StudentsEnrollment (StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mycon)
+
+            ' Use parameters to prevent SQL injection - order must match the column order above
+            mycmd.Parameters.AddWithValue("?", txtStudentID.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtStudentName.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtStudentSurname.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtEmail.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtDepartment.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtForm.Text.Trim())
+            mycmd.Parameters.AddWithValue("?", txtGender.Text)
+            mycmd.Parameters.AddWithValue("?", txtDOB.Value.Date)
+            mycmd.Parameters.AddWithValue("?", txtAdmissionDate.Value.Date)
+            mycmd.Parameters.AddWithValue("?", subjectsText)
+
+            ' Execute the query
+            Dim rowsAffected As Integer = mycmd.ExecuteNonQuery()
+
+            ' Check if insertion was successful
+            If rowsAffected > 0 Then
+                MessageBox.Show($"Student enrollment successful!" & vbCrLf & vbCrLf &
+                              $"Student: {txtStudentName.Text} {txtStudentSurname.Text}" & vbCrLf &
+                              $"Student ID: {txtStudentID.Text}" & vbCrLf &
+                              $"Department: {txtDepartment.Text}" & vbCrLf &
+                              $"Form: {txtForm.Text}" & vbCrLf & vbCrLf &
+                              "Student has been successfully enrolled in the system.",
+                              "Enrollment Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Clear fields after successful enrollment
+                ClearFields()
+
+                ' Refresh data display
+                LoadStudentData()
+            Else
+                MessageBox.Show("Failed to enroll student. Please try again.", "Enrollment Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As OleDbException
+            MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed properly
+            If mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+        End Try
+    End Sub
+
+    Private Sub ClearFields()
+        ' Clear all text fields
+        txtStudentID.Clear()
+        txtStudentName.Clear()
+        txtStudentSurname.Clear()
+        txtEmail.Clear()
+        txtDepartment.SelectedIndex = -1
+        txtForm.Clear()
+        txtSearch.Clear()
+
+        ' Reset ComboBox
+        txtGender.SelectedIndex = -1
+
+        ' Reset date pickers to default
+        txtDOB.Value = DateTime.Now.AddYears(-18) ' Default to 18 years ago
+        txtAdmissionDate.Value = DateTime.Now
+
+        ' Uncheck all subjects
+        For i As Integer = 0 To txtSubjects.Items.Count - 1
+            txtSubjects.SetItemChecked(i, False)
+        Next
+
+        ' Reset field colors
+        ResetFieldColors()
+
+        ' Set focus to first field
+        txtStudentID.Focus()
+    End Sub
+
+    Private Sub LoadStudentData()
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                Dim selectQuery As String = "SELECT ID, StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects FROM StudentsEnrollment ORDER BY ID DESC"
+
+                Using adapter As New OleDbDataAdapter(selectQuery, connection)
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+
+                    ' Check if DataGridView1 exists
+                    If DataGridView1 IsNot Nothing Then
+                        DataGridView1.DataSource = dataTable
+
+                        ' Format DataGridView if it has data
+                        If DataGridView1.Columns.Count > 0 Then
+                            DataGridView1.Columns("ID").HeaderText = "ID"
+                            DataGridView1.Columns("StudentID").HeaderText = "Student ID"
+                            DataGridView1.Columns("StudentName").HeaderText = "First Name"
+                            DataGridView1.Columns("StudentSurname").HeaderText = "Surname"
+                            DataGridView1.Columns("Email").HeaderText = "Email"
+                            DataGridView1.Columns("Department").HeaderText = "Department"
+                            DataGridView1.Columns("Form").HeaderText = "Form"
+                            DataGridView1.Columns("Gender").HeaderText = "Gender"
+                            DataGridView1.Columns("DateOfBirth").HeaderText = "Date of Birth"
+                            DataGridView1.Columns("AdmissionDate").HeaderText = "Admission Date"
+                            DataGridView1.Columns("Subjects").HeaderText = "Subjects"
+
+                            ' Auto-size columns
+                            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                            DataGridView1.ReadOnly = True
+                            DataGridView1.AllowUserToAddRows = False
+                            DataGridView1.AllowUserToDeleteRows = False
+                            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                        End If
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            ' Only show error if it's not a file/table not found error
+            If Not (ex.Message.Contains("Could not find file") OrElse ex.Message.Contains("does not exist")) Then
+                MessageBox.Show($"Error loading data: {ex.Message}", "Data Load Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End Try
+    End Sub
+
+    Private Sub btnReload_Click(sender As Object, e As EventArgs) Handles btnReload.Click
+        LoadStudentData()
+        MessageBox.Show("Data reloaded successfully!", "Reload Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a student record to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        Dim studentID As String = selectedRow.Cells("StudentID").Value.ToString()
+        Dim studentName As String = selectedRow.Cells("StudentName").Value.ToString() & " " & selectedRow.Cells("StudentSurname").Value.ToString()
+
+        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete the record for:" & vbCrLf & vbCrLf &
+                                                   $"Student: {studentName}" & vbCrLf &
+                                                   $"Student ID: {studentID}" & vbCrLf & vbCrLf &
+                                                   "This action cannot be undone!",
+                                                   "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+        If result = DialogResult.Yes Then
+            Try
+                Using connection As New OleDbConnection(mycon.ConnectionString)
+                    connection.Open()
+                    Dim deleteQuery As String = "DELETE FROM StudentsEnrollment WHERE ID = ?"
+                    Using command As New OleDbCommand(deleteQuery, connection)
+                        command.Parameters.AddWithValue("?", selectedRow.Cells("ID").Value)
+                        Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                        If rowsAffected > 0 Then
+                            MessageBox.Show("Student record deleted successfully!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            LoadStudentData()
+                        Else
+                            MessageBox.Show("Failed to delete student record.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show($"Error deleting record: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a student record to update.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Load selected record into form fields
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        txtStudentID.Text = selectedRow.Cells("StudentID").Value.ToString()
+        txtStudentName.Text = selectedRow.Cells("StudentName").Value.ToString()
+        txtStudentSurname.Text = selectedRow.Cells("StudentSurname").Value.ToString()
+        txtEmail.Text = selectedRow.Cells("Email").Value.ToString()
+        txtDepartment.Text = selectedRow.Cells("Department").Value.ToString()
+        txtForm.Text = selectedRow.Cells("Form").Value.ToString()
+        txtGender.Text = selectedRow.Cells("Gender").Value.ToString()
+
+        ' Handle date fields safely
+        If DateTime.TryParse(selectedRow.Cells("DateOfBirth").Value.ToString(), txtDOB.Value) Then
+            ' Date parsed successfully
+        End If
+        If DateTime.TryParse(selectedRow.Cells("AdmissionDate").Value.ToString(), txtAdmissionDate.Value) Then
+            ' Date parsed successfully
+        End If
+
+        ' Handle subjects
+        Dim subjects As String = selectedRow.Cells("Subjects").Value.ToString()
+        For i As Integer = 0 To txtSubjects.Items.Count - 1
+            txtSubjects.SetItemChecked(i, subjects.Contains(txtSubjects.Items(i).ToString()))
+        Next
+
+        MessageBox.Show("Record loaded for editing. Make your changes and click 'Enroll Student' to update.", "Update Mode", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If String.IsNullOrWhiteSpace(txtSearch.Text) Then
+            LoadStudentData() ' Show all records if search is empty
+            Return
+        End If
+
+        Try
+            Using connection As New OleDbConnection(mycon.ConnectionString)
+                connection.Open()
+
+                Dim searchQuery As String = "SELECT ID, StudentID, StudentName, StudentSurname, Email, Department, Form, Gender, DateOfBirth, AdmissionDate, Subjects FROM StudentsEnrollment WHERE StudentID LIKE ? OR StudentName LIKE ? OR StudentSurname LIKE ? OR Email LIKE ? OR Department LIKE ? ORDER BY ID DESC"
+
+                Using adapter As New OleDbDataAdapter(searchQuery, connection)
+                    Dim searchTerm As String = "%" & txtSearch.Text.Trim() & "%"
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+                    adapter.SelectCommand.Parameters.AddWithValue("?", searchTerm)
+
+                    Dim dataTable As New DataTable()
+                    adapter.Fill(dataTable)
+                    DataGridView1.DataSource = dataTable
+
+                    MessageBox.Show($"Search completed. Found {dataTable.Rows.Count} record(s).", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error searching records: {ex.Message}", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub StudentsEnrollment_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Ensure database connection is closed when form closes
+        Try
+            If mycon IsNot Nothing AndAlso mycon.State = ConnectionState.Open Then
+                mycon.Close()
+            End If
+        Catch ex As Exception
+            ' Ignore errors when closing
+        End Try
+    End Sub
+
+    ' Real-time validation events
+    Private Sub txtStudentID_Leave(sender As Object, e As EventArgs) Handles txtStudentID.Leave
+        If Not String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            ValidateStudentID()
+        End If
+    End Sub
+
+    Private Sub txtStudentName_Leave(sender As Object, e As EventArgs) Handles txtStudentName.Leave
+        If Not String.IsNullOrWhiteSpace(txtStudentName.Text) Then
+            ValidateStudentName()
+        End If
+    End Sub
+
+    Private Sub txtStudentSurname_Leave(sender As Object, e As EventArgs) Handles txtStudentSurname.Leave
+        If Not String.IsNullOrWhiteSpace(txtStudentSurname.Text) Then
+            ValidateStudentSurname()
+        End If
+    End Sub
+
+    Private Sub txtEmail_Leave(sender As Object, e As EventArgs) Handles txtEmail.Leave
+        If Not String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            ValidateEmail()
+        End If
+    End Sub
+
+    Private Sub txtDepartment_Leave(sender As Object, e As EventArgs) Handles txtDepartment.Leave
+        If Not String.IsNullOrWhiteSpace(txtDepartment.Text) Then
+            ValidateDepartment()
+        End If
+    End Sub
+
+    Private Sub txtForm_Leave(sender As Object, e As EventArgs) Handles txtForm.Leave
+        If Not String.IsNullOrWhiteSpace(txtForm.Text) Then
+            ValidateForm()
+        End If
+    End Sub
+
+    Private Sub txtGender_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtGender.SelectedIndexChanged
+        If txtGender.SelectedIndex <> -1 Then
+            ValidateGender()
+        End If
+    End Sub
+
+End Class
