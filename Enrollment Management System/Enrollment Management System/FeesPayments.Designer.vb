@@ -50,10 +50,24 @@ Partial Class FeesPayments
         FeesPaymentsBindingSource = New BindingSource(components)
         FeesPaymentsBindingSource1 = New BindingSource(components)
         DataGridView1 = New DataGridView()
+        Panel6 = New Panel()
+        btnLogOut = New Button()
+        Button3 = New Button()
+        Button2 = New Button()
+        Button1 = New Button()
+        StudentID = New DataGridViewTextBoxColumn()
+        AmountPaid = New DataGridViewTextBoxColumn()
+        FeeType = New DataGridViewTextBoxColumn()
+        Email = New DataGridViewTextBoxColumn()
+        Balance = New DataGridViewTextBoxColumn()
+        ReceiptNumber = New DataGridViewTextBoxColumn()
+        PaymentMethod = New DataGridViewTextBoxColumn()
+        PaymentDate = New DataGridViewTextBoxColumn()
         Panel2.SuspendLayout()
         CType(FeesPaymentsBindingSource, ComponentModel.ISupportInitialize).BeginInit()
         CType(FeesPaymentsBindingSource1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel6.SuspendLayout()
         SuspendLayout()
         ' 
         ' txtSearch
@@ -300,17 +314,131 @@ Partial Class FeesPayments
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(498, 1020)
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {StudentID, AmountPaid, FeeType, Email, Balance, ReceiptNumber, PaymentMethod, PaymentDate})
+        DataGridView1.Location = New Point(12, 948)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(1149, 225)
+        DataGridView1.Size = New Size(1330, 290)
         DataGridView1.TabIndex = 61
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        Panel6.Controls.Add(btnLogOut)
+        Panel6.Controls.Add(Button3)
+        Panel6.Controls.Add(Button2)
+        Panel6.Controls.Add(Button1)
+        Panel6.Location = New Point(34, 12)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(1139, 67)
+        Panel6.TabIndex = 62
+        ' 
+        ' btnLogOut
+        ' 
+        btnLogOut.BackColor = Color.Red
+        btnLogOut.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnLogOut.Location = New Point(567, 3)
+        btnLogOut.Name = "btnLogOut"
+        btnLogOut.Size = New Size(176, 50)
+        btnLogOut.TabIndex = 5
+        btnLogOut.Text = "Logout"
+        btnLogOut.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.Red
+        Button3.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button3.Location = New Point(290, 3)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(176, 50)
+        Button3.TabIndex = 4
+        Button3.Text = "Enroll"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Red
+        Button2.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.Location = New Point(889, 3)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(204, 50)
+        Button2.TabIndex = 3
+        Button2.Text = "Dashboard"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.Red
+        Button1.Font = New Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(39, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(180, 50)
+        Button1.TabIndex = 2
+        Button1.Text = "MainMenu"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' StudentID
+        ' 
+        StudentID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        StudentID.HeaderText = "Student ID"
+        StudentID.MinimumWidth = 8
+        StudentID.Name = "StudentID"
+        ' 
+        ' AmountPaid
+        ' 
+        AmountPaid.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        AmountPaid.HeaderText = "AmountPaid"
+        AmountPaid.MinimumWidth = 8
+        AmountPaid.Name = "AmountPaid"
+        ' 
+        ' FeeType
+        ' 
+        FeeType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        FeeType.HeaderText = "Fee Type"
+        FeeType.MinimumWidth = 8
+        FeeType.Name = "FeeType"
+        ' 
+        ' Email
+        ' 
+        Email.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Email.HeaderText = "Email"
+        Email.MinimumWidth = 8
+        Email.Name = "Email"
+        ' 
+        ' Balance
+        ' 
+        Balance.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Balance.HeaderText = "Balance"
+        Balance.MinimumWidth = 8
+        Balance.Name = "Balance"
+        ' 
+        ' ReceiptNumber
+        ' 
+        ReceiptNumber.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        ReceiptNumber.HeaderText = "Receipt Number"
+        ReceiptNumber.MinimumWidth = 8
+        ReceiptNumber.Name = "ReceiptNumber"
+        ' 
+        ' PaymentMethod
+        ' 
+        PaymentMethod.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        PaymentMethod.HeaderText = "PaymentMethod"
+        PaymentMethod.MinimumWidth = 8
+        PaymentMethod.Name = "PaymentMethod"
+        ' 
+        ' PaymentDate
+        ' 
+        PaymentDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        PaymentDate.HeaderText = "PaymentDate"
+        PaymentDate.MinimumWidth = 8
+        PaymentDate.Name = "PaymentDate"
         ' 
         ' FeesPayments
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1735, 1250)
+        Controls.Add(Panel6)
         Controls.Add(DataGridView1)
         Controls.Add(btnSearch)
         Controls.Add(txtSearch)
@@ -337,6 +465,7 @@ Partial Class FeesPayments
         CType(FeesPaymentsBindingSource, ComponentModel.ISupportInitialize).EndInit()
         CType(FeesPaymentsBindingSource1, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        Panel6.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -368,4 +497,17 @@ Partial Class FeesPayments
     Friend WithEvents FeesPaymentsBindingSource As BindingSource
     Friend WithEvents FeesPaymentsBindingSource1 As BindingSource
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents btnLogOut As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents StudentID As DataGridViewTextBoxColumn
+    Friend WithEvents AmountPaid As DataGridViewTextBoxColumn
+    Friend WithEvents FeeType As DataGridViewTextBoxColumn
+    Friend WithEvents Email As DataGridViewTextBoxColumn
+    Friend WithEvents Balance As DataGridViewTextBoxColumn
+    Friend WithEvents ReceiptNumber As DataGridViewTextBoxColumn
+    Friend WithEvents PaymentMethod As DataGridViewTextBoxColumn
+    Friend WithEvents PaymentDate As DataGridViewTextBoxColumn
 End Class

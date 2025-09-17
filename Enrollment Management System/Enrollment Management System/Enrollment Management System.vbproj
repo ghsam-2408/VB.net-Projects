@@ -7,6 +7,23 @@
     <StartupObject>Enrollment_Management_System.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    
+    <!-- File Lock Prevention Properties -->
+    <DeleteExistingFiles>true</DeleteExistingFiles>
+    <CopyRetryCount>3</CopyRetryCount>
+    <CopyRetryDelayMilliseconds>1000</CopyRetryDelayMilliseconds>
+    <OverwriteReadOnlyFiles>true</OverwriteReadOnlyFiles>
+    <SkipCopyUnchangedFiles>false</SkipCopyUnchangedFiles>
+    <ErrorIfLinkFails>false</ErrorIfLinkFails>
+    
+    <!-- Build Performance -->
+    <BuildInParallel>false</BuildInParallel>
+    <UseSharedCompilation>false</UseSharedCompilation>
+    <Deterministic>false</Deterministic>
+    
+    <!-- Assembly versioning - fixed deterministic build issue -->
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,5 +67,17 @@
   <ItemGroup>
     <Folder Include="My Project\DataSources\" />
   </ItemGroup>
+
+  <!-- Pre-build target to kill any running instances -->
+  <Target Name="KillRunningInstances" BeforeTargets="BeforeBuild">
+    <Exec Command="taskkill /F /IM &quot;$(TargetName).exe&quot; 2&gt;nul || echo No process found" 
+          ContinueOnError="true" 
+          IgnoreExitCode="true" />
+  </Target>
+
+  <!-- Post-build target for cleanup -->
+  <Target Name="PostBuildCleanup" AfterTargets="AfterBuild">
+    <Message Text="Build completed successfully for $(TargetName)" Importance="high" />
+  </Target>
 
 </Project>

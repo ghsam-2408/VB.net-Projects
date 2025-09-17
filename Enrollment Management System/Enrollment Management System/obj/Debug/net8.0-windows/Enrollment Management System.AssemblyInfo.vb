@@ -15,11 +15,11 @@ Imports System
 Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("Enrollment Management System"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
- Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8ce6469128b71dc711d8e069fa1824bff7edfd9"),  _
+ Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.1"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75fa545df18e90aaadf415d40364083ac16e0ee1"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Enrollment Management System"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Enrollment Management System"),  _
- Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
+ Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.1"),  _
  Assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0"),  _
  Assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")> 
 

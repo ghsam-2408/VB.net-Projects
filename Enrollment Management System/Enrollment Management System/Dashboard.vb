@@ -327,13 +327,13 @@ Public Class Dashboard
     End Sub
 
     ' Logout functionality
-    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs)
+        Dim result = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
             ' Close dashboard and show login form
-            Me.Hide()
-            LoginForm.Show()
+            Hide
+            LoginForm.Show
         End If
     End Sub
 
@@ -369,4 +369,18 @@ Public Class Dashboard
         End If
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
+        StudentsEnrollment.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        StudentsEnrollment.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
+        StudentsEnrollment.Show()
+    End Sub
 End Class
